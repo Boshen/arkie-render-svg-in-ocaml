@@ -80,7 +80,7 @@ function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
   }
   var dHeight = match$2[1];
   var dWidth = match$2[0];
-  var svgOut = svg.replace(new RegExp("<svg"), "<svg width=\"" + (String(dWidth) + ("\" height=\"" + (String(dHeight) + "\">")))).replace(new RegExp($$String.concat("|", List.map((function (c) {
+  var svgOut = svg.replace(new RegExp("<svg"), "<svg width=\"" + (String(dWidth) + ("\" height=\"" + (String(dHeight) + "\"")))).replace(new RegExp($$String.concat("|", List.map((function (c) {
                       return c[/* origin */0];
                     }), element[/* colors */7]))), (function (match_, _, _$1, _$2) {
           return List.find((function (c) {
@@ -91,13 +91,17 @@ function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
   if (decorator[/* target */6] === "area") {
     match$3 = /* tuple */[
       outerRegion[/* width */2],
-      outerRegion[/* height */3]
+      outerRegion[/* height */3],
+      0.0,
+      0.0
     ];
   } else if (innerRegion) {
     var r = innerRegion[0];
     match$3 = /* tuple */[
       r[/* width */2],
-      r[/* height */3]
+      r[/* height */3],
+      outerRegion[/* x */0] - r[/* x */0],
+      outerRegion[/* y */1] - r[/* y */1]
     ];
   } else {
     throw [
@@ -128,8 +132,8 @@ function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
   }
   var sy = match$4[1];
   var sx = match$4[0];
-  var tx = regionWidth * decorator[/* offsetX */2] - 0.5 * regionWidth * (sx - 1);
-  var ty = regionHeight * decorator[/* offsetY */3] - 0.5 * regionHeight * (sy - 1);
+  var tx = regionWidth * decorator[/* offsetX */2] - 0.5 * regionWidth * (sx - 1) - match$3[2];
+  var ty = regionHeight * decorator[/* offsetY */3] - 0.5 * regionHeight * (sy - 1) - match$3[3];
   return "\n<g opacity=\"" + (String(element[/* alpha */0]) + ("\" transform=\"matrix(" + (String(sx) + (" 0 0 " + (String(sy) + (" " + (String(tx) + (" " + (String(ty) + (")\">\n  <g transform=\"translate(" + (String(imageX) + (" " + (String(imageY) + (")\">\n  " + (String(svgOut) + "\n  </g>\n</g>\n")))))))))))))));
 }
 

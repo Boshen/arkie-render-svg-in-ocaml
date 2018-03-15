@@ -52,7 +52,7 @@ let renderDecorator =
     svg |>
     Js.String.replaceByRe(
       Js.Re.fromString("<svg"),
-      {j|<svg width="$dWidth" height="$dHeight">|j},
+      {j|<svg width="$dWidth" height="$dHeight"|j},
     )
     |>
     Js.String.unsafeReplaceBy1(
@@ -61,12 +61,12 @@ let renderDecorator =
         (element.colors |> List.find((c) => c.origin === match)).custom
       }
     );
-  let (regionWidth, regionHeight) =
+  let (regionWidth, regionHeight, dx, dy) =
     if (decorator.target == "area") {
-      (outerRegion.width, outerRegion.height);
+      (outerRegion.width, outerRegion.height, 0.0, 0.0);
     } else {
       switch innerRegion {
-      | Some(r) => (r.width, r.height)
+      | Some(r) => (r.width, r.height, outerRegion.x -. r.x, outerRegion.y -. r.y)
       | None =>
         raise(Failure("no innner region for text with target = 'content'"))
       };
@@ -85,9 +85,9 @@ let renderDecorator =
       (scaleX, scaleY);
     };
   let tx =
-    regionWidth *. decorator.offsetX -. 0.5 *. regionWidth *. (sx -. 1.);
+    regionWidth *. decorator.offsetX -. 0.5 *. regionWidth *. (sx -. 1.) -. dx;
   let ty =
-    regionHeight *. decorator.offsetY -. 0.5 *. regionHeight *. (sy -. 1.);
+    regionHeight *. decorator.offsetY -. 0.5 *. regionHeight *. (sy -. 1.) -. dy;
   {j|
 <g opacity="$alpha" transform="matrix($sx 0 0 $sy $tx $ty)">
   <g transform="translate($imageX $imageY)">
