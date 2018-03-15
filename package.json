@@ -1,0 +1,32 @@
+{
+  "name": "svg-renderer",
+  "version": "0.0.1",
+  "description": "Render arkie tree to svg string",
+  "scripts": {
+    "build": "bsb -make-world",
+    "start": "bsb -make-world -w",
+    "clean": "bsb -clean-world",
+    "watch": "jest __tests__/main_test.bs.js --watchAll",
+    "gen": "node test.js > test.svg"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.arkie.cn/arkie/svg-renderer"
+  },
+  "author": "Boshen",
+  "license": "MIT",
+  "main": "./src/main.bs.js",
+  "files": [
+    "src/",
+    "bsconfig.json"
+  ],
+  "dependencies": {
+    "@glennsl/bs-json": "^1.1.2",
+    "bs-fetch": "^0.2.1",
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "devDependencies": {
+    "@glennsl/bs-jest": "^0.4.2",
+    "bs-platform": "^2.2.0"
+  }
+}
