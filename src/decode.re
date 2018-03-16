@@ -68,10 +68,19 @@ let decoratorDecoder = json => {
   target: json |> field("target", string)
 };
 
+let decoratorsDecoder = (json) => {
+  json |> optional(field("decorators", list(decoratorDecoder))) |> (ds) => {
+    switch (ds) {
+      | Some(ds) => ds
+      | None => []
+    }
+    }
+};
+
 let layerDecodoer = json => Layer({
   id: json |> field("id", string),
   region: json |> field("region", regionDecoder),
-  decorators: json |> field("decorators", list(decoratorDecoder))
+  decorators: json |> decoratorsDecoder
 });
 
 let imageMaskDecoder = json => {
@@ -89,7 +98,7 @@ let imageDecodoer = json =>
     rotate: json |> optional(field("rotate", float)),
     alpha: json |> optional(field("alpha", float)),
     mask: json |> optional(field("mask", imageMaskDecoder)),
-    decorators: json |> field("decorators", list(decoratorDecoder))
+    decorators: json |> decoratorsDecoder
   });
 
 let renderDataCellDecoder = json => {
@@ -148,7 +157,7 @@ let textDecodoer = json =>
     rotate: json |> optional(field("rotate", float)),
     alpha: json |> optional(field("alpha", float)),
     colorScheme: json |> field("colorScheme", colorSchemeDecoder),
-    decorators: json |> field("decorators", list(decoratorDecoder))
+    decorators: json |> decoratorsDecoder
   });
 
 let backgroundContentDecoder = json => {

@@ -60,7 +60,12 @@ let renderDecorator =
       (match, _, _, _) => {
         (element.colors |> List.find((c) => c.origin === match)).custom
       }
-    );
+    )
+    |> Js.Re.exec(_, Js.Re.fromString("<svg[\s\S]*svg>"))
+    |> (s) => switch (s) {
+      | Some(match) => Js.Re.captures(match) |> Array.get(_, 0)
+      | None => raise(Failure("no svg match"))
+      };
   let (regionWidth, regionHeight, dx, dy) =
     if (decorator.target == "area") {
       (outerRegion.width, outerRegion.height, 0.0, 0.0);

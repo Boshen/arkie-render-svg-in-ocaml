@@ -7,6 +7,7 @@ var Curry = require("bs-platform/lib/js/curry.js");
 var Printf = require("bs-platform/lib/js/printf.js");
 var $$String = require("bs-platform/lib/js/string.js");
 var Js_dict = require("bs-platform/lib/js/js_dict.js");
+var Caml_array = require("bs-platform/lib/js/caml_array.js");
 var Caml_format = require("bs-platform/lib/js/caml_format.js");
 var Caml_primitive = require("bs-platform/lib/js/caml_primitive.js");
 var Decode$BuckleSandbox = require("./decode.bs.js");
@@ -80,13 +81,23 @@ function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
   }
   var dHeight = match$2[1];
   var dWidth = match$2[0];
-  var svgOut = svg.replace(new RegExp("<svg"), "<svg width=\"" + (String(dWidth) + ("\" height=\"" + (String(dHeight) + "\"")))).replace(new RegExp($$String.concat("|", List.map((function (c) {
+  var __x = svg.replace(new RegExp("<svg"), "<svg width=\"" + (String(dWidth) + ("\" height=\"" + (String(dHeight) + "\"")))).replace(new RegExp($$String.concat("|", List.map((function (c) {
                       return c[/* origin */0];
                     }), element[/* colors */7]))), (function (match_, _, _$1, _$2) {
           return List.find((function (c) {
                           return +(c[/* origin */0] === match_);
                         }), element[/* colors */7])[/* custom */1];
         }));
+  var s = new RegExp("<svg[\\s\\S]*svg>").exec(__x);
+  var svgOut;
+  if (s !== null) {
+    svgOut = Caml_array.caml_array_get(s, 0);
+  } else {
+    throw [
+          Caml_builtin_exceptions.failure,
+          "no svg match"
+        ];
+  }
   var match$3;
   if (decorator[/* target */6] === "area") {
     match$3 = /* tuple */[

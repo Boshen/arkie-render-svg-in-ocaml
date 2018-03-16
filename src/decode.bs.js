@@ -95,13 +95,24 @@ function decoratorDecoder(json) {
         ];
 }
 
+function decoratorsDecoder(json) {
+  var ds = Json_decode.optional((function (param) {
+          return Json_decode.field("decorators", (function (param) {
+                        return Json_decode.list(decoratorDecoder, param);
+                      }), param);
+        }), json);
+  if (ds) {
+    return ds[0];
+  } else {
+    return /* [] */0;
+  }
+}
+
 function layerDecodoer(json) {
   return /* Layer */Block.__(3, [/* record */[
               /* id */Json_decode.field("id", Json_decode.string, json),
               /* region */Json_decode.field("region", regionDecoder, json),
-              /* decorators */Json_decode.field("decorators", (function (param) {
-                      return Json_decode.list(decoratorDecoder, param);
-                    }), json)
+              /* decorators */decoratorsDecoder(json)
             ]]);
 }
 
@@ -128,9 +139,7 @@ function imageDecodoer(json) {
               /* mask */Json_decode.optional((function (param) {
                       return Json_decode.field("mask", imageMaskDecoder, param);
                     }), json),
-              /* decorators */Json_decode.field("decorators", (function (param) {
-                      return Json_decode.list(decoratorDecoder, param);
-                    }), json)
+              /* decorators */decoratorsDecoder(json)
             ]]);
 }
 
@@ -206,9 +215,7 @@ function textDecodoer(json) {
                       return Json_decode.field("alpha", Json_decode.$$float, param);
                     }), json),
               /* colorScheme */Json_decode.field("colorScheme", colorSchemeDecoder, json),
-              /* decorators */Json_decode.field("decorators", (function (param) {
-                      return Json_decode.list(decoratorDecoder, param);
-                    }), json)
+              /* decorators */decoratorsDecoder(json)
             ]]);
 }
 
@@ -292,6 +299,7 @@ exports.originalSizeDecoder = originalSizeDecoder;
 exports.decoratorElementColorDecoder = decoratorElementColorDecoder;
 exports.decoratorElementDecoder = decoratorElementDecoder;
 exports.decoratorDecoder = decoratorDecoder;
+exports.decoratorsDecoder = decoratorsDecoder;
 exports.layerDecodoer = layerDecodoer;
 exports.imageMaskDecoder = imageMaskDecoder;
 exports.imageDecodoer = imageDecodoer;
