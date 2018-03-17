@@ -211,3 +211,12 @@ let tree = json => {
   size: json |> field("size", sizeDecoder),
   children: json |> field("children", list(elementDecoder))
 };
+
+let fontDecoder = (json) => {
+  access_key: json |> optional(field("access_key", string)),
+  font_family: json |> field("font_family", string)
+};
+
+let fonts = json => {
+  data: json |> field("data", list(fontDecoder))
+};

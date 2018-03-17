@@ -290,6 +290,21 @@ function tree(json) {
         ];
 }
 
+function fontDecoder(json) {
+  return /* record */[
+          /* access_key */Json_decode.optional((function (param) {
+                  return Json_decode.field("access_key", Json_decode.string, param);
+                }), json),
+          /* font_family */Json_decode.field("font_family", Json_decode.string, json)
+        ];
+}
+
+function fonts(json) {
+  return /* record */[/* data */Json_decode.field("data", (function (param) {
+                  return Json_decode.list(fontDecoder, param);
+                }), json)];
+}
+
 exports.convertUri = convertUri;
 exports.sizeDecoder = sizeDecoder;
 exports.regionDecoder = regionDecoder;
@@ -316,4 +331,6 @@ exports.svgContentDecoder = svgContentDecoder;
 exports.svgDecoder = svgDecoder;
 exports.elementDecoder = elementDecoder;
 exports.tree = tree;
+exports.fontDecoder = fontDecoder;
+exports.fonts = fonts;
 /* No side effect */

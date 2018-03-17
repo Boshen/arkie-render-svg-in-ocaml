@@ -63,9 +63,7 @@ type layerElement = {
   decorators: list(decorator)
 };
 
-type imageMask = {
-  type_: string /* circle, rectangle */
-};
+type imageMask = {type_: string /* circle, rectangle */};
 
 type imageElement = {
   id: string,
@@ -116,7 +114,7 @@ type renderDataElement = {
   height: float,
   width: float,
   x: float,
-  y: float,
+  y: float
 };
 
 type renderData = {
@@ -124,9 +122,7 @@ type renderData = {
   elements: renderDataElement
 };
 
-type colorScheme = {
-  textColor: string
-};
+type colorScheme = {textColor: string};
 
 type textElement = {
   id: string,
@@ -150,12 +146,10 @@ type maskElement = {
   id: string,
   color: string,
   alpha: float,
-  region,
+  region
 };
 
-type svgContent = {
-  uri: string
-};
+type svgContent = {uri: string};
 
 type svgElement = {
   id: string,
@@ -165,7 +159,7 @@ type svgElement = {
   height: float,
   alpha: float,
   scaleX: float,
-  scaleY: float,
+  scaleY: float
 };
 
 type element =
@@ -182,3 +176,15 @@ type tree = {
   size,
   children: list(element)
 };
+
+type font = {
+  access_key: option(string),
+  font_family: string
+};
+
+type apiResonse('a) = {data: 'a};
+
+[@bs.deriving jsConverter]
+type renderOptions = {
+  fonts: bool
+}

@@ -5,15 +5,17 @@ var $$Array = require("bs-platform/lib/js/array.js");
 var Block = require("bs-platform/lib/js/block.js");
 var Curry = require("bs-platform/lib/js/curry.js");
 var Printf = require("bs-platform/lib/js/printf.js");
-var $$String = require("bs-platform/lib/js/string.js");
 var Js_dict = require("bs-platform/lib/js/js_dict.js");
 var Caml_array = require("bs-platform/lib/js/caml_array.js");
 var Caml_format = require("bs-platform/lib/js/caml_format.js");
 var Caml_primitive = require("bs-platform/lib/js/caml_primitive.js");
 var Decode$BuckleSandbox = require("./decode.bs.js");
+var Schema$BuckleSandbox = require("./schema.bs.js");
 var Caml_builtin_exceptions = require("bs-platform/lib/js/caml_builtin_exceptions.js");
 
 ((require('isomorphic-fetch')));
+
+var fontEn = (require('./font'));
 
 function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
   var match = dMap[decorator[/* id */0]];
@@ -81,17 +83,11 @@ function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
   }
   var dHeight = match$2[1];
   var dWidth = match$2[0];
-  var __x = svg.replace(new RegExp("<svg"), "<svg width=\"" + (String(dWidth) + ("\" height=\"" + (String(dHeight) + "\"")))).replace(new RegExp($$String.concat("|", List.map((function (c) {
-                      return c[/* origin */0];
-                    }), element[/* colors */7]))), (function (match_, _, _$1, _$2) {
-          return List.find((function (c) {
-                          return +(c[/* origin */0] === match_);
-                        }), element[/* colors */7])[/* custom */1];
-        }));
-  var s = new RegExp("<svg[\\s\\S]*svg>").exec(__x);
+  var s = svg.replace(new RegExp("<svg"), "<svg width=\"" + (String(dWidth) + ("\" height=\"" + (String(dHeight) + "\""))));
+  var s$1 = new RegExp("<svg[\\s\\S]*svg>").exec(s);
   var svgOut;
-  if (s !== null) {
-    svgOut = Caml_array.caml_array_get(s, 0);
+  if (s$1 !== null) {
+    svgOut = Caml_array.caml_array_get(s$1, 0);
   } else {
     throw [
           Caml_builtin_exceptions.failure,
@@ -267,7 +263,7 @@ function renderImage(dMap, imageElement) {
 function renderBackground(backgroundElement) {
   var match = backgroundElement[/* region */1];
   var color = backgroundElement[/* content */2][/* color */0];
-  var fill = color === "" ? "transparent" : color;
+  var fill = color === "" ? "#fff" : color;
   return "\n<rect x=\"" + (String(match[/* x */0]) + ("\" y=\"" + (String(match[/* y */1]) + ("\" width=\"" + (String(match[/* width */2]) + ("\" height=\"" + (String(match[/* height */3]) + ("\" fill=\"" + (String(fill) + "\" />\n")))))))));
 }
 
@@ -345,13 +341,94 @@ function renderTree(dMap, tree) {
   return "\n<svg\n  version=\"1.1\"\n  xmlns=\"http://www.w3.org/2000/svg\"\n  xmlns:xlink=\"http://www.w3.org/1999/xlink\"\n  viewBox=\"0 0 " + (String(width) + (" " + (String(height) + ("\"\n>" + (String(children) + "</svg>\n")))));
 }
 
-function renderSvg(treeJson) {
+var fonts = [/* None */0];
+
+function loadFonts() {
+  var match = fonts[0];
+  if (match) {
+    return match[0];
+  } else {
+    var fontsPromise = fetch("/api/v0/font").then((function (prim) {
+              return prim.json();
+            })).then((function (s) {
+            return Promise.resolve(Js_dict.fromList(List.map((function (font) {
+                                  return /* tuple */[
+                                          font[/* font_family */1],
+                                          font
+                                        ];
+                                }), Decode$BuckleSandbox.fonts(s)[/* data */0])));
+          }));
+    fonts[0] = /* Some */[fontsPromise];
+    return fontsPromise;
+  }
+}
+
+function processFonts(tree, fonts) {
+  var fontMap = List.fold_left((function (dict, cell) {
+          var match = dict[cell[/* fontFamily */1]];
+          var text = match !== undefined ? match : "";
+          dict[cell[/* fontFamily */1]] = text + cell[/* text */7];
+          return dict;
+        }), { }, List.concat(List.concat(List.map((function (textElement) {
+                      return List.map((function (line) {
+                                    return line[/* cells */0];
+                                  }), textElement[/* renderData */2][/* elements */1][/* lines */0]);
+                    }), List.fold_left((function (l, elm) {
+                          if (typeof elm === "number" || elm.tag !== 2) {
+                            return l;
+                          } else {
+                            return /* :: */[
+                                    elm[0],
+                                    l
+                                  ];
+                          }
+                        }), /* [] */0, tree[/* children */2])))));
+  var tags = $$Array.of_list(List.fold_left((function (l, elm) {
+              if (elm) {
+                return /* :: */[
+                        elm[0],
+                        l
+                      ];
+              } else {
+                return l;
+              }
+            }), /* [] */0, $$Array.to_list($$Array.map((function (fontFamily) {
+                      var text = fontMap[fontFamily];
+                      var access_key = fonts[fontFamily][/* access_key */0];
+                      if (access_key) {
+                        return /* Some */[{
+                                  AccessKey: access_key[0],
+                                  Content: text
+                                }];
+                      } else {
+                        fontEn.createGoogleFontLink(fontFamily);
+                        return /* None */0;
+                      }
+                    }), Object.keys(fontMap)))));
+  return $youzikuClient.getBatchFontFace({
+              Tags: tags
+            }, (function () {
+                return /* () */0;
+              }));
+}
+
+function renderSvg(treeJson, optionsJson) {
+  var options = Schema$BuckleSandbox.renderOptionsFromJs(optionsJson);
   var tree = Decode$BuckleSandbox.tree(treeJson);
+  if (options[/* fonts */0]) {
+    loadFonts(/* () */0).then((function (fonts) {
+            processFonts(tree, fonts);
+            return Promise.resolve(/* () */0);
+          }));
+  } else {
+    Promise.resolve(/* () */0);
+  }
   return createDecoratorMap(tree).then((function (dMap) {
                 return Promise.resolve(renderTree(dMap, tree));
               }));
 }
 
+exports.fontEn = fontEn;
 exports.renderDecorator = renderDecorator;
 exports.renderDecorators = renderDecorators;
 exports.renderLayer = renderLayer;
@@ -365,5 +442,8 @@ exports.renderSvgElement = renderSvgElement;
 exports.renderElement = renderElement;
 exports.createDecoratorMap = createDecoratorMap;
 exports.renderTree = renderTree;
+exports.fonts = fonts;
+exports.loadFonts = loadFonts;
+exports.processFonts = processFonts;
 exports.renderSvg = renderSvg;
 /*  Not a pure module */

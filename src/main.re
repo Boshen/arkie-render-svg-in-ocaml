@@ -1,6 +1,22 @@
 [%raw "require('isomorphic-fetch')"];
 
+let fontEn = [%raw "require('./font')"];
+
 open Schema;
+
+type youzikuTag = {
+  .
+  "AccessKey": Js.String.t,
+  "Content": Js.String.t
+};
+
+type youzikuData = {. "Tags": array(youzikuTag)};
+
+type cb = unit => unit;
+
+type youziku = {. [@bs.meth] "getBatchFontFace": (youzikuData, cb) => unit};
+
+[@bs.val] external youziku : youziku = "$youzikuClient";
 
 let renderDecorator =
     (
@@ -49,29 +65,33 @@ let renderDecorator =
       raise(Failure("decorator does have viewBox for " ++ decorator.id))
     };
   let svgOut =
-    svg |>
-    Js.String.replaceByRe(
-      Js.Re.fromString("<svg"),
-      {j|<svg width="$dWidth" height="$dHeight"|j},
-    )
-    |>
-    Js.String.unsafeReplaceBy1(
-      Js.Re.fromString(element.colors |> List.map((c) => c.origin) |> String.concat("|")),
-      (match, _, _, _) => {
-        (element.colors |> List.find((c) => c.origin === match)).custom
-      }
-    )
-    |> Js.Re.exec(_, Js.Re.fromString("<svg[\s\S]*svg>"))
-    |> (s) => switch (s) {
-      | Some(match) => Js.Re.captures(match) |> Array.get(_, 0)
-      | None => raise(Failure("no svg match"))
-      };
+    svg
+    |> Js.String.replaceByRe(
+         Js.Re.fromString("<svg"),
+         {j|<svg width="$dWidth" height="$dHeight"|j}
+       )
+    |> (
+      s =>
+        Js.Re.exec(s, Js.Re.fromString("<svg[\\s\\S]*svg>"))
+        |> (
+          s =>
+            switch s {
+            | Some(match) => Js.Re.captures(match) |> (o => o[0])
+            | None => raise(Failure("no svg match"))
+            }
+        )
+    );
   let (regionWidth, regionHeight, dx, dy) =
     if (decorator.target == "area") {
       (outerRegion.width, outerRegion.height, 0.0, 0.0);
     } else {
       switch innerRegion {
-      | Some(r) => (r.width, r.height, outerRegion.x -. r.x, outerRegion.y -. r.y)
+      | Some(r) => (
+          r.width,
+          r.height,
+          outerRegion.x -. r.x,
+          outerRegion.y -. r.y
+        )
       | None =>
         raise(Failure("no innner region for text with target = 'content'"))
       };
@@ -92,7 +112,12 @@ let renderDecorator =
   let tx =
     regionWidth *. decorator.offsetX -. 0.5 *. regionWidth *. (sx -. 1.) -. dx;
   let ty =
-    regionHeight *. decorator.offsetY -. 0.5 *. regionHeight *. (sy -. 1.) -. dy;
+    regionHeight
+    *. decorator.offsetY
+    -. 0.5
+    *. regionHeight
+    *. (sy -. 1.)
+    -. dy;
   {j|
 <g opacity="$alpha" transform="matrix($sx 0 0 $sy $tx $ty)">
   <g transform="translate($imageX $imageY)">
@@ -287,7 +312,7 @@ let renderBackground = (backgroundElement: backgroundElement) => {
   let color = backgroundElement.content.color;
   let fill =
     if (color == "") {
-      "transparent";
+      "#fff";
     } else {
       color;
     };
@@ -365,10 +390,94 @@ let renderTree = (dMap, tree) => {
 |j};
 };
 
-let renderSvg = treeJson => {
+let fonts = ref(None);
+
+let loadFonts = () =>
+  switch fonts^ {
+  | Some(f) => f
+  | None =>
+    let fontsPromise =
+      Js.Promise.(
+        Fetch.fetch("/api/v0/font")
+        |> then_(Fetch.Response.json)
+        |> then_(s =>
+             Decode.fonts(s).data
+             |> List.map(font => (font.font_family, font))
+             |> Js.Dict.fromList
+             |> resolve
+           )
+      );
+    fonts := Some(fontsPromise);
+    fontsPromise;
+  };
+
+let processFonts = (tree, fonts) =>
+  tree.children
+  |> List.fold_left(
+       (l, elm) =>
+         switch elm {
+         | Text(e) => [e, ...l]
+         | _ => l
+         },
+       []
+     )
+  |> List.map((textElement: textElement) =>
+       textElement.renderData.elements.lines |> List.map(line => line.cells)
+     )
+  |> List.concat
+  |> List.concat
+  |> List.fold_left(
+       (dict: Js.Dict.t(string), cell: renderDataCell) => {
+         let text =
+           switch (Js.Dict.get(dict, cell.fontFamily)) {
+           | Some(t) => t
+           | None => ""
+           };
+         Js.Dict.set(dict, cell.fontFamily, text ++ cell.text);
+         dict;
+       },
+       Js.Dict.empty()
+     )
+  |> (
+    fontMap =>
+      fontMap
+      |> Js.Dict.keys
+      |> Array.map(fontFamily => {
+           let text = Js.Dict.unsafeGet(fontMap, fontFamily);
+           let access_key = Js.Dict.unsafeGet(fonts, fontFamily).access_key;
+           switch access_key {
+           | Some(key) => Some({"AccessKey": key, "Content": text})
+           | None =>
+             fontEn##createGoogleFontLink(fontFamily);
+             None;
+           };
+         })
+      |> Array.to_list
+      |> List.fold_left(
+           (l, elm) =>
+             switch elm {
+             | Some((e: youzikuTag)) => [e, ...l]
+             | _ => l
+             },
+           []
+         )
+      |> Array.of_list
+  )
+  |> (tags => youziku##getBatchFontFace({"Tags": tags}, () => ()));
+
+let renderSvg = (treeJson, optionsJson) => {
+  let options = renderOptionsFromJs(optionsJson);
   let tree = Decode.tree(treeJson);
+  if (options.fonts) {
+    loadFonts()
+    |> Js.Promise.then_(fonts => {
+         processFonts(tree, fonts);
+         Js.Promise.resolve();
+       });
+  } else {
+    Js.Promise.resolve();
+  };
   Js.Promise.(
-    createDecoratorMap(tree)
-    |> Js.Promise.then_(dMap => resolve(renderTree(dMap, tree)))
+    createDecoratorMap(tree) |> then_(dMap => resolve(renderTree(dMap, tree)))
   );
 };
