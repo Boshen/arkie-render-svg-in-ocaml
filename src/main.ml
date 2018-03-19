@@ -111,8 +111,9 @@ let renderLayer ~dMap (layerElement:layerElement) =
   |j}
 
 let renderTextCell (textElement:textElement) (cell:renderDataCell) =
-  let {x; y; width; height; fontSize; fontFamily; text} = cell in
+  let {x; width; height; fontSize; fontFamily; text} = cell in
   let fill = textElement.colorScheme.textColor in
+  let y = cell.y +. cell.height *. 0.86 in
   {j|
   <tspan
     x="$x"
@@ -121,7 +122,6 @@ let renderTextCell (textElement:textElement) (cell:renderDataCell) =
     height="$height"
     fill="$fill"
     style="font-size:$(fontSize)px;font-family:$fontFamily"
-    alignment-baseline="hanging"
   >$text</tspan>
   |j}
 

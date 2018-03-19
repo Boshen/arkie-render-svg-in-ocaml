@@ -171,7 +171,8 @@ function renderLayer(dMap, layerElement) {
 
 function renderTextCell(textElement, cell) {
   var fill = textElement[/* colorScheme */5][/* textColor */0];
-  return "\n  <tspan\n    x=\"" + (String(cell[/* x */9]) + ("\"\n    y=\"" + (String(cell[/* y */10]) + ("\"\n    width=\"" + (String(cell[/* width */8]) + ("\"\n    height=\"" + (String(cell[/* height */3]) + ("\"\n    fill=\"" + (String(fill) + ("\"\n    style=\"font-size:" + (String(cell[/* fontSize */2]) + ("px;font-family:" + (String(cell[/* fontFamily */1]) + ("\"\n    alignment-baseline=\"hanging\"\n  >" + (String(cell[/* text */7]) + "</tspan>\n  ")))))))))))))));
+  var y = cell[/* y */10] + cell[/* height */3] * 0.86;
+  return "\n  <tspan\n    x=\"" + (String(cell[/* x */9]) + ("\"\n    y=\"" + (String(y) + ("\"\n    width=\"" + (String(cell[/* width */8]) + ("\"\n    height=\"" + (String(cell[/* height */3]) + ("\"\n    fill=\"" + (String(fill) + ("\"\n    style=\"font-size:" + (String(cell[/* fontSize */2]) + ("px;font-family:" + (String(cell[/* fontFamily */1]) + ("\"\n  >" + (String(cell[/* text */7]) + "</tspan>\n  ")))))))))))))));
 }
 
 function renderTextLine(textElement, line) {
