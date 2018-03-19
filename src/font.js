@@ -34,7 +34,7 @@ const getUrl = (uri, fontFamily) => {
   return `${uri + camelcase(fontFamily).toLowerCase()}-regular.woff`;
 }
 
-export const createGoogleFontLink = (font) {
+const createGoogleFontLink = (font) => {
   const url = getUrl('//youziku.arkie.cn/webfonts/en/', font);
   fetch(url, { headers: {responseType: 'blob'}})
     .then((res) => {
@@ -42,3 +42,5 @@ export const createGoogleFontLink = (font) {
     })
     .then(createFontFace(font));
 }
+
+module.exports.createGoogleFontLink = createGoogleFontLink;
