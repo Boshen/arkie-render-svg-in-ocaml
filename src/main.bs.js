@@ -83,12 +83,10 @@ function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
   var dHeight = match$2[1];
   var dWidth = match$2[0];
   var s = svg.replace(new RegExp("<svg"), "<svg width=\"" + (String(dWidth) + ("\" height=\"" + (String(dHeight) + "\""))));
-  var s$1 = new RegExp("<svg[\\s\\S]*svg>").exec(s);
+  var param = new RegExp("<svg[\\s\\S]*svg>").exec(s);
   var svgOut;
-  if (s$1 !== null) {
-    svgOut = (function (param) {
-        return Caml_array.caml_array_get(s$1, param);
-      });
+  if (param !== null) {
+    svgOut = Caml_array.caml_array_get(param, 0);
   } else {
     throw [
           Caml_builtin_exceptions.failure,
@@ -280,23 +278,23 @@ function renderSvgElement(svgElement) {
   return "\n  <g transform=\"matrix(" + (String(svgElement[/* scaleX */6]) + (" 0 0 " + (String(svgElement[/* scaleY */7]) + (" " + (String(region[/* x */0]) + (" " + (String(region[/* y */1]) + (")\" opacity=\"" + (String(svgElement[/* alpha */5]) + ("\">\n    <image href=\"" + (String(uri) + ("\" width=\"" + (String(svgElement[/* width */3]) + ("\" height=\"" + (String(svgElement[/* height */4]) + "\" />\n  </g>\n  ")))))))))))))));
 }
 
-function renderElement(dMap, element) {
-  if (typeof element === "number") {
+function renderElement(dMap, param) {
+  if (typeof param === "number") {
     return "";
   } else {
-    switch (element.tag | 0) {
+    switch (param.tag | 0) {
       case 0 : 
-          return renderBackground(element[0]);
+          return renderBackground(param[0]);
       case 1 : 
-          return renderImage(dMap, element[0]);
+          return renderImage(dMap, param[0]);
       case 2 : 
-          return renderText(dMap, element[0]);
+          return renderText(dMap, param[0]);
       case 3 : 
-          return renderLayer(dMap, element[0]);
+          return renderLayer(dMap, param[0]);
       case 4 : 
-          return renderMask(element[0]);
+          return renderMask(param[0]);
       case 5 : 
-          return renderSvgElement(element[0]);
+          return renderSvgElement(param[0]);
       
     }
   }
@@ -375,20 +373,20 @@ function processFonts(tree, fonts) {
                       return List.map((function (line) {
                                     return line[/* cells */0];
                                   }), textElement[/* renderData */2][/* elements */1][/* lines */0]);
-                    }), List.fold_left((function (l, elm) {
-                          if (typeof elm === "number" || elm.tag !== 2) {
+                    }), List.fold_left((function (l, param) {
+                          if (typeof param === "number" || param.tag !== 2) {
                             return l;
                           } else {
                             return /* :: */[
-                                    elm[0],
+                                    param[0],
                                     l
                                   ];
                           }
                         }), /* [] */0, tree[/* children */2])))));
-  return Youziku$BuckleSandbox.getBatchFontFace($$Array.of_list(List.fold_left((function (l, elm) {
-                        if (elm) {
+  return Youziku$BuckleSandbox.getBatchFontFace($$Array.of_list(List.fold_left((function (l, param) {
+                        if (param) {
                           return /* :: */[
-                                  elm[0],
+                                  param[0],
                                   l
                                 ];
                         } else {

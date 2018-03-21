@@ -38,8 +38,8 @@ let renderDecorator
   let svgOut = svg
     |> Js.String.replaceByRe (Js.Re.fromString "<svg") {j|<svg width="$dWidth" height="$dHeight"|j}
     |> fun s -> Js.Re.exec s (Js.Re.fromString "<svg[\\s\\S]*svg>")
-    |> fun s -> match s with
-       | Some m -> Js.Re.captures m |> (fun o -> Array.get o)
+    |> function
+       | Some m -> Js.Re.captures m |> (fun o -> Array.get o 0)
        | None -> raise (Failure "no svg match") in
 
   let (regionWidth, regionHeight, dx, dy) =
@@ -262,7 +262,7 @@ let renderSvgElement (svgElement:svgElement) =
   </g>
   |j}
 
-let renderElement dMap element = match element with
+let renderElement dMap = function
   | Image imageElement -> renderImage ~dMap imageElement
   | Text textElement -> renderText ~dMap textElement
   | Layer layerElement -> renderLayer ~dMap layerElement
@@ -328,7 +328,7 @@ let loadFonts () = match !fonts with
 let processFonts tree fonts =
   tree.children
   |> List.fold_left
-    (fun l elm -> match elm with
+    (fun l -> function
       | Text e -> e :: l
       | _ -> l
     )
@@ -361,7 +361,7 @@ let processFonts tree fonts =
               None
           )
       |> Array.to_list
-      |> List.fold_left (fun l elm -> match elm with
+      |> List.fold_left (fun l -> function
            | Some (e: Youziku.tag) -> e :: l
            | None -> l
          )
