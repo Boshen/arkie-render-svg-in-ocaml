@@ -179,7 +179,7 @@ function renderLayer(dMap, layerElement) {
 function renderTextCell(textElement, cell) {
   var fill = textElement[/* colorScheme */5][/* textColor */0];
   var y = cell[/* y */10] + cell[/* height */3] * 0.86;
-  return "\n  <tspan\n    x=\"" + (String(cell[/* x */9]) + ("\"\n    y=\"" + (String(y) + ("\"\n    width=\"" + (String(cell[/* width */8]) + ("\"\n    height=\"" + (String(cell[/* height */3]) + ("\"\n    fill=\"" + (String(fill) + ("\"\n    style=\"font-size:" + (String(cell[/* fontSize */2]) + ("px;font-family:" + (String(cell[/* fontFamily */1]) + ("\"\n  >" + (String(cell[/* text */7]) + "</tspan>\n  ")))))))))))))));
+  return "\n  <tspan\n    x=\"" + (String(cell[/* x */9]) + ("\"\n    y=\"" + (String(y) + ("\"\n    fill=\"" + (String(fill) + ("\"\n    style=\"font-size:" + (String(cell[/* fontSize */2]) + ("px;font-family:" + (String(cell[/* fontFamily */1]) + ("\"\n  >" + (String(cell[/* text */7]) + "</tspan>\n  ")))))))))));
 }
 
 function renderTextLine(textElement, line) {
@@ -221,10 +221,6 @@ function renderImage(dMap, imageElement) {
   var uri = content[/* uri */0];
   var height = imgBox[/* height */3];
   var width = imgBox[/* width */2];
-  var match = imageElement[/* rotate */6];
-  var rotate = match ? match[0] : 0.0;
-  var match$1 = imageElement[/* alpha */7];
-  var alpha = match$1 ? match$1[0] : 1.0;
   var regionX = region[/* x */0];
   var regionY = region[/* y */1];
   var regionWidth = region[/* width */2];
@@ -243,15 +239,15 @@ function renderImage(dMap, imageElement) {
             "clip-path=\"url(#" + (String(clipPathId) + ")\"")
           ];
   };
-  var match$2 = imageElement[/* mask */8];
-  var match$3;
+  var match = imageElement[/* mask */8];
+  var match$1;
   var exit = 0;
-  if (match$2) {
-    if (match$2[0][/* type_ */0] === "circle") {
+  if (match) {
+    if (match[0][/* type_ */0] === "circle") {
       var r = (
         regionWidth < regionHeight ? regionWidth : regionHeight
       ) / 2.0;
-      match$3 = createClipPath("<circle cx=\"" + (String(x) + ("\" cy=\"" + (String(y) + ("\" r=\"" + (String(r) + "\" />"))))));
+      match$1 = createClipPath("<circle cx=\"" + (String(x) + ("\" cy=\"" + (String(y) + ("\" r=\"" + (String(r) + "\" />"))))));
     } else {
       exit = 1;
     }
@@ -259,14 +255,14 @@ function renderImage(dMap, imageElement) {
     exit = 1;
   }
   if (exit === 1) {
-    match$3 = content[/* fit */1] ? /* tuple */[
+    match$1 = content[/* fit */1] ? /* tuple */[
         "",
         ""
       ] : createClipPath("<rect x=\"0\" y=\"0\" width=\"" + (String(regionWidth) + ("\" height=\"" + (String(regionHeight) + "\" />"))));
   }
-  var image = "\n  " + (String(match$3[0]) + ("\n  <g " + (String(match$3[1]) + (">\n    <g transform=\"matrix(" + (String(imgBox[/* scaleX */4]) + (" 0 0 " + (String(imgBox[/* scaleY */5]) + (" " + (String(x) + (" " + (String(y) + (")\">\n      <image\n        xlink:href=\"" + (String(uri) + ("\"\n        width=\"" + (String(width) + ("\"\n        height=\"" + (String(height) + ("\"\n        transform=\"translate(" + (String(imageX) + (" " + (String(imageY) + ")\"\n      />\n    </g>\n  </g>\n  ")))))))))))))))))))));
+  var image = "\n  " + (String(match$1[0]) + ("\n  <g " + (String(match$1[1]) + (">\n    <g transform=\"matrix(" + (String(imgBox[/* scaleX */4]) + (" 0 0 " + (String(imgBox[/* scaleY */5]) + (" " + (String(x) + (" " + (String(y) + (")\">\n      <image\n        xlink:href=\"" + (String(uri) + ("\"\n        width=\"" + (String(width) + ("\"\n        height=\"" + (String(height) + ("\"\n        transform=\"translate(" + (String(imageX) + (" " + (String(imageY) + ")\"\n      />\n    </g>\n  </g>\n  ")))))))))))))))))))));
   var children = renderDecorators(/* None */0, region, dMap, image, imageElement[/* decorators */9]);
-  return "\n  <g\n    transform=\"translate(" + (String(regionX) + (" " + (String(regionY) + (") rotate(" + (String(rotate) + (" " + (String(regionCenterX) + (" " + (String(regionCenterY) + (")\"\n    opacity=\"" + (String(alpha) + ("\"\n  >\n  " + (String(children) + "\n  </g>\n  ")))))))))))));
+  return "\n  <g\n    transform=\"translate(" + (String(regionX) + (" " + (String(regionY) + (") rotate(" + (String(imageElement[/* rotate */6]) + (" " + (String(regionCenterX) + (" " + (String(regionCenterY) + (")\"\n    opacity=\"" + (String(imageElement[/* alpha */7]) + ("\"\n  >\n  " + (String(children) + "\n  </g>\n  ")))))))))))));
 }
 
 function renderBackground(backgroundElement) {

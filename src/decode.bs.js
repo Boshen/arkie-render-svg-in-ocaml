@@ -14,6 +14,14 @@ function convertUri(uri) {
   }
 }
 
+function getWithDefault($$default, param) {
+  if (param) {
+    return param[0];
+  } else {
+    return $$default;
+  }
+}
+
 function sizeDecoder(json) {
   return /* record */[
           /* width */Json_decode.field("width", Json_decode.either(Json_decode.$$int, (function (param) {
@@ -28,17 +36,27 @@ function sizeDecoder(json) {
 
 function regionDecoder(json) {
   return /* float array */[
-          Json_decode.field("x", Json_decode.$$float, json),
-          Json_decode.field("y", Json_decode.$$float, json),
-          Json_decode.field("width", Json_decode.$$float, json),
-          Json_decode.field("height", Json_decode.$$float, json)
+          getWithDefault(0.0, Json_decode.optional((function (param) {
+                      return Json_decode.field("x", Json_decode.$$float, param);
+                    }), json)),
+          getWithDefault(0.0, Json_decode.optional((function (param) {
+                      return Json_decode.field("y", Json_decode.$$float, param);
+                    }), json)),
+          getWithDefault(0.0, Json_decode.optional((function (param) {
+                      return Json_decode.field("width", Json_decode.$$float, param);
+                    }), json)),
+          getWithDefault(0.0, Json_decode.optional((function (param) {
+                      return Json_decode.field("height", Json_decode.$$float, param);
+                    }), json))
         ];
 }
 
 function imageContentDecoder(json) {
   return /* record */[
           /* uri */convertUri(Json_decode.field("uri", Json_decode.string, json)),
-          /* fit */Json_decode.field("fit", Json_decode.bool, json)
+          /* fit */getWithDefault(/* true */1, Json_decode.optional((function (param) {
+                      return Json_decode.field("fit", Json_decode.bool, param);
+                    }), json))
         ];
 }
 
@@ -96,16 +114,11 @@ function decoratorDecoder(json) {
 }
 
 function decoratorsDecoder(json) {
-  var ds = Json_decode.optional((function (param) {
-          return Json_decode.field("decorators", (function (param) {
-                        return Json_decode.list(decoratorDecoder, param);
-                      }), param);
-        }), json);
-  if (ds) {
-    return ds[0];
-  } else {
-    return /* [] */0;
-  }
+  return getWithDefault(/* [] */0, Json_decode.optional((function (param) {
+                    return Json_decode.field("decorators", (function (param) {
+                                  return Json_decode.list(decoratorDecoder, param);
+                                }), param);
+                  }), json));
 }
 
 function layerDecodoer(json) {
@@ -130,12 +143,12 @@ function imageDecodoer(json) {
               /* content */Json_decode.field("content", imageContentDecoder, json),
               /* imgBox */Json_decode.field("imgBox", imgBoxDecoder, json),
               /* originalSize */Json_decode.field("originalSize", originalSizeDecoder, json),
-              /* rotate */Json_decode.optional((function (param) {
-                      return Json_decode.field("rotate", Json_decode.$$float, param);
-                    }), json),
-              /* alpha */Json_decode.optional((function (param) {
-                      return Json_decode.field("alpha", Json_decode.$$float, param);
-                    }), json),
+              /* rotate */getWithDefault(0.0, Json_decode.optional((function (param) {
+                          return Json_decode.field("rotate", Json_decode.$$float, param);
+                        }), json)),
+              /* alpha */getWithDefault(1.0, Json_decode.optional((function (param) {
+                          return Json_decode.field("alpha", Json_decode.$$float, param);
+                        }), json)),
               /* mask */Json_decode.optional((function (param) {
                       return Json_decode.field("mask", imageMaskDecoder, param);
                     }), json),
@@ -208,12 +221,12 @@ function textDecodoer(json) {
               /* id */Json_decode.field("id", Json_decode.string, json),
               /* region */Json_decode.field("region", regionDecoder, json),
               /* renderData */Json_decode.field("renderData", renderDataDecoder, json),
-              /* rotate */Json_decode.optional((function (param) {
-                      return Json_decode.field("rotate", Json_decode.$$float, param);
-                    }), json),
-              /* alpha */Json_decode.optional((function (param) {
-                      return Json_decode.field("alpha", Json_decode.$$float, param);
-                    }), json),
+              /* rotate */getWithDefault(0.0, Json_decode.optional((function (param) {
+                          return Json_decode.field("rotate", Json_decode.$$float, param);
+                        }), json)),
+              /* alpha */getWithDefault(1.0, Json_decode.optional((function (param) {
+                          return Json_decode.field("alpha", Json_decode.$$float, param);
+                        }), json)),
               /* colorScheme */Json_decode.field("colorScheme", colorSchemeDecoder, json),
               /* decorators */decoratorsDecoder(json)
             ]]);
@@ -306,6 +319,7 @@ function fonts(json) {
 }
 
 exports.convertUri = convertUri;
+exports.getWithDefault = getWithDefault;
 exports.sizeDecoder = sizeDecoder;
 exports.regionDecoder = regionDecoder;
 exports.imageContentDecoder = imageContentDecoder;

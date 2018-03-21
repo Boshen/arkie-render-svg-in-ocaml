@@ -5,6 +5,10 @@ open Schema
 let convertUri uri =
   if (uri.[0] == '/') then "https:" ^ uri else uri
 
+let getWithDefault default = function
+  | Some x -> x
+  | None -> default
+
 let sizeDecoder json = {
   width = json |> field "width" (either int (map(int_of_string) @@ string));
   height = json |> field "height" (either int (map(int_of_string) @@ string));
@@ -12,15 +16,15 @@ let sizeDecoder json = {
 }
 
 let regionDecoder json = {
-  x = json |> field "x" float;
-  y = json |> field "y" float;
-  width = json |> field "width" float;
-  height = json |> field "height" float
+  x = json |> optional @@ field "x" float |> getWithDefault 0.0;
+  y = json |> optional @@ field "y" float |> getWithDefault 0.0;
+  width = json |> optional @@ field "width" float |> getWithDefault 0.0;
+  height = json |> optional @@ field "height" float |> getWithDefault 0.0;
 }
 
 let imageContentDecoder json = {
   uri = json |> field "uri" string |> convertUri;
-  fit = json |> field "fit" bool
+  fit = json |> optional @@ field "fit" bool |> getWithDefault true
 }
 
 let imgBoxDecoder json = {
@@ -65,12 +69,7 @@ let decoratorDecoder json = {
 }
 
 let decoratorsDecoder json =
-  json
-  |> optional (field "decorators" (list decoratorDecoder))
-  |> fun ds ->
-      match ds with
-      | Some(ds) -> ds
-      | None -> []
+  json |> optional @@ field "decorators" (list decoratorDecoder) |> getWithDefault []
 
 let layerDecodoer json = Layer({
   id = json |> field "id" string;
@@ -90,9 +89,9 @@ let imageDecodoer json =
     content = json |> field "content" imageContentDecoder;
     imgBox = json |> field "imgBox" imgBoxDecoder;
     originalSize = json |> field "originalSize" originalSizeDecoder;
-    rotate = json |> optional(field "rotate" float);
-    alpha = json |> optional(field "alpha" float);
-    mask = json |> optional(field "mask" imageMaskDecoder);
+    rotate = json |> optional @@ field "rotate" float |> getWithDefault 0.0;
+    alpha = json |> optional @@ field "alpha" float |> getWithDefault 1.0;
+    mask = json |> optional @@ field "mask" imageMaskDecoder;
     decorators = json |> decoratorsDecoder
   })
 
@@ -149,8 +148,8 @@ let textDecodoer json =
     id = json |> field "id" string;
     region = json |> field "region" regionDecoder;
     renderData = json |> field "renderData" renderDataDecoder;
-    rotate = json |> optional(field "rotate" float);
-    alpha = json |> optional(field "alpha" float);
+    rotate = json |> optional @@ field "rotate" float |> getWithDefault 0.0;
+    alpha = json |> optional @@ field "alpha" float |> getWithDefault 1.0;
     colorScheme = json |> field "colorScheme" colorSchemeDecoder;
     decorators = json |> decoratorsDecoder
   })
@@ -206,7 +205,7 @@ let tree json = {
 }
 
 let fontDecoder json = {
-  access_key = json |> optional(field "access_key" string);
+  access_key = json |> optional @@ field "access_key" string;
   font_family = json |> field "font_family" string
 }
 

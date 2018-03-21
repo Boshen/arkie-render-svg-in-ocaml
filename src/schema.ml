@@ -72,8 +72,8 @@ type imageElement = {
   content: imageContent;
   imgBox: imgBox;
   originalSize: originalSize;
-  rotate: float option;
-  alpha: float option;
+  rotate: float;
+  alpha: float;
   mask: imageMask option;
   decorators: decorator list
 }
@@ -128,8 +128,8 @@ type textElement = {
   id: string;
   region: region;
   renderData: renderData;
-  rotate: float option;
-  alpha: float option;
+  rotate: float;
+  alpha: float;
   colorScheme: colorScheme;
   decorators: decorator list
 }

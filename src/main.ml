@@ -120,15 +120,13 @@ let renderLayer ~dMap (layerElement:layerElement) =
   |j}
 
 let renderTextCell (textElement:textElement) (cell:renderDataCell) =
-  let {x; width; height; fontSize; fontFamily; text} = cell in
+  let {x; fontSize; fontFamily; text} = cell in
   let fill = textElement.colorScheme.textColor in
   let y = cell.y +. cell.height *. 0.86 in
   {j|
   <tspan
     x="$x"
     y="$y"
-    width="$width"
-    height="$height"
     fill="$fill"
     style="font-size:$(fontSize)px;font-family:$fontFamily"
   >$text</tspan>
@@ -179,12 +177,7 @@ let renderImage ~dMap imageElement =
   let {region; content; imgBox} = imageElement in
   let uri = content.uri in
   let {width; height; scaleX; scaleY}: imgBox = imgBox in
-  let rotate = match imageElement.rotate with
-    | Some r -> r
-    | None -> 0.0 in
-  let alpha = match imageElement.alpha with
-    | Some r -> r
-    | None -> 1.0 in
+  let {rotate; alpha}: imageElement = imageElement in
   let regionX = region.x in
   let regionY = region.y in
   let regionWidth = region.width in
