@@ -6,8 +6,8 @@ var Block = require("bs-platform/lib/js/block.js");
 var Curry = require("bs-platform/lib/js/curry.js");
 var Font = require("./font");
 var Printf = require("bs-platform/lib/js/printf.js");
+var $$String = require("bs-platform/lib/js/string.js");
 var Js_dict = require("bs-platform/lib/js/js_dict.js");
-var Caml_array = require("bs-platform/lib/js/caml_array.js");
 var Caml_format = require("bs-platform/lib/js/caml_format.js");
 var Caml_primitive = require("bs-platform/lib/js/caml_primitive.js");
 var Decode$BuckleSandbox = require("./decode.bs.js");
@@ -28,6 +28,7 @@ function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
           "decorator does not exist for " + decorator[/* id */0]
         ];
   }
+  var element = decorator[/* element */1];
   var floatRe = "[0-9]*\\.?[0-9]*";
   var re = new RegExp(Curry._4(Printf.sprintf(/* Format */[
                 /* String_literal */Block.__(11, [
@@ -82,17 +83,13 @@ function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
   }
   var dHeight = match$2[1];
   var dWidth = match$2[0];
-  var s = svg.replace(new RegExp("<svg"), "<svg width=\"" + (String(dWidth) + ("\" height=\"" + (String(dHeight) + "\""))));
-  var param = new RegExp("<svg[\\s\\S]*svg>").exec(s);
-  var svgOut;
-  if (param !== null) {
-    svgOut = Caml_array.caml_array_get(param, 0);
-  } else {
-    throw [
-          Caml_builtin_exceptions.failure,
-          "no svg match"
-        ];
-  }
+  var svgOut = svg.replace(new RegExp("<svg[\\s\\S]*svg>"), "$&").replace(new RegExp("<svg"), "<svg width=\"" + (String(dWidth) + ("\" height=\"" + (String(dHeight) + "\"")))).replace(new RegExp($$String.concat("|", List.map((function (c) {
+                      return c[/* origin */0];
+                    }), element[/* colors */7]))), (function (m, _, _$1, _$2) {
+          return List.find((function (c) {
+                          return +(c[/* origin */0] === m);
+                        }), element[/* colors */7])[/* custom */1];
+        }));
   var match$3;
   if (decorator[/* target */6] === "area") {
     match$3 = /* tuple */[
@@ -140,7 +137,7 @@ function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
   var sx = match$4[0];
   var tx = regionWidth * decorator[/* offsetX */2] - 0.5 * regionWidth * (sx - 1) - match$3[2];
   var ty = regionHeight * decorator[/* offsetY */3] - 0.5 * regionHeight * (sy - 1) - match$3[3];
-  return "\n  <g opacity=\"" + (String(decorator[/* element */1][/* alpha */0]) + ("\" transform=\"matrix(" + (String(sx) + (" 0 0 " + (String(sy) + (" " + (String(tx) + (" " + (String(ty) + (")\">\n    <g transform=\"translate(" + (String(imageX) + (" " + (String(imageY) + (")\">\n    " + (String(svgOut) + "\n    </g>\n  </g>\n  ")))))))))))))));
+  return "\n  <g opacity=\"" + (String(element[/* alpha */0]) + ("\" transform=\"matrix(" + (String(sx) + (" 0 0 " + (String(sy) + (" " + (String(tx) + (" " + (String(ty) + (")\">\n    <g transform=\"translate(" + (String(imageX) + (" " + (String(imageY) + (")\">\n    " + (String(svgOut) + "\n    </g>\n  </g>\n  ")))))))))))))));
 }
 
 function renderDecorators(innerRegion, outerRegion, dMap, parent, decorators) {

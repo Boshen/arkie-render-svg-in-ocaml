@@ -36,11 +36,13 @@ let renderDecorator
     | None -> raise (Failure ("decorator does have viewBox for " ^ decorator.id)) in
 
   let svgOut = svg
-    |> Js.String.replaceByRe (Js.Re.fromString "<svg") {j|<svg width="$dWidth" height="$dHeight"|j}
-    |> fun s -> Js.Re.exec s (Js.Re.fromString "<svg[\\s\\S]*svg>")
-    |> function
-       | Some m -> Js.Re.captures m |> (fun o -> Array.get o 0)
-       | None -> raise (Failure "no svg match") in
+    |> Js.String.replaceByRe (Js.Re.fromString "<svg[\\s\\S]*svg>") "$&"
+    |> Js.String.replaceByRe
+      (Js.Re.fromString "<svg")
+      {j|<svg width="$dWidth" height="$dHeight"|j}
+    |> Js.String.unsafeReplaceBy1
+        (Js.Re.fromString (element.colors |> List.map (fun c -> c.origin) |> String.concat "|"))
+        (fun m _ _ _ -> (element.colors |> List.find (fun c -> c.origin == m)).custom) in
 
   let (regionWidth, regionHeight, dx, dy) =
     if decorator.target == "area" then
