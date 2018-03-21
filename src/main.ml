@@ -298,14 +298,24 @@ let createDecoratorMap (tree:tree) =
 let renderTree dMap tree =
   let width = tree.size.width in
   let height = tree.size.height in
-  let children = List.fold_left (^) "" (List.map (renderElement dMap) tree.children) in
+  let (background, others) =
+    tree.children
+    |> List.partition (function
+      | Background _ -> true
+      | _ -> false
+    ) in
+  let bg = List.fold_left (^) "" (List.map (renderElement dMap) background) in
+  let children = List.fold_left (^) "" (List.map (renderElement dMap) others) in
   {j|
   <svg
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 $width $height"
-  >$children</svg>
+  >
+  $bg
+  $children
+  </svg>
   |j}
 
 let fonts = ref None

@@ -330,12 +330,24 @@ function createDecoratorMap(tree) {
 function renderTree(dMap, tree) {
   var width = tree[/* size */1][/* width */0];
   var height = tree[/* size */1][/* height */1];
+  var match = List.partition((function (param) {
+          if (typeof param === "number" || param.tag) {
+            return /* false */0;
+          } else {
+            return /* true */1;
+          }
+        }), tree[/* children */2]);
+  var bg = List.fold_left((function (prim, prim$1) {
+          return prim + prim$1;
+        }), "", List.map((function (param) {
+              return renderElement(dMap, param);
+            }), match[0]));
   var children = List.fold_left((function (prim, prim$1) {
           return prim + prim$1;
         }), "", List.map((function (param) {
               return renderElement(dMap, param);
-            }), tree[/* children */2]));
-  return "\n  <svg\n    version=\"1.1\"\n    xmlns=\"http://www.w3.org/2000/svg\"\n    xmlns:xlink=\"http://www.w3.org/1999/xlink\"\n    viewBox=\"0 0 " + (String(width) + (" " + (String(height) + ("\"\n  >" + (String(children) + "</svg>\n  ")))));
+            }), match[1]));
+  return "\n  <svg\n    version=\"1.1\"\n    xmlns=\"http://www.w3.org/2000/svg\"\n    xmlns:xlink=\"http://www.w3.org/1999/xlink\"\n    viewBox=\"0 0 " + (String(width) + (" " + (String(height) + ("\"\n  >\n  " + (String(bg) + ("\n  " + (String(children) + "\n  </svg>\n  ")))))));
 }
 
 var fonts = [/* None */0];
