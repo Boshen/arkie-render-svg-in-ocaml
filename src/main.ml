@@ -41,8 +41,15 @@ let renderDecorator
       (Js.Re.fromString "<svg")
       {j|<svg width="$dWidth" height="$dHeight"|j}
     |> Js.String.unsafeReplaceBy1
-        (Js.Re.fromString (element.colors |> List.map (fun c -> c.origin) |> String.concat "|"))
-        (fun m _ _ _ -> (element.colors |> List.find (fun c -> c.origin == m)).custom) in
+        (Js.Re.fromStringWithFlags
+          (Printf.sprintf "(%s)" (element.colors |> List.map (fun c -> c.origin) |> String.concat "|"))
+          ~flags:"ig"
+        )
+        (fun m _ _ _ ->
+          let c = (element.colors
+            |> List.find (fun c -> String.uppercase c.origin == String.uppercase m)
+          ) in c.custom
+				) in
 
   let (regionWidth, regionHeight, dx, dy) =
     if decorator.target == "area" then

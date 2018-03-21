@@ -83,11 +83,23 @@ function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
   }
   var dHeight = match$2[1];
   var dWidth = match$2[0];
-  var svgOut = svg.replace(new RegExp("<svg[\\s\\S]*svg>"), "$&").replace(new RegExp("<svg"), "<svg width=\"" + (String(dWidth) + ("\" height=\"" + (String(dHeight) + "\"")))).replace(new RegExp($$String.concat("|", List.map((function (c) {
-                      return c[/* origin */0];
-                    }), element[/* colors */7]))), (function (m, _, _$1, _$2) {
+  var svgOut = svg.replace(new RegExp("<svg[\\s\\S]*svg>"), "$&").replace(new RegExp("<svg"), "<svg width=\"" + (String(dWidth) + ("\" height=\"" + (String(dHeight) + "\"")))).replace(new RegExp(Curry._1(Printf.sprintf(/* Format */[
+                    /* Char_literal */Block.__(12, [
+                        /* "(" */40,
+                        /* String */Block.__(2, [
+                            /* No_padding */0,
+                            /* Char_literal */Block.__(12, [
+                                /* ")" */41,
+                                /* End_of_format */0
+                              ])
+                          ])
+                      ]),
+                    "(%s)"
+                  ]), $$String.concat("|", List.map((function (c) {
+                          return c[/* origin */0];
+                        }), element[/* colors */7]))), "ig"), (function (m, _, _$1, _$2) {
           return List.find((function (c) {
-                          return +(c[/* origin */0] === m);
+                          return +($$String.uppercase(c[/* origin */0]) === $$String.uppercase(m));
                         }), element[/* colors */7])[/* custom */1];
         }));
   var match$3;
