@@ -83,28 +83,36 @@ function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
   }
   var dHeight = match$2[1];
   var dWidth = match$2[0];
-  var svgOut = svg.replace(new RegExp("<svg[\\s\\S]*svg>"), "$&").replace(new RegExp("<svg"), "<svg width=\"" + (String(dWidth) + ("\" height=\"" + (String(dHeight) + "\"")))).replace(new RegExp(Curry._1(Printf.sprintf(/* Format */[
-                    /* Char_literal */Block.__(12, [
-                        /* "(" */40,
-                        /* String */Block.__(2, [
-                            /* No_padding */0,
-                            /* Char_literal */Block.__(12, [
-                                /* ")" */41,
-                                /* End_of_format */0
-                              ])
-                          ])
-                      ]),
-                    "(%s)"
-                  ]), $$String.concat("|", List.map((function (c) {
-                          return c[/* origin */0];
-                        }), element[/* colors */7]))), "ig"), (function (m, _, _$1, _$2) {
-          return List.find((function (c) {
-                          return +($$String.uppercase(c[/* origin */0]) === $$String.uppercase(m));
-                        }), element[/* colors */7])[/* custom */1];
-        }));
-  var match$3;
+  var s = svg.replace(new RegExp("<svg[\\s\\S]*svg>"), "$&").replace(new RegExp("<svg"), "<svg width=\"" + (String(dWidth) + ("\" height=\"" + (String(dHeight) + "\""))));
+  var match$3 = element[/* colors */7];
+  var svgOut;
+  if (match$3) {
+    var colors = match$3[0];
+    svgOut = s.replace(new RegExp(Curry._1(Printf.sprintf(/* Format */[
+                      /* Char_literal */Block.__(12, [
+                          /* "(" */40,
+                          /* String */Block.__(2, [
+                              /* No_padding */0,
+                              /* Char_literal */Block.__(12, [
+                                  /* ")" */41,
+                                  /* End_of_format */0
+                                ])
+                            ])
+                        ]),
+                      "(%s)"
+                    ]), $$String.concat("|", List.map((function (c) {
+                            return c[/* origin */0];
+                          }), colors))), "ig"), (function (m, _, _$1, _$2) {
+            return List.find((function (c) {
+                            return +($$String.uppercase(c[/* origin */0]) === $$String.uppercase(m));
+                          }), colors)[/* custom */1];
+          }));
+  } else {
+    svgOut = s;
+  }
+  var match$4;
   if (decorator[/* target */6] === "area") {
-    match$3 = /* tuple */[
+    match$4 = /* tuple */[
       outerRegion[/* width */2],
       outerRegion[/* height */3],
       0.0,
@@ -112,7 +120,7 @@ function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
     ];
   } else if (innerRegion) {
     var r = innerRegion[0];
-    match$3 = /* tuple */[
+    match$4 = /* tuple */[
       r[/* width */2],
       r[/* height */3],
       outerRegion[/* x */0] - r[/* x */0],
@@ -124,31 +132,31 @@ function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
           "no innner region for text with target = 'content'"
         ];
   }
-  var regionHeight = match$3[1];
-  var regionWidth = match$3[0];
+  var regionHeight = match$4[1];
+  var regionWidth = match$4[0];
   var imageX = 0.5 * regionWidth - 0.5 * dWidth;
   var imageY = 0.5 * regionHeight - 0.5 * dHeight;
-  var match$4;
+  var match$5;
   if (decorator[/* uniScaling */5]) {
     var ratio = Caml_primitive.caml_float_max(regionWidth / dWidth, regionHeight / dHeight);
     var scaleX = ratio * decorator[/* offsetScale */4];
     var scaleY = ratio * decorator[/* offsetScale */4];
-    match$4 = /* tuple */[
+    match$5 = /* tuple */[
       scaleX,
       scaleY
     ];
   } else {
     var scaleX$1 = regionWidth / dWidth * decorator[/* offsetScale */4];
     var scaleY$1 = regionHeight / dHeight * decorator[/* offsetScale */4];
-    match$4 = /* tuple */[
+    match$5 = /* tuple */[
       scaleX$1,
       scaleY$1
     ];
   }
-  var sy = match$4[1];
-  var sx = match$4[0];
-  var tx = regionWidth * decorator[/* offsetX */2] - 0.5 * regionWidth * (sx - 1) - match$3[2];
-  var ty = regionHeight * decorator[/* offsetY */3] - 0.5 * regionHeight * (sy - 1) - match$3[3];
+  var sy = match$5[1];
+  var sx = match$5[0];
+  var tx = regionWidth * decorator[/* offsetX */2] - 0.5 * regionWidth * (sx - 1) - match$4[2];
+  var ty = regionHeight * decorator[/* offsetY */3] - 0.5 * regionHeight * (sy - 1) - match$4[3];
   return "\n  <g opacity=\"" + (String(element[/* alpha */0]) + ("\" transform=\"matrix(" + (String(sx) + (" 0 0 " + (String(sy) + (" " + (String(tx) + (" " + (String(ty) + (")\">\n    <g transform=\"translate(" + (String(imageX) + (" " + (String(imageY) + (")\">\n    " + (String(svgOut) + "\n    </g>\n  </g>\n  ")))))))))))))));
 }
 

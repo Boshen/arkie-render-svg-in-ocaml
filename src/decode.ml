@@ -54,7 +54,7 @@ let decoratorElementDecoder json = {
   height = json |> field "height" float;
   uri = json |> field "uri" string |> convertUri;
   rotation = json |> field "rotation" float;
-  colors = json |> field "colors" (list decoratorElementColorDecoder)
+  colors = json |> optional @@ field "colors" (list decoratorElementColorDecoder)
 }
 
 let decoratorDecoder json = {

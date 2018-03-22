@@ -94,8 +94,10 @@ function decoratorElementDecoder(json) {
           /* height */Json_decode.field("height", Json_decode.$$float, json),
           /* uri */convertUri(Json_decode.field("uri", Json_decode.string, json)),
           /* rotation */Json_decode.field("rotation", Json_decode.$$float, json),
-          /* colors */Json_decode.field("colors", (function (param) {
-                  return Json_decode.list(decoratorElementColorDecoder, param);
+          /* colors */Json_decode.optional((function (param) {
+                  return Json_decode.field("colors", (function (param) {
+                                return Json_decode.list(decoratorElementColorDecoder, param);
+                              }), param);
                 }), json)
         ];
 }

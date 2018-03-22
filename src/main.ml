@@ -40,16 +40,20 @@ let renderDecorator
     |> Js.String.replaceByRe
       (Js.Re.fromString "<svg")
       {j|<svg width="$dWidth" height="$dHeight"|j}
-    |> Js.String.unsafeReplaceBy1
-        (Js.Re.fromStringWithFlags
-          (Printf.sprintf "(%s)" (element.colors |> List.map (fun c -> c.origin) |> String.concat "|"))
-          ~flags:"ig"
-        )
-        (fun m _ _ _ ->
-          let c = (element.colors
-            |> List.find (fun c -> String.uppercase c.origin == String.uppercase m)
-          ) in c.custom
-				) in
+    |> fun (s) -> match element.colors with
+      | None -> s
+      | Some colors ->
+        Js.String.unsafeReplaceBy1
+            (Js.Re.fromStringWithFlags
+              (Printf.sprintf "(%s)" (colors |> List.map (fun c -> c.origin) |> String.concat "|"))
+              ~flags:"ig"
+            )
+            (fun m _ _ _ ->
+              let c = (colors
+                |> List.find (fun c -> String.uppercase c.origin == String.uppercase m)
+              ) in c.custom
+            )
+            s in
 
   let (regionWidth, regionHeight, dx, dy) =
     if decorator.target == "area" then
