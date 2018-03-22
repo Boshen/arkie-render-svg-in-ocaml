@@ -223,7 +223,15 @@ function renderText(dMap, textElement) {
 }
 
 function renderImage(dMap, imageElement) {
-  var imgBox = imageElement[/* imgBox */4];
+  var match = imageElement[/* imgBox */4];
+  var imgBox = match ? match[0] : /* float array */[
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ];
   var content = imageElement[/* content */3];
   var region = imageElement[/* region */1];
   var uri = content[/* uri */0];
@@ -247,15 +255,15 @@ function renderImage(dMap, imageElement) {
             "clip-path=\"url(#" + (String(clipPathId) + ")\"")
           ];
   };
-  var match = imageElement[/* mask */8];
-  var match$1;
+  var match$1 = imageElement[/* mask */7];
+  var match$2;
   var exit = 0;
-  if (match) {
-    if (match[0][/* type_ */0] === "circle") {
+  if (match$1) {
+    if (match$1[0][/* type_ */0] === "circle") {
       var r = (
         regionWidth < regionHeight ? regionWidth : regionHeight
       ) / 2.0;
-      match$1 = createClipPath("<circle cx=\"" + (String(x) + ("\" cy=\"" + (String(y) + ("\" r=\"" + (String(r) + "\" />"))))));
+      match$2 = createClipPath("<circle cx=\"" + (String(x) + ("\" cy=\"" + (String(y) + ("\" r=\"" + (String(r) + "\" />"))))));
     } else {
       exit = 1;
     }
@@ -263,14 +271,14 @@ function renderImage(dMap, imageElement) {
     exit = 1;
   }
   if (exit === 1) {
-    match$1 = content[/* fit */1] ? /* tuple */[
+    match$2 = content[/* fit */1] ? /* tuple */[
         "",
         ""
       ] : createClipPath("<rect x=\"0\" y=\"0\" width=\"" + (String(regionWidth) + ("\" height=\"" + (String(regionHeight) + "\" />"))));
   }
-  var image = "\n  " + (String(match$1[0]) + ("\n  <g " + (String(match$1[1]) + (">\n    <g transform=\"matrix(" + (String(imgBox[/* scaleX */4]) + (" 0 0 " + (String(imgBox[/* scaleY */5]) + (" " + (String(x) + (" " + (String(y) + (")\">\n      <image\n        xlink:href=\"" + (String(uri) + ("\"\n        width=\"" + (String(width) + ("\"\n        height=\"" + (String(height) + ("\"\n        transform=\"translate(" + (String(imageX) + (" " + (String(imageY) + ")\"\n      />\n    </g>\n  </g>\n  ")))))))))))))))))))));
-  var children = renderDecorators(/* None */0, region, dMap, image, imageElement[/* decorators */9]);
-  return "\n  <g\n    transform=\"translate(" + (String(regionX) + (" " + (String(regionY) + (") rotate(" + (String(imageElement[/* rotate */6]) + (" " + (String(regionCenterX) + (" " + (String(regionCenterY) + (")\"\n    opacity=\"" + (String(imageElement[/* alpha */7]) + ("\"\n  >\n  " + (String(children) + "\n  </g>\n  ")))))))))))));
+  var image = "\n  " + (String(match$2[0]) + ("\n  <g " + (String(match$2[1]) + (">\n    <g transform=\"matrix(" + (String(imgBox[/* scaleX */4]) + (" 0 0 " + (String(imgBox[/* scaleY */5]) + (" " + (String(x) + (" " + (String(y) + (")\">\n      <image\n        xlink:href=\"" + (String(uri) + ("\"\n        width=\"" + (String(width) + ("\"\n        height=\"" + (String(height) + ("\"\n        transform=\"translate(" + (String(imageX) + (" " + (String(imageY) + ")\"\n      />\n    </g>\n  </g>\n  ")))))))))))))))))))));
+  var children = renderDecorators(/* None */0, region, dMap, image, imageElement[/* decorators */8]);
+  return "\n  <g\n    transform=\"translate(" + (String(regionX) + (" " + (String(regionY) + (") rotate(" + (String(imageElement[/* rotate */5]) + (" " + (String(regionCenterX) + (" " + (String(regionCenterY) + (")\"\n    opacity=\"" + (String(imageElement[/* alpha */6]) + ("\"\n  >\n  " + (String(children) + "\n  </g>\n  ")))))))))))));
 }
 
 function renderBackground(backgroundElement) {
@@ -329,7 +337,7 @@ function createDecoratorMap(tree) {
                                   } else {
                                     switch (param.tag | 0) {
                                       case 1 : 
-                                          return param[0][/* decorators */9];
+                                          return param[0][/* decorators */8];
                                       case 2 : 
                                           return param[0][/* decorators */6];
                                       case 3 : 

@@ -71,13 +71,6 @@ function imgBoxDecoder(json) {
         ];
 }
 
-function originalSizeDecoder(json) {
-  return /* float array */[
-          Json_decode.field("width", Json_decode.$$float, json),
-          Json_decode.field("height", Json_decode.$$float, json)
-        ];
-}
-
 function decoratorElementColorDecoder(json) {
   return /* record */[
           /* origin */Json_decode.field("origin", Json_decode.string, json),
@@ -143,8 +136,9 @@ function imageDecodoer(json) {
                       return Json_decode.field("category", Json_decode.string, param);
                     }), json),
               /* content */Json_decode.field("content", imageContentDecoder, json),
-              /* imgBox */Json_decode.field("imgBox", imgBoxDecoder, json),
-              /* originalSize */Json_decode.field("originalSize", originalSizeDecoder, json),
+              /* imgBox */Json_decode.optional((function (param) {
+                      return Json_decode.field("imgBox", imgBoxDecoder, param);
+                    }), json),
               /* rotate */getWithDefault(0.0, Json_decode.optional((function (param) {
                           return Json_decode.field("rotate", Json_decode.$$float, param);
                         }), json)),
@@ -326,7 +320,6 @@ exports.sizeDecoder = sizeDecoder;
 exports.regionDecoder = regionDecoder;
 exports.imageContentDecoder = imageContentDecoder;
 exports.imgBoxDecoder = imgBoxDecoder;
-exports.originalSizeDecoder = originalSizeDecoder;
 exports.decoratorElementColorDecoder = decoratorElementColorDecoder;
 exports.decoratorElementDecoder = decoratorElementDecoder;
 exports.decoratorDecoder = decoratorDecoder;

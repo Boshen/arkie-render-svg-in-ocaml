@@ -178,7 +178,10 @@ let renderText ~dMap (textElement:textElement) =
   |j}
 
 let renderImage ~dMap imageElement =
-  let {region; content; imgBox} = imageElement in
+  let imgBox = match imageElement.imgBox with
+    | None -> {x= 0.0; y= 0.0; width= 0.0; height= 0.0; scaleX= 0.0; scaleY= 0.0}
+    | Some i -> i in
+  let {region; content}: imageElement = imageElement in
   let uri = content.uri in
   let {width; height; scaleX; scaleY}: imgBox = imgBox in
   let {rotate; alpha}: imageElement = imageElement in

@@ -36,11 +36,6 @@ let imgBoxDecoder json = {
   scaleY = json |> field "scaleY" float
 }
 
-let originalSizeDecoder json = {
-  width = json |> field "width" float;
-  height = json |> field "height" float
-}
-
 let decoratorElementColorDecoder json = {
   origin = json |> field "origin" string;
   custom = json |> field "custom" string
@@ -87,8 +82,7 @@ let imageDecodoer json =
     region = json |> field "region" regionDecoder;
     category = json |> optional(field "category" string);
     content = json |> field "content" imageContentDecoder;
-    imgBox = json |> field "imgBox" imgBoxDecoder;
-    originalSize = json |> field "originalSize" originalSizeDecoder;
+    imgBox = json |> optional @@ field "imgBox" imgBoxDecoder;
     rotate = json |> optional @@ field "rotate" float |> getWithDefault 0.0;
     alpha = json |> optional @@ field "alpha" float |> getWithDefault 1.0;
     mask = json |> optional @@ field "mask" imageMaskDecoder;

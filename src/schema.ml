@@ -16,11 +16,6 @@ type imageContent = {
   fit: bool
 }
 
-type originalSize = {
-  width: float;
-  height: float
-}
-
 type imgBox = {
   x: float;
   y: float;
@@ -70,8 +65,7 @@ type imageElement = {
   region: region;
   category: string option;
   content: imageContent;
-  imgBox: imgBox;
-  originalSize: originalSize;
+  imgBox: imgBox option;
   rotate: float;
   alpha: float;
   mask: imageMask option;
