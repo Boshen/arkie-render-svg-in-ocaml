@@ -179,6 +179,7 @@ type font = {
 type 'a apiResonse = {data: 'a}
 
 type renderOptions = {
-  fonts: bool
+  fonts: bool option;
+  width: float option;
+  height: float option
 }
-[@@bs.deriving jsConverter]

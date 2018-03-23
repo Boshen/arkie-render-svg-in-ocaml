@@ -206,3 +206,9 @@ let fontDecoder json = {
 let fonts json = {
   data = json |> field "data" (list fontDecoder)
 }
+
+let decodeOptions json = {
+  fonts = json |> optional @@ field "fonts" bool;
+  width = json |> optional @@ field "width" float;
+  height = json |> optional @@ field "height" float
+}

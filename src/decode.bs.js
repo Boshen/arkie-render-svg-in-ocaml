@@ -314,6 +314,20 @@ function fonts(json) {
                 }), json)];
 }
 
+function decodeOptions(json) {
+  return /* record */[
+          /* fonts */Json_decode.optional((function (param) {
+                  return Json_decode.field("fonts", Json_decode.bool, param);
+                }), json),
+          /* width */Json_decode.optional((function (param) {
+                  return Json_decode.field("width", Json_decode.$$float, param);
+                }), json),
+          /* height */Json_decode.optional((function (param) {
+                  return Json_decode.field("height", Json_decode.$$float, param);
+                }), json)
+        ];
+}
+
 exports.convertUri = convertUri;
 exports.getWithDefault = getWithDefault;
 exports.sizeDecoder = sizeDecoder;
@@ -342,4 +356,5 @@ exports.elementDecoder = elementDecoder;
 exports.tree = tree;
 exports.fontDecoder = fontDecoder;
 exports.fonts = fonts;
+exports.decodeOptions = decodeOptions;
 /* No side effect */

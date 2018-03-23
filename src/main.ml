@@ -302,9 +302,14 @@ let createDecoratorMap (tree:tree) =
        )
   )
 
-let renderTree dMap tree =
-  let width = tree.size.width in
-  let height = tree.size.height in
+let renderTree ~dMap ?svgWidth ?svgHeight tree =
+  let outerWidth = match svgWidth with
+    | None -> ""
+    | Some w -> {j|width="$w"|j} in
+  let outerHeight = match svgHeight with
+    | None -> ""
+    | Some h -> {j|height="$h"|j} in
+  let {width; height}: size = tree.size in
   let (background, others) =
     tree.children
     |> List.partition (function
@@ -318,7 +323,7 @@ let renderTree dMap tree =
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    viewBox="0 0 $width $height"
+    viewBox="0 0 $width $height" $outerWidth $outerHeight
   >
   $bg
   $children
@@ -390,18 +395,20 @@ let processFonts tree fonts =
   |> (fun (tags: Youziku.tag array) -> Youziku.getBatchFontFace tags)
 
 let renderSvg treeJson optionsJson =
-  let options = renderOptionsFromJs optionsJson in
+  let options = Decode.decodeOptions optionsJson in
   let tree = Decode.tree treeJson in
-  if options.fonts then
-    loadFonts ()
-    |> Js.Promise.then_ (fun fonts ->
-         processFonts tree fonts;
-         Js.Promise.resolve ()
-       )
-    |> ignore;
+
+  let _ = match options.fonts with
+    | Some true -> loadFonts ()
+      |> Js.Promise.then_ (fun fonts ->
+           processFonts tree fonts;
+           Js.Promise.resolve ()
+         )
+    | _ -> Js.Promise.resolve () in
+
   Js.Promise.(
     createDecoratorMap tree
     |> then_ (fun dMap ->
-        resolve (renderTree dMap tree)
+        resolve (renderTree ~dMap ?svgWidth:options.width ?svgHeight:options.height tree)
        )
   )

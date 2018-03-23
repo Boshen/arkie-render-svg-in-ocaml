@@ -11,7 +11,6 @@ var Js_dict = require("bs-platform/lib/js/js_dict.js");
 var Caml_format = require("bs-platform/lib/js/caml_format.js");
 var Caml_primitive = require("bs-platform/lib/js/caml_primitive.js");
 var Decode$BuckleSandbox = require("./decode.bs.js");
-var Schema$BuckleSandbox = require("./schema.bs.js");
 var Youziku$BuckleSandbox = require("./youziku.bs.js");
 var Caml_builtin_exceptions = require("bs-platform/lib/js/caml_builtin_exceptions.js");
 
@@ -351,10 +350,11 @@ function createDecoratorMap(tree) {
               }));
 }
 
-function renderTree(dMap, tree) {
-  var width = tree[/* size */1][/* width */0];
-  var height = tree[/* size */1][/* height */1];
-  var match = List.partition((function (param) {
+function renderTree(dMap, svgWidth, svgHeight, tree) {
+  var outerWidth = svgWidth ? "width=\"" + (String(svgWidth[0]) + "\"") : "";
+  var outerHeight = svgHeight ? "height=\"" + (String(svgHeight[0]) + "\"") : "";
+  var match = tree[/* size */1];
+  var match$1 = List.partition((function (param) {
           if (typeof param === "number" || param.tag) {
             return /* false */0;
           } else {
@@ -365,13 +365,13 @@ function renderTree(dMap, tree) {
           return prim + prim$1;
         }), "", List.map((function (param) {
               return renderElement(dMap, param);
-            }), match[0]));
+            }), match$1[0]));
   var children = List.fold_left((function (prim, prim$1) {
           return prim + prim$1;
         }), "", List.map((function (param) {
               return renderElement(dMap, param);
-            }), match[1]));
-  return "\n  <svg\n    version=\"1.1\"\n    xmlns=\"http://www.w3.org/2000/svg\"\n    xmlns:xlink=\"http://www.w3.org/1999/xlink\"\n    viewBox=\"0 0 " + (String(width) + (" " + (String(height) + ("\"\n  >\n  " + (String(bg) + ("\n  " + (String(children) + "\n  </svg>\n  ")))))));
+            }), match$1[1]));
+  return "\n  <svg\n    version=\"1.1\"\n    xmlns=\"http://www.w3.org/2000/svg\"\n    xmlns:xlink=\"http://www.w3.org/1999/xlink\"\n    viewBox=\"0 0 " + (String(match[/* width */0]) + (" " + (String(match[/* height */1]) + ("\" " + (String(outerWidth) + (" " + (String(outerHeight) + ("\n  >\n  " + (String(bg) + ("\n  " + (String(children) + "\n  </svg>\n  ")))))))))));
 }
 
 var fonts = [/* None */0];
@@ -438,16 +438,19 @@ function processFonts(tree, fonts) {
 }
 
 function renderSvg(treeJson, optionsJson) {
-  var options = Schema$BuckleSandbox.renderOptionsFromJs(optionsJson);
+  var options = Decode$BuckleSandbox.decodeOptions(optionsJson);
   var tree = Decode$BuckleSandbox.tree(treeJson);
-  if (options[/* fonts */0]) {
+  var match = options[/* fonts */0];
+  if (match && match[0] !== 0) {
     loadFonts(/* () */0).then((function (fonts) {
             processFonts(tree, fonts);
             return Promise.resolve(/* () */0);
           }));
+  } else {
+    Promise.resolve(/* () */0);
   }
   return createDecoratorMap(tree).then((function (dMap) {
-                return Promise.resolve(renderTree(dMap, tree));
+                return Promise.resolve(renderTree(dMap, options[/* width */1], options[/* height */2], tree));
               }));
 }
 
