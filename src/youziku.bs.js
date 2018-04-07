@@ -1,4 +1,4 @@
-'use strict';
+
 
 
 function createTag(key, content) {
@@ -16,6 +16,9 @@ function getBatchFontFace(tags) {
               }));
 }
 
-exports.createTag = createTag;
-exports.getBatchFontFace = getBatchFontFace;
+export {
+  createTag ,
+  getBatchFontFace ,
+  
+}
 /* No side effect */

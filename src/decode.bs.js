@@ -1,10 +1,10 @@
-'use strict';
 
-var Block = require("bs-platform/lib/js/block.js");
-var Caml_format = require("bs-platform/lib/js/caml_format.js");
-var Caml_string = require("bs-platform/lib/js/caml_string.js");
-var Json_decode = require("@glennsl/bs-json/src/Json_decode.bs.js");
-var Caml_builtin_exceptions = require("bs-platform/lib/js/caml_builtin_exceptions.js");
+
+import * as Block from "bs-platform/lib/es6/block.js";
+import * as Caml_format from "bs-platform/lib/es6/caml_format.js";
+import * as Caml_string from "bs-platform/lib/es6/caml_string.js";
+import * as Json_decode from "@glennsl/bs-json/src/Json_decode.bs.js";
+import * as Caml_builtin_exceptions from "bs-platform/lib/es6/caml_builtin_exceptions.js";
 
 function convertUri(uri) {
   if (Caml_string.get(uri, 0) === /* "/" */47) {
@@ -328,33 +328,36 @@ function decodeOptions(json) {
         ];
 }
 
-exports.convertUri = convertUri;
-exports.getWithDefault = getWithDefault;
-exports.sizeDecoder = sizeDecoder;
-exports.regionDecoder = regionDecoder;
-exports.imageContentDecoder = imageContentDecoder;
-exports.imgBoxDecoder = imgBoxDecoder;
-exports.decoratorElementColorDecoder = decoratorElementColorDecoder;
-exports.decoratorElementDecoder = decoratorElementDecoder;
-exports.decoratorDecoder = decoratorDecoder;
-exports.decoratorsDecoder = decoratorsDecoder;
-exports.layerDecodoer = layerDecodoer;
-exports.imageMaskDecoder = imageMaskDecoder;
-exports.imageDecodoer = imageDecodoer;
-exports.renderDataCellDecoder = renderDataCellDecoder;
-exports.renderDataLineDecoder = renderDataLineDecoder;
-exports.renderDataElementDecoder = renderDataElementDecoder;
-exports.renderDataDecoder = renderDataDecoder;
-exports.colorSchemeDecoder = colorSchemeDecoder;
-exports.textDecodoer = textDecodoer;
-exports.backgroundContentDecoder = backgroundContentDecoder;
-exports.backgroundDecoder = backgroundDecoder;
-exports.maskDecodoer = maskDecodoer;
-exports.svgContentDecoder = svgContentDecoder;
-exports.svgDecoder = svgDecoder;
-exports.elementDecoder = elementDecoder;
-exports.tree = tree;
-exports.fontDecoder = fontDecoder;
-exports.fonts = fonts;
-exports.decodeOptions = decodeOptions;
+export {
+  convertUri ,
+  getWithDefault ,
+  sizeDecoder ,
+  regionDecoder ,
+  imageContentDecoder ,
+  imgBoxDecoder ,
+  decoratorElementColorDecoder ,
+  decoratorElementDecoder ,
+  decoratorDecoder ,
+  decoratorsDecoder ,
+  layerDecodoer ,
+  imageMaskDecoder ,
+  imageDecodoer ,
+  renderDataCellDecoder ,
+  renderDataLineDecoder ,
+  renderDataElementDecoder ,
+  renderDataDecoder ,
+  colorSchemeDecoder ,
+  textDecodoer ,
+  backgroundContentDecoder ,
+  backgroundDecoder ,
+  maskDecodoer ,
+  svgContentDecoder ,
+  svgDecoder ,
+  elementDecoder ,
+  tree ,
+  fontDecoder ,
+  fonts ,
+  decodeOptions ,
+  
+}
 /* No side effect */

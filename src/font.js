@@ -1,7 +1,7 @@
-var snakecase = require('lodash.snakecase');
-var camelcase = require('lodash.camelcase');
+import snakecase from 'lodash-es/snakecase';
+import camelcase  from 'lodash-es/camelcase';
 
-var createFontFace = function createFontFace(fontFamily) {
+function createFontFace(fontFamily) {
   return function (blob) {
     var _document = document,
         head = _document.head;
@@ -33,15 +33,17 @@ var createFontFace = function createFontFace(fontFamily) {
   };
 };
 
-var getUrl = function getUrl(uri, fontFamily) {
+function getUrl(uri, fontFamily) {
   return uri + camelcase(fontFamily).toLowerCase() + '-regular.woff';
 };
 
-var createGoogleFontLink = function createGoogleFontLink(font) {
+function createGoogleFontLink(font) {
   var url = getUrl('//youziku.arkie.cn/webfonts/en/', font);
   fetch(url, { headers: { responseType: 'blob' } }).then(function (res) {
     return res.blob();
   }).then(createFontFace(font));
 };
 
-module.exports.createGoogleFontLink = createGoogleFontLink;
+export {
+  createGoogleFontLink
+}

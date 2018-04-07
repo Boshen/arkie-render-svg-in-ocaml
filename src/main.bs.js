@@ -1,18 +1,18 @@
-'use strict';
 
-var List = require("bs-platform/lib/js/list.js");
-var $$Array = require("bs-platform/lib/js/array.js");
-var Block = require("bs-platform/lib/js/block.js");
-var Curry = require("bs-platform/lib/js/curry.js");
-var Font = require("./font");
-var Printf = require("bs-platform/lib/js/printf.js");
-var $$String = require("bs-platform/lib/js/string.js");
-var Js_dict = require("bs-platform/lib/js/js_dict.js");
-var Caml_format = require("bs-platform/lib/js/caml_format.js");
-var Caml_primitive = require("bs-platform/lib/js/caml_primitive.js");
-var Decode$BuckleSandbox = require("./decode.bs.js");
-var Youziku$BuckleSandbox = require("./youziku.bs.js");
-var Caml_builtin_exceptions = require("bs-platform/lib/js/caml_builtin_exceptions.js");
+
+import * as List from "bs-platform/lib/es6/list.js";
+import * as $$Array from "bs-platform/lib/es6/array.js";
+import * as Block from "bs-platform/lib/es6/block.js";
+import * as Curry from "bs-platform/lib/es6/curry.js";
+import * as Font from "./font";
+import * as Printf from "bs-platform/lib/es6/printf.js";
+import * as $$String from "bs-platform/lib/es6/string.js";
+import * as Js_dict from "bs-platform/lib/es6/js_dict.js";
+import * as Caml_format from "bs-platform/lib/es6/caml_format.js";
+import * as Caml_primitive from "bs-platform/lib/es6/caml_primitive.js";
+import * as Decode$BuckleSandbox from "./decode.bs.js";
+import * as Youziku$BuckleSandbox from "./youziku.bs.js";
+import * as Caml_builtin_exceptions from "bs-platform/lib/es6/caml_builtin_exceptions.js";
 
 ((require('isomorphic-fetch')));
 
@@ -257,15 +257,11 @@ function renderImage(dMap, imageElement) {
   var match$1 = imageElement[/* mask */7];
   var match$2;
   var exit = 0;
-  if (match$1) {
-    if (match$1[0][/* type_ */0] === "circle") {
-      var r = (
-        regionWidth < regionHeight ? regionWidth : regionHeight
-      ) / 2.0;
-      match$2 = createClipPath("<circle cx=\"" + (String(x) + ("\" cy=\"" + (String(y) + ("\" r=\"" + (String(r) + "\" />"))))));
-    } else {
-      exit = 1;
-    }
+  if (match$1 && match$1[0][/* type_ */0] === "circle") {
+    var r = (
+      regionWidth < regionHeight ? regionWidth : regionHeight
+    ) / 2.0;
+    match$2 = createClipPath("<circle cx=\"" + (String(x) + ("\" cy=\"" + (String(y) + ("\" r=\"" + (String(r) + "\" />"))))));
   } else {
     exit = 1;
   }
@@ -454,21 +450,24 @@ function renderSvg(treeJson, optionsJson) {
               }));
 }
 
-exports.renderDecorator = renderDecorator;
-exports.renderDecorators = renderDecorators;
-exports.renderLayer = renderLayer;
-exports.renderTextCell = renderTextCell;
-exports.renderTextLine = renderTextLine;
-exports.renderText = renderText;
-exports.renderImage = renderImage;
-exports.renderBackground = renderBackground;
-exports.renderMask = renderMask;
-exports.renderSvgElement = renderSvgElement;
-exports.renderElement = renderElement;
-exports.createDecoratorMap = createDecoratorMap;
-exports.renderTree = renderTree;
-exports.fonts = fonts;
-exports.loadFonts = loadFonts;
-exports.processFonts = processFonts;
-exports.renderSvg = renderSvg;
+export {
+  renderDecorator ,
+  renderDecorators ,
+  renderLayer ,
+  renderTextCell ,
+  renderTextLine ,
+  renderText ,
+  renderImage ,
+  renderBackground ,
+  renderMask ,
+  renderSvgElement ,
+  renderElement ,
+  createDecoratorMap ,
+  renderTree ,
+  fonts ,
+  loadFonts ,
+  processFonts ,
+  renderSvg ,
+  
+}
 /*  Not a pure module */
