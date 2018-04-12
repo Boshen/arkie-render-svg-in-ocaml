@@ -1,5 +1,5 @@
-import snakecase from 'lodash-es/snakecase';
-import camelcase  from 'lodash-es/camelcase';
+import snakecase from 'lodash-es/snakeCase';
+import camelcase  from 'lodash-es/camelCase';
 
 function createFontFace(fontFamily) {
   return function (blob) {
