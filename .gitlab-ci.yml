@@ -1,0 +1,25 @@
+before_script:
+  - node --version; npm --version; yarn --version
+  - ls -la
+  - yarn config set cache-folder /gitlab.cache/.yarn
+  - PUPPETEER_DOWNLOAD_HOST=https://storage.googleapis.com.cnpmjs.org yarn install --prefer-offline
+  - IMAGE_TAG=$(echo $CI_COMMIT_SHA | cut -c 1-7)
+  - echo ${IMAGE_TAG}
+
+.cache_publish: &cache_publish
+  cache:
+    key: "$CI_PROJECT_PATH-$CI_PROJECT_ID-build"
+  tags:
+    - node8
+
+stages:
+  - publish
+
+publish:
+  <<: *cache_publish
+  stage: publish
+  only:
+    - /^v?\d+\.\d+\.\d+(?:-(alpha|beta)\.\d+)?$/
+  script:
+    - echo "$CNPMRC" > ~/.npmrc
+    - yarn cnpm

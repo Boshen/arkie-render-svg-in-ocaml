@@ -1,5 +1,5 @@
 {
-  "name": "svg-renderer",
+  "name": "@arkie/svg-renderer",
   "version": "0.0.7",
   "description": "Render arkie tree to svg string",
   "scripts": {
@@ -8,6 +8,7 @@
     "clean": "bsb -clean-world",
     "watch": "jest __tests__/main_test.bs.js --watchAll",
     "gen": "node test.js > test.svg",
+    "cnpm": "yarn rollup && npm publish",
     "rollup": "rollup -c rollup.config.js"
   },
   "repository": {
