@@ -6,10 +6,8 @@
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
-    "watch": "jest __tests__/main_test.bs.js --watchAll",
-    "gen": "node test.js > test.svg",
     "cnpm": "yarn rollup && npm publish",
-    "rollup": "rollup -c rollup.config.js"
+    "watch": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -22,14 +20,13 @@
     "dist/"
   ],
   "devDependencies": {
-    "@glennsl/bs-jest": "^0.4.2",
     "@glennsl/bs-json": "^1.1.2",
     "bs-fetch": "^0.2.1",
     "bs-platform": "^2.2.3",
-    "isomorphic-fetch": "^2.2.1",
+    "html-webpack-plugin": "^3.2.0",
     "lodash-es": "^4.17.8",
-    "rollup": "^0.57.1",
-    "rollup-plugin-commonjs": "^9.1.0",
-    "rollup-plugin-node-resolve": "^3.3.0"
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14",
+    "webpack-dev-server": "^3.1.3"
   }
 }
