@@ -130,15 +130,24 @@ let renderTextCell (textElement:textElement) (cell:renderDataCell) =
   |j}
 
 let renderTextLine (textElement:textElement) (line:renderDataLine) =
+  let renderData = textElement.renderData in
+  let outerRegion = textElement.region in
+  let innerRegion = renderData.region in
   let {rotate; rotateCenterX; rotateCenterY} = line in
+  let (translateX, translateY) = (
+    innerRegion.x -. outerRegion.x,
+    innerRegion.y -. outerRegion.y
+  ) in
   let chars = List.fold_left (^) "" (List.map (renderTextCell textElement) line.cells) in
   {j|
   <text
+    transform="translate($translateX $translateY) rotate($rotate $rotateCenterX $rotateCenterY)"
     transform="translate($rotateCenterX $rotateCenterY) rotate($rotate $rotateCenterX $rotateCenterY)"
-  >
+   >
     $chars
   </text>
   |j}
+
 
 let renderText ~dMap (textElement:textElement) =
   let renderData = textElement.renderData in

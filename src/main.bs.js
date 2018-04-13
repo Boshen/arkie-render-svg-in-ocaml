@@ -163,14 +163,20 @@ function renderTextCell(textElement, cell) {
 }
 
 function renderTextLine(textElement, line) {
+  var renderData = textElement[/* renderData */2];
+  var outerRegion = textElement[/* region */1];
+  var innerRegion = renderData[/* region */0];
   var rotateCenterY = line[/* rotateCenterY */4];
   var rotateCenterX = line[/* rotateCenterX */3];
+  var rotate = line[/* rotate */2];
+  var translateX = innerRegion[/* x */0] - outerRegion[/* x */0];
+  var translateY = innerRegion[/* y */1] - outerRegion[/* y */1];
   var chars = List.fold_left((function (prim, prim$1) {
           return prim + prim$1;
         }), "", List.map((function (param) {
               return renderTextCell(textElement, param);
             }), line[/* cells */0]));
-  return "\n  <text\n    transform=\"translate(" + (String(rotateCenterX) + (" " + (String(rotateCenterY) + (") rotate(" + (String(line[/* rotate */2]) + (" " + (String(rotateCenterX) + (" " + (String(rotateCenterY) + (")\"\n  >\n    " + (String(chars) + "\n  </text>\n  ")))))))))));
+  return "\n  <text\n    transform=\"translate(" + (String(translateX) + (" " + (String(translateY) + (") rotate(" + (String(rotate) + (" " + (String(rotateCenterX) + (" " + (String(rotateCenterY) + (")\"\n    transform=\"translate(" + (String(rotateCenterX) + (" " + (String(rotateCenterY) + (") rotate(" + (String(rotate) + (" " + (String(rotateCenterX) + (" " + (String(rotateCenterY) + (")\"\n   >\n    " + (String(chars) + "\n  </text>\n  ")))))))))))))))))))));
 }
 
 function renderText(dMap, textElement) {
