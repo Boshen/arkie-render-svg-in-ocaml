@@ -22,4 +22,5 @@ publish:
     - /^v?\d+\.\d+\.\d+(?:-(alpha|beta)\.\d+)?$/
   script:
     - echo "$CNPMRC" > ~/.npmrc
+    - yarn build_all
     - yarn cnpm

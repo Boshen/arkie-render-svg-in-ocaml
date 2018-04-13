@@ -2,12 +2,14 @@
   "name": "@arkie/svg-renderer",
   "version": "0.0.9",
   "description": "Render arkie tree to svg string",
+  "sideEffects": false,
   "scripts": {
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
-    "cnpm": "yarn rollup && npm publish",
-    "watch": "webpack-dev-server"
+    "build_all": "yarn build && webpack --config webpack.prod.js",
+    "watch": "webpack-dev-server --config webpack.dev.js",
+    "cnpm": "npm publish"
   },
   "repository": {
     "type": "git",
