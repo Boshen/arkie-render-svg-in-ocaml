@@ -1,41 +1,12 @@
-[%raw "require('isomorphic-fetch')"]
-
 external createGoogleFontLink: string -> unit = "createGoogleFontLink" [@@bs.module "./font"]
+external imgsize: string -> (float * float) Js_promise.t = "imgsize" [@@bs.module "./imgsize"]
 
 open Schema
 
-let renderDecorator
-  ~dMap
-  ?innerRegion: (innerRegion: region option)
-  ~outerRegion: (outerRegion: region)
-  (decorator: decorator) =
-  let svg = match Js.Dict.get dMap decorator.id with
-    | Some svg -> svg
-    | None -> raise (Failure ("decorator does not exist for " ^ decorator.id)) in
-
+let renderSvgDecorator ~decorator ~svg ~dimen =
+  let (dWidth, dHeight) = dimen in
   let {element}: decorator = decorator in
-
-  let {alpha}: decoratorElement = element in
-
-  let floatRe = {|[0-9]*\.?[0-9]*|} in
-
-  let re = Js.Re.fromStringWithFlags
-    (Printf.sprintf "viewbox=\"(%s) (%s) (%s) (%s)\"" floatRe floatRe floatRe floatRe) ~flags:"i" in
-
-  let (dWidth, dHeight) = match Js.Re.exec svg re with
-    | Some m ->
-      let coords = Js.Re.captures m
-        |> Array.to_list
-        |> List.tl
-        |> List.map (fun d -> match Js.Nullable.toOption d with
-           | Some d -> float_of_string d
-           | None -> 0.0
-           ) in
-      ((List.nth coords 2) -. (List.nth coords 0),
-       (List.nth coords 3) -. (List.nth coords 1))
-    | None -> raise (Failure ("decorator does have viewBox for " ^ decorator.id)) in
-
-  let svgOut = svg
+  svg
     |> Js.String.replaceByRe (Js.Re.fromString "<svg[\\s\\S]*svg>") "$&"
     |> Js.String.replaceByRe
       (Js.Re.fromString "<svg")
@@ -53,7 +24,22 @@ let renderDecorator
                 |> List.find (fun c -> String.uppercase c.origin == String.uppercase m)
               ) in c.custom
             )
-            s in
+            s
+
+let renderImageDecorator ~decorator ~dimen =
+  let (dWidth, dHeight) = dimen in
+  let uri = decorator.element.uri in
+  {j|
+  <image xlink:href="$uri" width="$dWidth" height="$dHeight" />
+  |j}
+
+let renderDecorator
+  ~dMap
+  ?innerRegion: (innerRegion: region option)
+  ~outerRegion: (outerRegion: region)
+  (decorator: decorator) =
+  let {element}: decorator = decorator in
+  let {alpha}: decoratorElement = element in
 
   let (regionWidth, regionHeight, dx, dy) =
     if decorator.target == "area" then
@@ -69,6 +55,13 @@ let renderDecorator
       | None -> raise (Failure "no innner region for text with target = 'content'")
     in
 
+  let (dec, (dWidth, dHeight)) = match Js.Dict.get dMap decorator.id with
+    | Some (s, dimen) -> (match decorator.element._type with
+      | "svg" -> (renderSvgDecorator ~decorator ~svg:s ~dimen, dimen)
+      | "bitmap" -> (renderImageDecorator ~decorator ~dimen, dimen)
+      | _type -> raise (Failure ("unknown svg decorator type: " ^ _type)))
+    | None -> raise (Failure ("decorator does not exist for " ^ decorator.id)) in
+
   let imageX = 0.5 *. regionWidth -. 0.5 *. dWidth in
   let imageY = 0.5 *. regionHeight -. 0.5 *. dHeight in
 
@@ -83,17 +76,17 @@ let renderDecorator
       let scaleY = regionHeight /. dHeight *. decorator.offsetScale in
       (scaleX, scaleY) in
 
-  let tx = regionWidth *. decorator.offsetX -. 0.5 *. regionWidth *. (sx -. 1.)
-  -. dx in
+  let tx = regionWidth *. decorator.offsetX -. 0.5 *. regionWidth *. (sx -. 1.) -. dx in
   let ty = regionHeight *. decorator.offsetY -. 0.5 *. regionHeight *. (sy -. 1.) -. dy in
 
   {j|
   <g opacity="$alpha" transform="matrix($sx 0 0 $sy $tx $ty)">
     <g transform="translate($imageX $imageY)">
-    $svgOut
+    $dec
     </g>
   </g>
   |j}
+
 
 let renderDecorators
   ?innerRegion
@@ -124,32 +117,24 @@ let renderLayer ~dMap (layerElement:layerElement) =
   |j}
 
 let renderTextCell (textElement:textElement) (cell:renderDataCell) =
-  let {x; fontSize; fontFamily; text} = cell in
+  let {x; y; fontSize; fontFamily; text} = cell in
   let fill = textElement.colorScheme.textColor in
-  let y = cell.y +. cell.height *. 0.86 in
   {j|
   <tspan
     x="$x"
     y="$y"
     fill="$fill"
+    alignment-baseline="hanging"
     style="font-size:$(fontSize)px;font-family:$fontFamily"
   >$text</tspan>
   |j}
 
 let renderTextLine (textElement:textElement) (line:renderDataLine) =
-  let renderData = textElement.renderData in
-  let outerRegion = textElement.region in
-  let innerRegion = renderData.region in
   let {rotate; rotateCenterX; rotateCenterY} = line in
-  let (translateX, translateY) = (
-    innerRegion.x -. outerRegion.x,
-    innerRegion.y -. outerRegion.y
-  ) in
-  let chars =
-    List.fold_left (^) "" (List.map (renderTextCell textElement) line.cells) in
+  let chars = List.fold_left (^) "" (List.map (renderTextCell textElement) line.cells) in
   {j|
   <text
-    transform="translate($translateX $translateY) rotate($rotate $rotateCenterX $rotateCenterY)"
+    transform="translate($rotateCenterX $rotateCenterY) rotate($rotate $rotateCenterX $rotateCenterY)"
   >
     $chars
   </text>
@@ -162,10 +147,7 @@ let renderText ~dMap (textElement:textElement) =
   let innerRegion = renderData.region in
   let (regionX, regionY) = (outerRegion.x, outerRegion.y) in
   let {alpha; rotate} = textElement in
-  let (rotateX, rotateY) = (
-    outerRegion.width /. 2.0,
-    outerRegion.height /. 2.0
-  ) in
+  let (rotateX, rotateY) = (outerRegion.width /. 2.0, outerRegion.height /. 2.0) in
   let lines = List.fold_left (^) "" (List.map (renderTextLine textElement) renderDataElement.lines) in
   let children = renderDecorators ~innerRegion ~outerRegion ~dMap lines textElement.decorators in
   {j|
@@ -267,7 +249,7 @@ let renderSvgElement (svgElement:svgElement) =
   let {x; y}: region = region in
   {j|
   <g transform="matrix($scaleX 0 0 $scaleY $x $y)" opacity="$alpha">
-    <image href="$uri" width="$width" height="$height" />
+    <image xlink:href="$uri" width="$width" height="$height" />
   </g>
   |j}
 
@@ -280,6 +262,23 @@ let renderElement dMap = function
   | Svg svgElement -> renderSvgElement svgElement
   | Nothing -> ""
 
+let floatRe = {|[0-9]*\.?[0-9]*|}
+let re = Js.Re.fromStringWithFlags
+  (Printf.sprintf "viewbox=\"(%s) (%s) (%s) (%s)\"" floatRe floatRe floatRe floatRe) ~flags:"i"
+
+let getSvgDimension svg = match Js.Re.exec svg re with
+  | Some m ->
+    let coords = Js.Re.captures m
+      |> Array.to_list
+      |> List.tl
+      |> List.map (fun d -> match Js.Nullable.toOption d with
+         | Some d -> float_of_string d
+         | None -> 0.0
+         ) in
+    ((List.nth coords 2) -. (List.nth coords 0),
+     (List.nth coords 3) -. (List.nth coords 1))
+  | None -> raise (Failure ("decorator does not have viewBox for decorator"))
+
 let createDecoratorMap (tree:tree) =
   Js.Promise.(
     tree.children
@@ -290,11 +289,14 @@ let createDecoratorMap (tree:tree) =
        | _ -> []
      )
     |> List.concat
-    |> List.map (fun (d:decorator) ->
-         Fetch.fetch d.element.uri
+    |> List.map (fun (d:decorator) -> match d.element._type with
+      | "svg" -> Fetch.fetch d.element.uri
          |> then_ Fetch.Response.text
-         |> then_ (fun text -> resolve (d.id, text))
-       )
+         |> then_ (fun text -> resolve (d.id, (text, getSvgDimension text)))
+      | "bitmap" -> imgsize d.element.uri
+        |> then_ (fun dimen -> resolve (d.id, (d.element.uri, dimen)))
+      | _type -> raise (Failure ("unknown svg decorator type: " ^ _type))
+    )
     |> Array.of_list
     |> all
     |> then_ (fun entries ->

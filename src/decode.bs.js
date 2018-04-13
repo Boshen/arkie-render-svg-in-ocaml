@@ -91,7 +91,8 @@ function decoratorElementDecoder(json) {
                   return Json_decode.field("colors", (function (param) {
                                 return Json_decode.list(decoratorElementColorDecoder, param);
                               }), param);
-                }), json)
+                }), json),
+          /* _type */Json_decode.field("type", Json_decode.string, json)
         ];
 }
 

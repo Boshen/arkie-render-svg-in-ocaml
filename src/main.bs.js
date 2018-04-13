@@ -8,110 +8,51 @@ import * as Font from "./font";
 import * as Printf from "bs-platform/lib/es6/printf.js";
 import * as $$String from "bs-platform/lib/es6/string.js";
 import * as Js_dict from "bs-platform/lib/es6/js_dict.js";
+import * as Imgsize from "./imgsize";
 import * as Caml_format from "bs-platform/lib/es6/caml_format.js";
 import * as Caml_primitive from "bs-platform/lib/es6/caml_primitive.js";
 import * as Decode$BuckleSandbox from "./decode.bs.js";
 import * as Youziku$BuckleSandbox from "./youziku.bs.js";
 import * as Caml_builtin_exceptions from "bs-platform/lib/es6/caml_builtin_exceptions.js";
 
-((require('isomorphic-fetch')));
-
-function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
-  var match = dMap[decorator[/* id */0]];
-  var svg;
-  if (match !== undefined) {
-    svg = match;
-  } else {
-    throw [
-          Caml_builtin_exceptions.failure,
-          "decorator does not exist for " + decorator[/* id */0]
-        ];
-  }
-  var element = decorator[/* element */1];
-  var floatRe = "[0-9]*\\.?[0-9]*";
-  var re = new RegExp(Curry._4(Printf.sprintf(/* Format */[
-                /* String_literal */Block.__(11, [
-                    "viewbox=\"(",
-                    /* String */Block.__(2, [
-                        /* No_padding */0,
-                        /* String_literal */Block.__(11, [
-                            ") (",
-                            /* String */Block.__(2, [
-                                /* No_padding */0,
-                                /* String_literal */Block.__(11, [
-                                    ") (",
-                                    /* String */Block.__(2, [
-                                        /* No_padding */0,
-                                        /* String_literal */Block.__(11, [
-                                            ") (",
-                                            /* String */Block.__(2, [
-                                                /* No_padding */0,
-                                                /* String_literal */Block.__(11, [
-                                                    ")\"",
-                                                    /* End_of_format */0
-                                                  ])
-                                              ])
-                                          ])
+function renderSvgDecorator(decorator, svg, dimen) {
+  var s = svg.replace(new RegExp("<svg[\\s\\S]*svg>"), "$&").replace(new RegExp("<svg"), "<svg width=\"" + (String(dimen[0]) + ("\" height=\"" + (String(dimen[1]) + "\""))));
+  var match = decorator[/* element */1][/* colors */7];
+  if (match) {
+    var colors = match[0];
+    return s.replace(new RegExp(Curry._1(Printf.sprintf(/* Format */[
+                            /* Char_literal */Block.__(12, [
+                                /* "(" */40,
+                                /* String */Block.__(2, [
+                                    /* No_padding */0,
+                                    /* Char_literal */Block.__(12, [
+                                        /* ")" */41,
+                                        /* End_of_format */0
                                       ])
                                   ])
-                              ])
-                          ])
-                      ])
-                  ]),
-                "viewbox=\"(%s) (%s) (%s) (%s)\""
-              ]), floatRe, floatRe, floatRe, floatRe), "i");
-  var match$1 = re.exec(svg);
-  var match$2;
-  if (match$1 !== null) {
-    var coords = List.map((function (d) {
-            if (d == null) {
-              return 0.0;
-            } else {
-              return Caml_format.caml_float_of_string(d);
-            }
-          }), List.tl($$Array.to_list(match$1)));
-    match$2 = /* tuple */[
-      List.nth(coords, 2) - List.nth(coords, 0),
-      List.nth(coords, 3) - List.nth(coords, 1)
-    ];
+                              ]),
+                            "(%s)"
+                          ]), $$String.concat("|", List.map((function (c) {
+                                  return c[/* origin */0];
+                                }), colors))), "ig"), (function (m, _, _$1, _$2) {
+                  return List.find((function (c) {
+                                  return +($$String.uppercase(c[/* origin */0]) === $$String.uppercase(m));
+                                }), colors)[/* custom */1];
+                }));
   } else {
-    throw [
-          Caml_builtin_exceptions.failure,
-          "decorator does have viewBox for " + decorator[/* id */0]
-        ];
+    return s;
   }
-  var dHeight = match$2[1];
-  var dWidth = match$2[0];
-  var s = svg.replace(new RegExp("<svg[\\s\\S]*svg>"), "$&").replace(new RegExp("<svg"), "<svg width=\"" + (String(dWidth) + ("\" height=\"" + (String(dHeight) + "\""))));
-  var match$3 = element[/* colors */7];
-  var svgOut;
-  if (match$3) {
-    var colors = match$3[0];
-    svgOut = s.replace(new RegExp(Curry._1(Printf.sprintf(/* Format */[
-                      /* Char_literal */Block.__(12, [
-                          /* "(" */40,
-                          /* String */Block.__(2, [
-                              /* No_padding */0,
-                              /* Char_literal */Block.__(12, [
-                                  /* ")" */41,
-                                  /* End_of_format */0
-                                ])
-                            ])
-                        ]),
-                      "(%s)"
-                    ]), $$String.concat("|", List.map((function (c) {
-                            return c[/* origin */0];
-                          }), colors))), "ig"), (function (m, _, _$1, _$2) {
-            return List.find((function (c) {
-                            return +($$String.uppercase(c[/* origin */0]) === $$String.uppercase(m));
-                          }), colors)[/* custom */1];
-          }));
-  } else {
-    svgOut = s;
-  }
-  var match$4;
+}
+
+function renderImageDecorator(decorator, dimen) {
+  var uri = decorator[/* element */1][/* uri */5];
+  return "\n  <image xlink:href=\"" + (String(uri) + ("\" width=\"" + (String(dimen[0]) + ("\" height=\"" + (String(dimen[1]) + "\" />\n  ")))));
+}
+
+function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
+  var match;
   if (decorator[/* target */6] === "area") {
-    match$4 = /* tuple */[
+    match = /* tuple */[
       outerRegion[/* width */2],
       outerRegion[/* height */3],
       0.0,
@@ -119,7 +60,7 @@ function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
     ];
   } else if (innerRegion) {
     var r = innerRegion[0];
-    match$4 = /* tuple */[
+    match = /* tuple */[
       r[/* width */2],
       r[/* height */3],
       outerRegion[/* x */0] - r[/* x */0],
@@ -131,32 +72,65 @@ function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
           "no innner region for text with target = 'content'"
         ];
   }
-  var regionHeight = match$4[1];
-  var regionWidth = match$4[0];
+  var regionHeight = match[1];
+  var regionWidth = match[0];
+  var match$1 = dMap[decorator[/* id */0]];
+  var match$2;
+  if (match$1 !== undefined) {
+    var dimen = match$1[1];
+    var _type = decorator[/* element */1][/* _type */8];
+    switch (_type) {
+      case "bitmap" : 
+          match$2 = /* tuple */[
+            renderImageDecorator(decorator, dimen),
+            dimen
+          ];
+          break;
+      case "svg" : 
+          match$2 = /* tuple */[
+            renderSvgDecorator(decorator, match$1[0], dimen),
+            dimen
+          ];
+          break;
+      default:
+        throw [
+              Caml_builtin_exceptions.failure,
+              "unknown svg decorator type: " + _type
+            ];
+    }
+  } else {
+    throw [
+          Caml_builtin_exceptions.failure,
+          "decorator does not exist for " + decorator[/* id */0]
+        ];
+  }
+  var match$3 = match$2[1];
+  var dHeight = match$3[1];
+  var dWidth = match$3[0];
   var imageX = 0.5 * regionWidth - 0.5 * dWidth;
   var imageY = 0.5 * regionHeight - 0.5 * dHeight;
-  var match$5;
+  var match$4;
   if (decorator[/* uniScaling */5]) {
     var ratio = Caml_primitive.caml_float_max(regionWidth / dWidth, regionHeight / dHeight);
     var scaleX = ratio * decorator[/* offsetScale */4];
     var scaleY = ratio * decorator[/* offsetScale */4];
-    match$5 = /* tuple */[
+    match$4 = /* tuple */[
       scaleX,
       scaleY
     ];
   } else {
     var scaleX$1 = regionWidth / dWidth * decorator[/* offsetScale */4];
     var scaleY$1 = regionHeight / dHeight * decorator[/* offsetScale */4];
-    match$5 = /* tuple */[
+    match$4 = /* tuple */[
       scaleX$1,
       scaleY$1
     ];
   }
-  var sy = match$5[1];
-  var sx = match$5[0];
-  var tx = regionWidth * decorator[/* offsetX */2] - 0.5 * regionWidth * (sx - 1) - match$4[2];
-  var ty = regionHeight * decorator[/* offsetY */3] - 0.5 * regionHeight * (sy - 1) - match$4[3];
-  return "\n  <g opacity=\"" + (String(element[/* alpha */0]) + ("\" transform=\"matrix(" + (String(sx) + (" 0 0 " + (String(sy) + (" " + (String(tx) + (" " + (String(ty) + (")\">\n    <g transform=\"translate(" + (String(imageX) + (" " + (String(imageY) + (")\">\n    " + (String(svgOut) + "\n    </g>\n  </g>\n  ")))))))))))))));
+  var sy = match$4[1];
+  var sx = match$4[0];
+  var tx = regionWidth * decorator[/* offsetX */2] - 0.5 * regionWidth * (sx - 1) - match[2];
+  var ty = regionHeight * decorator[/* offsetY */3] - 0.5 * regionHeight * (sy - 1) - match[3];
+  return "\n  <g opacity=\"" + (String(decorator[/* element */1][/* alpha */0]) + ("\" transform=\"matrix(" + (String(sx) + (" 0 0 " + (String(sy) + (" " + (String(tx) + (" " + (String(ty) + (")\">\n    <g transform=\"translate(" + (String(imageX) + (" " + (String(imageY) + (")\">\n    " + (String(match$2[0]) + "\n    </g>\n  </g>\n  ")))))))))))))));
 }
 
 function renderDecorators(innerRegion, outerRegion, dMap, parent, decorators) {
@@ -185,22 +159,18 @@ function renderLayer(dMap, layerElement) {
 
 function renderTextCell(textElement, cell) {
   var fill = textElement[/* colorScheme */5][/* textColor */0];
-  var y = cell[/* y */10] + cell[/* height */3] * 0.86;
-  return "\n  <tspan\n    x=\"" + (String(cell[/* x */9]) + ("\"\n    y=\"" + (String(y) + ("\"\n    fill=\"" + (String(fill) + ("\"\n    style=\"font-size:" + (String(cell[/* fontSize */2]) + ("px;font-family:" + (String(cell[/* fontFamily */1]) + ("\"\n  >" + (String(cell[/* text */7]) + "</tspan>\n  ")))))))))));
+  return "\n  <tspan\n    x=\"" + (String(cell[/* x */9]) + ("\"\n    y=\"" + (String(cell[/* y */10]) + ("\"\n    fill=\"" + (String(fill) + ("\"\n    alignment-baseline=\"hanging\"\n    style=\"font-size:" + (String(cell[/* fontSize */2]) + ("px;font-family:" + (String(cell[/* fontFamily */1]) + ("\"\n  >" + (String(cell[/* text */7]) + "</tspan>\n  ")))))))))));
 }
 
 function renderTextLine(textElement, line) {
-  var renderData = textElement[/* renderData */2];
-  var outerRegion = textElement[/* region */1];
-  var innerRegion = renderData[/* region */0];
-  var translateX = innerRegion[/* x */0] - outerRegion[/* x */0];
-  var translateY = innerRegion[/* y */1] - outerRegion[/* y */1];
+  var rotateCenterY = line[/* rotateCenterY */4];
+  var rotateCenterX = line[/* rotateCenterX */3];
   var chars = List.fold_left((function (prim, prim$1) {
           return prim + prim$1;
         }), "", List.map((function (param) {
               return renderTextCell(textElement, param);
             }), line[/* cells */0]));
-  return "\n  <text\n    transform=\"translate(" + (String(translateX) + (" " + (String(translateY) + (") rotate(" + (String(line[/* rotate */2]) + (" " + (String(line[/* rotateCenterX */3]) + (" " + (String(line[/* rotateCenterY */4]) + (")\"\n  >\n    " + (String(chars) + "\n  </text>\n  ")))))))))));
+  return "\n  <text\n    transform=\"translate(" + (String(rotateCenterX) + (" " + (String(rotateCenterY) + (") rotate(" + (String(line[/* rotate */2]) + (" " + (String(rotateCenterX) + (" " + (String(rotateCenterY) + (")\"\n  >\n    " + (String(chars) + "\n  </text>\n  ")))))))))));
 }
 
 function renderText(dMap, textElement) {
@@ -291,7 +261,7 @@ function renderMask(maskElement) {
 function renderSvgElement(svgElement) {
   var region = svgElement[/* region */2];
   var uri = svgElement[/* content */1][/* uri */0];
-  return "\n  <g transform=\"matrix(" + (String(svgElement[/* scaleX */6]) + (" 0 0 " + (String(svgElement[/* scaleY */7]) + (" " + (String(region[/* x */0]) + (" " + (String(region[/* y */1]) + (")\" opacity=\"" + (String(svgElement[/* alpha */5]) + ("\">\n    <image href=\"" + (String(uri) + ("\" width=\"" + (String(svgElement[/* width */3]) + ("\" height=\"" + (String(svgElement[/* height */4]) + "\" />\n  </g>\n  ")))))))))))))));
+  return "\n  <g transform=\"matrix(" + (String(svgElement[/* scaleX */6]) + (" 0 0 " + (String(svgElement[/* scaleY */7]) + (" " + (String(region[/* x */0]) + (" " + (String(region[/* y */1]) + (")\" opacity=\"" + (String(svgElement[/* alpha */5]) + ("\">\n    <image xlink:href=\"" + (String(uri) + ("\" width=\"" + (String(svgElement[/* width */3]) + ("\" height=\"" + (String(svgElement[/* height */4]) + "\" />\n  </g>\n  ")))))))))))))));
 }
 
 function renderElement(dMap, param) {
@@ -316,16 +286,94 @@ function renderElement(dMap, param) {
   }
 }
 
+var floatRe = "[0-9]*\\.?[0-9]*";
+
+var re = new RegExp(Curry._4(Printf.sprintf(/* Format */[
+              /* String_literal */Block.__(11, [
+                  "viewbox=\"(",
+                  /* String */Block.__(2, [
+                      /* No_padding */0,
+                      /* String_literal */Block.__(11, [
+                          ") (",
+                          /* String */Block.__(2, [
+                              /* No_padding */0,
+                              /* String_literal */Block.__(11, [
+                                  ") (",
+                                  /* String */Block.__(2, [
+                                      /* No_padding */0,
+                                      /* String_literal */Block.__(11, [
+                                          ") (",
+                                          /* String */Block.__(2, [
+                                              /* No_padding */0,
+                                              /* String_literal */Block.__(11, [
+                                                  ")\"",
+                                                  /* End_of_format */0
+                                                ])
+                                            ])
+                                        ])
+                                    ])
+                                ])
+                            ])
+                        ])
+                    ])
+                ]),
+              "viewbox=\"(%s) (%s) (%s) (%s)\""
+            ]), floatRe, floatRe, floatRe, floatRe), "i");
+
+function getSvgDimension(svg) {
+  var match = re.exec(svg);
+  if (match !== null) {
+    var coords = List.map((function (d) {
+            if (d == null) {
+              return 0.0;
+            } else {
+              return Caml_format.caml_float_of_string(d);
+            }
+          }), List.tl($$Array.to_list(match)));
+    return /* tuple */[
+            List.nth(coords, 2) - List.nth(coords, 0),
+            List.nth(coords, 3) - List.nth(coords, 1)
+          ];
+  } else {
+    throw [
+          Caml_builtin_exceptions.failure,
+          "decorator does not have viewBox for decorator"
+        ];
+  }
+}
+
 function createDecoratorMap(tree) {
   return Promise.all($$Array.of_list(List.map((function (d) {
-                          return fetch(d[/* element */1][/* uri */5]).then((function (prim) {
-                                          return prim.text();
-                                        })).then((function (text) {
-                                        return Promise.resolve(/* tuple */[
-                                                    d[/* id */0],
-                                                    text
-                                                  ]);
-                                      }));
+                          var _type = d[/* element */1][/* _type */8];
+                          switch (_type) {
+                            case "bitmap" : 
+                                return Imgsize.imgsize(d[/* element */1][/* uri */5]).then((function (dimen) {
+                                              return Promise.resolve(/* tuple */[
+                                                          d[/* id */0],
+                                                          /* tuple */[
+                                                            d[/* element */1][/* uri */5],
+                                                            dimen
+                                                          ]
+                                                        ]);
+                                            }));
+                            case "svg" : 
+                                return fetch(d[/* element */1][/* uri */5]).then((function (prim) {
+                                                return prim.text();
+                                              })).then((function (text) {
+                                              return Promise.resolve(/* tuple */[
+                                                          d[/* id */0],
+                                                          /* tuple */[
+                                                            text,
+                                                            getSvgDimension(text)
+                                                          ]
+                                                        ]);
+                                            }));
+                            default:
+                              throw [
+                                    Caml_builtin_exceptions.failure,
+                                    "unknown svg decorator type: " + _type
+                                  ];
+                          }
                         }), List.concat(List.map((function (param) {
                                   if (typeof param === "number") {
                                     return /* [] */0;
@@ -451,6 +499,8 @@ function renderSvg(treeJson, optionsJson) {
 }
 
 export {
+  renderSvgDecorator ,
+  renderImageDecorator ,
   renderDecorator ,
   renderDecorators ,
   renderLayer ,
@@ -462,6 +512,9 @@ export {
   renderMask ,
   renderSvgElement ,
   renderElement ,
+  floatRe ,
+  re ,
+  getSvgDimension ,
   createDecoratorMap ,
   renderTree ,
   fonts ,
@@ -470,4 +523,4 @@ export {
   renderSvg ,
   
 }
-/*  Not a pure module */
+/* re Not a pure module */

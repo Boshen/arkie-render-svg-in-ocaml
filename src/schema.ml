@@ -38,7 +38,8 @@ type decoratorElement = {
   height: float;
   uri: string;
   rotation: float;
-  colors: (decoratorElementColor list) option
+  colors: (decoratorElementColor list) option;
+  _type: string
 }
 
 type decorator = {
