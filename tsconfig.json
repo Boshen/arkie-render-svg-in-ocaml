@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "target": "es6",
+    "allowJs": false,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "emitDecoratorMetadata": true,
+    "noUnusedParameters": true,
+    "suppressExcessPropertyErrors": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "importHelpers": true,
+    "inlineSourceMap": true,
+    "declaration": true,
+    "outDir": "lib"
+  }
+}
+
