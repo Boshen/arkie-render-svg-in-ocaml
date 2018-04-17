@@ -1,0 +1,1835 @@
+{
+  "id": "fb05ad45-fa46-4071-8b5e-fac22c6f0843",
+  "size": {
+    "name": "电视屏广告",
+    "width": 1920,
+    "height": 1080,
+    "unit": "px"
+  },
+  "layout": null,
+  "children": [{
+    "id": "65c4b769-e94e-4e2a-a12a-2f7ca2458961",
+    "scaleX": 1,
+    "scaleY": 1,
+    "rotate": 0,
+    "alpha": 1,
+    "isHidden": false,
+    "pivot": {
+      "x": 0,
+      "y": 0
+    },
+    "position": {
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    "region": {
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 1080
+    },
+    "content": {
+      "uri": null,
+      "color": "#b08358"
+    },
+    "isFreeFromLayout": true,
+    "type": "background",
+    "contentSetting": {
+      "isEditable": true,
+      "contentLabelName": "背景"
+    },
+    "name": "背景",
+    "role": "background"
+  }, {
+  "id": "6d7eb1aa-7fa0-4a7c-9b83-fa91b344935f",
+  "scaleX": 1,
+  "scaleY": 1,
+  "rotate": 0,
+  "alpha": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "position": {
+    "x": -1.1842378929335003e-16,
+    "y": -0.037974058770927854,
+    "width": 1.0301860512732905,
+    "height": 1.0878947975208468
+  },
+  "region": {
+    "x": -2.2737367544323206e-13,
+    "y": -41.01198347260208,
+    "width": 1977.957218444718,
+    "height": 1174.9263813225145
+  },
+  "content": {
+    "uri": "//resource.arkie.cn/resource/image/pixabay/type/7_bibimbap-472698_960_720.jpg",
+    "fit": false
+  },
+  "isFreeFromLayout": true,
+  "type": "image",
+  "decorators": [],
+  "mask": null,
+  "imgBox": {
+    "x": 0,
+    "y": 0,
+    "width": 960,
+    "height": 540,
+    "scaleX": 2.1757895950416937,
+    "scaleY": 2.1757895950416937
+  },
+  "originalSize": {
+    "width": 960,
+    "height": 540
+  },
+  "name": "图片",
+  "role": "backgroundImage",
+  "priority": 1,
+  "category": null,
+  "relationMark": null,
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": true,
+    "contentLabelName": "图片",
+    "reselectImageOption": "basedOnKeywords",
+    "reselectImageCategory": null
+  }
+  }, {
+  "id": "ce3a9be4-eca9-4560-a184-23ff0c958127",
+  "name": "文本",
+  "type": "text",
+  "isFreeFromLayout": true,
+  "role": "title",
+  "decIds": [],
+  "composition": {
+    "id": "TitleRule-9e0322f0-588d-4124-8cfc-7cc6730e5dfa",
+    "text_rules": [{
+      "name": "E2.1",
+      "params": {
+        "fixed_gap": ".3"
+      }
+    }, {
+    "name": "E1.1",
+    "params": {
+      "fixed_gap": ".1"
+    }
+    }, "", {
+    "name": "B3.2"
+    }, {
+    "name": "B3.4"
+    }],
+    "font_settings": {
+      "zh_CN": {
+        "font_family": "AaFangmeng"
+      },
+      "en_US": {
+        "font_family": ""
+      }
+    }
+  },
+  "alpha": 1,
+  "rotate": 0,
+  "font_size": 200,
+  "J1_alignment": "",
+  "J2_alignment": "",
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": true,
+    "contentLabelName": "正文",
+    "lengthLimit": {
+      "minWordNum": 0,
+      "maxWordNum": 120
+    },
+    "reselectCompositionOption": "invariable"
+  },
+  "content": {
+    "value": [{
+      "text": "美味的野菜拌饭",
+      "highlights": []
+    }]
+  },
+  "position": {
+    "x": -0.005026151730217728,
+    "y": 0.1401098325674447,
+    "width": 0.5210449564701433,
+    "height": 0.5412988457210213
+  },
+  "colorScheme": {
+    "textColor": "#ffffff"
+  },
+  "paragraphs": [{
+    "contents": [{
+      "words": [{
+        "inputFontSizePx": 200,
+        "color": "#000000",
+        "length": 2,
+        "position": {
+          "start": 0,
+          "end": 2
+        },
+        "fontSize": 200,
+        "value": "美味",
+        "fontFamily": "AaRunXing",
+        "suggestFontSize": 222.22756698758343,
+        "fontFamilyMatrix": "AaRunXing",
+        "language": "zh_CN",
+        "type": "n"
+      }]
+    }, {
+    "words": [{
+      "inputFontSizePx": 200,
+      "color": "#000000",
+      "length": 1,
+      "position": {
+        "start": 2,
+        "end": 3
+      },
+      "fontSize": 200,
+      "value": "的",
+      "fontFamily": "AaRunXing",
+      "suggestFontSize": 222.22756698758343,
+      "fontFamilyMatrix": "AaRunXing",
+      "language": "zh_CN",
+      "type": "ude"
+    }]
+    }, {
+    "words": [{
+      "inputFontSizePx": 200,
+      "color": "#000000",
+      "length": 2,
+      "position": {
+        "start": 3,
+        "end": 5
+      },
+      "fontSize": 200,
+      "value": "野菜",
+      "fontFamily": "AaRunXing",
+      "suggestFontSize": 222.22756698758343,
+      "fontFamilyMatrix": "AaRunXing",
+      "language": "zh_CN",
+      "type": "n"
+    }]
+    }, {
+    "words": [{
+      "inputFontSizePx": 200,
+      "color": "#000000",
+      "length": 2,
+      "position": {
+        "start": 5,
+        "end": 7
+      },
+      "fontSize": 200,
+      "value": "拌饭",
+      "fontFamily": "AaRunXing",
+      "suggestFontSize": 222.22756698758343,
+      "fontFamilyMatrix": "AaRunXing",
+      "language": "zh_CN",
+      "type": "n"
+    }]
+    }],
+    "highlights": []
+  }],
+  "region": {
+    "x": -9.650211322018038,
+    "y": 151.31861917284027,
+    "width": 1000.406316422675,
+    "height": 584.602753378703
+  },
+  "alignment": ["B3.2", "B3.5"],
+  "scaleX": 1,
+  "scaleY": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "decorators": [{
+    "level": "back",
+    "offsetX": 0,
+    "offsetY": 0,
+    "setting": {
+      "tags": [{
+        "name": "square",
+        "on": true
+      }, {
+      "name": "organic",
+      "on": true
+      }, {
+      "name": "none",
+      "on": true
+      }, {
+      "name": "smooth",
+      "on": true
+      }, {
+      "name": "panel",
+      "on": true
+      }],
+      "reselectDecoratorOption": "invariable"
+    },
+    "fit": false,
+    "target": "area",
+    "offsetScale": 1.2,
+    "uniScaling": true,
+    "id": "9dd6fd72-6f45-434a-a774-f486d37503c9",
+    "element": {
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "width": 495.95,
+      "height": 474.74,
+      "uri": "//resource.arkie.cn/resource/decoration/f6816166-02b5-47b2-ac8f-937bc4c22fea.svg",
+      "scaleX": 2.420581872582337,
+      "scaleY": 2.420581872582337,
+      "colors": [{
+        "origin": "#070001",
+        "custom": "#93bf37"
+      }],
+      "visible": true,
+      "x": 0,
+      "y": 0,
+      "type": "svg",
+      "id": "9dd6fd72-6f45-434a-a774-f486d37503c9",
+      "alpha": 1,
+      "rotation": 0
+    }
+  }],
+  "renderData": {
+    "region": {
+      "width": 860,
+      "height": 460,
+      "x": 70.203158,
+      "y": 0
+    },
+    "elements": {
+      "boundingWidth": 860,
+      "width": 1000.406316,
+      "height": 584.602753,
+      "baseFontSizeEn": 200,
+      "boundingHeight": 460,
+      "baseFontSizeZh": 200,
+      "boundingX": 70.203158,
+      "boundingY": 0,
+      "x": 0,
+      "y": 0,
+      "lines": [{
+        "x": 110,
+        "y": 0,
+        "width": 640,
+        "height": 200,
+        "rotate": 0,
+        "rotateCenterX": 180.203158,
+        "rotateCenterY": 0,
+        "cells": [{
+          "fill": "#ffffff",
+          "width": 200,
+          "height": 200,
+          "rotateCenterX": 110,
+          "rotateCenterY": 0,
+          "text": "美",
+          "fontSize": 200,
+          "fontFamily": "AaFangmeng",
+          "x": -220,
+          "y": -130,
+          "rotate": 0
+        }, {
+        "fill": "#ffffff",
+        "width": 200,
+        "height": 200,
+        "rotateCenterX": 330,
+        "rotateCenterY": 0,
+        "text": "味",
+        "fontSize": 200,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": -130,
+        "rotate": 0
+        }, {
+        "fill": "#ffffff",
+        "width": 200,
+        "height": 200,
+        "rotateCenterX": 550,
+        "rotateCenterY": 0,
+        "text": "的",
+        "fontSize": 200,
+        "fontFamily": "AaFangmeng",
+        "x": 220,
+        "y": -130,
+        "rotate": 0
+        }]
+      }, {
+      "x": 0,
+      "y": 260,
+      "width": 860,
+      "height": 200,
+      "rotate": 0,
+      "rotateCenterX": 70.203158,
+      "rotateCenterY": 260,
+      "cells": [{
+        "fill": "#ffffff",
+        "width": 200,
+        "height": 200,
+        "rotateCenterX": 0,
+        "rotateCenterY": 260,
+        "text": "野",
+        "fontSize": 200,
+        "fontFamily": "AaFangmeng",
+        "x": -330,
+        "y": 130,
+        "rotate": 0
+      }, {
+      "fill": "#ffffff",
+      "width": 200,
+      "height": 200,
+      "rotateCenterX": 220,
+      "rotateCenterY": 260,
+      "text": "菜",
+      "fontSize": 200,
+      "fontFamily": "AaFangmeng",
+      "x": -110,
+      "y": 130,
+      "rotate": 0
+      }, {
+      "fill": "#ffffff",
+      "width": 200,
+      "height": 200,
+      "rotateCenterX": 440,
+      "rotateCenterY": 260,
+      "text": "拌",
+      "fontSize": 200,
+      "fontFamily": "AaFangmeng",
+      "x": 110,
+      "y": 130,
+      "rotate": 0
+      }, {
+      "fill": "#ffffff",
+      "width": 200,
+      "height": 200,
+      "rotateCenterX": 660,
+      "rotateCenterY": 260,
+      "text": "饭",
+      "fontSize": 200,
+      "fontFamily": "AaFangmeng",
+      "x": 330,
+      "y": 130,
+      "rotate": 0
+      }]
+      }]
+    }
+  },
+  "font_settings": {
+    "zh_CN": {
+      "font_family": "AaFangmeng"
+    },
+    "en_US": {
+      "font_family": ""
+    }
+  },
+  "priority": 0,
+  "compositionTags": [{
+    "name": "new",
+    "on": true
+  }, {
+  "name": "none",
+  "on": true
+  }, {
+  "name": "right",
+  "on": true
+  }, {
+  "name": "horizontal",
+  "on": true
+  }, {
+  "name": "tight",
+  "on": true
+  }],
+  "relationMark": null,
+  "fontTags": null
+  }, {
+  "id": "9caaa05f-fa37-4f89-aa42-9d7587af556f",
+  "name": "文本",
+  "type": "text",
+  "isFreeFromLayout": true,
+  "role": "body",
+  "decIds": [],
+  "composition": {
+    "id": "TitleRule-dc60b77b-8eae-4a4d-9818-0b6e70862c92",
+    "text_rules": [{
+      "name": "J2"
+    }, {
+    "name": "E1.1",
+    "params": {
+      "fixed_gap": "0.1"
+    }
+    }, {
+    "name": "E2.2",
+    "params": {
+      "fixed_gap": "0.3"
+    }
+    }, {
+    "name": "B4.1"
+    }],
+    "font_settings": {
+      "zh_CN": {
+        "font_family": "AaFangmeng"
+      },
+      "en_US": {
+        "font_family": ""
+      }
+    }
+  },
+  "alpha": 1,
+  "rotate": -3.6684272455876226,
+  "font_size": 40,
+  "J1_alignment": "",
+  "J2_alignment": "",
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": true,
+    "contentLabelName": "正文",
+    "lengthLimit": {
+      "minWordNum": 0,
+      "maxWordNum": 120
+    },
+    "reselectCompositionOption": "invariable"
+  },
+  "content": {
+    "value": [{
+      "text": "新鲜食材不容错过",
+      "highlights": []
+    }]
+  },
+  "position": {
+    "x": 0.7620281521508581,
+    "y": 0.2653878044276481,
+    "width": 0.03980406787313709,
+    "height": 0.49525941826445813
+  },
+  "colorScheme": {
+    "textColor": "#93bf37"
+  },
+  "paragraphs": [{
+    "contents": [{
+      "words": [{
+        "inputFontSizePx": 60,
+        "color": "#fffa41",
+        "length": 2,
+        "position": {
+          "start": 0,
+          "end": 2
+        },
+        "fontSize": 60,
+        "value": "新鲜",
+        "fontFamily": "AaFangmeng",
+        "suggestFontSize": 103.17582856791557,
+        "fontFamilyMatrix": "AaFangmeng",
+        "language": "zh_CN",
+        "type": "n"
+      }]
+    }, {
+    "words": [{
+      "inputFontSizePx": 60,
+      "color": "#fffa41",
+      "length": 2,
+      "position": {
+        "start": 2,
+        "end": 4
+      },
+      "fontSize": 60,
+      "value": "食材",
+      "fontFamily": "AaFangmeng",
+      "suggestFontSize": 103.17582856791557,
+      "fontFamilyMatrix": "AaFangmeng",
+      "language": "zh_CN",
+      "type": "n"
+    }]
+    }, {
+    "words": [{
+      "inputFontSizePx": 60,
+      "color": "#fffa41",
+      "length": 1,
+      "position": {
+        "start": 4,
+        "end": 5
+      },
+      "fontSize": 60,
+      "value": "不",
+      "fontFamily": "AaFangmeng",
+      "suggestFontSize": 103.17582856791557,
+      "fontFamilyMatrix": "AaFangmeng",
+      "language": "zh_CN",
+      "type": "d"
+    }]
+    }, {
+    "words": [{
+      "inputFontSizePx": 60,
+      "color": "#fffa41",
+      "length": 1,
+      "position": {
+        "start": 5,
+        "end": 6
+      },
+      "fontSize": 60,
+      "value": "容",
+      "fontFamily": "AaFangmeng",
+      "suggestFontSize": 103.17582856791557,
+      "fontFamilyMatrix": "AaFangmeng",
+      "language": "zh_CN",
+      "type": "v"
+    }]
+    }, {
+    "words": [{
+      "inputFontSizePx": 60,
+      "color": "#fffa41",
+      "length": 2,
+      "position": {
+        "start": 6,
+        "end": 8
+      },
+      "fontSize": 60,
+      "value": "错过",
+      "fontFamily": "AaFangmeng",
+      "suggestFontSize": 103.17582856791557,
+      "fontFamilyMatrix": "AaFangmeng",
+      "language": "zh_CN",
+      "type": "v"
+    }]
+    }],
+    "highlights": []
+  }],
+  "region": {
+    "x": 1463.0940521296475,
+    "y": 286.6188287818599,
+    "width": 76.42381031642321,
+    "height": 534.8801717256148
+  },
+  "alignment": ["B3.2", "B3.5"],
+  "scaleX": 1,
+  "scaleY": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "decorators": [{
+    "level": "back",
+    "offsetX": 0.15,
+    "offsetY": -0.05,
+    "setting": {
+      "tags": [],
+      "reselectDecoratorOption": "invariable"
+    },
+    "fit": false,
+    "target": "content",
+    "offsetScale": 1.4,
+    "uniScaling": true,
+    "id": "d02c0844-6db8-42b0-bcff-913aab14642d",
+    "element": {
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "width": 0,
+      "height": 0,
+      "uri": "//resource.arkie.cn/resource/image/arkiemanual/type/4cae7da9-c32d-407b-87e9-5308a964afb8.png",
+      "scaleX": 1.215392156862745,
+      "scaleY": 1.215392156862745,
+      "visible": true,
+      "x": 24.361905,
+      "y": -111.15008600000002,
+      "type": "bitmap",
+      "id": "d02c0844-6db8-42b0-bcff-913aab14642d",
+      "range": {},
+      "alpha": 1,
+      "rotation": 0
+    }
+  }],
+  "renderData": {
+    "region": {
+      "width": 40,
+      "height": 348,
+      "x": 36.42381,
+      "y": 0
+    },
+    "elements": {
+      "boundingWidth": 40,
+      "width": 76.42381,
+      "height": 534.880172,
+      "baseFontSizeEn": 40,
+      "boundingHeight": 348,
+      "baseFontSizeZh": 40,
+      "boundingX": 36.42381,
+      "boundingY": 0,
+      "x": 0,
+      "y": 0,
+      "lines": [{
+        "x": 0,
+        "y": 0,
+        "width": 40,
+        "height": 348,
+        "rotate": 0,
+        "rotateCenterX": 36.42381,
+        "rotateCenterY": 0,
+        "cells": [{
+          "fill": "#93bf37",
+          "width": 40,
+          "height": 40,
+          "rotateCenterX": 0,
+          "rotateCenterY": 0,
+          "text": "新",
+          "fontSize": 40,
+          "fontFamily": "AaFangmeng",
+          "x": 0,
+          "y": -154,
+          "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 40,
+        "height": 40,
+        "rotateCenterX": 0,
+        "rotateCenterY": 44,
+        "text": "鲜",
+        "fontSize": 40,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": -110,
+        "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 40,
+        "height": 40,
+        "rotateCenterX": 0,
+        "rotateCenterY": 88,
+        "text": "食",
+        "fontSize": 40,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": -66,
+        "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 40,
+        "height": 40,
+        "rotateCenterX": 0,
+        "rotateCenterY": 132,
+        "text": "材",
+        "fontSize": 40,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": -22,
+        "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 40,
+        "height": 40,
+        "rotateCenterX": 0,
+        "rotateCenterY": 176,
+        "text": "不",
+        "fontSize": 40,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": 22,
+        "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 40,
+        "height": 40,
+        "rotateCenterX": 0,
+        "rotateCenterY": 220,
+        "text": "容",
+        "fontSize": 40,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": 66,
+        "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 40,
+        "height": 40,
+        "rotateCenterX": 0,
+        "rotateCenterY": 264,
+        "text": "错",
+        "fontSize": 40,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": 110,
+        "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 40,
+        "height": 40,
+        "rotateCenterX": 0,
+        "rotateCenterY": 308,
+        "text": "过",
+        "fontSize": 40,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": 154,
+        "rotate": 0
+        }]
+      }]
+    }
+  },
+  "font_settings": {
+    "zh_CN": {
+      "font_family": "AaFangmeng"
+    },
+    "en_US": {
+      "font_family": ""
+    }
+  },
+  "priority": 1,
+  "compositionTags": [{
+    "name": "new",
+    "on": true
+  }, {
+  "name": "none",
+  "on": true
+  }, {
+  "name": "vertical",
+  "on": true
+  }, {
+  "name": "top",
+  "on": true
+  }, {
+  "name": "tight",
+  "on": true
+  }],
+  "relationMark": null,
+  "fontTags": null
+  }, {
+  "id": "de2089d4-fc20-40e6-bbf2-42bccd403edc",
+  "name": "文本",
+  "type": "text",
+  "isFreeFromLayout": true,
+  "role": "body",
+  "decIds": [],
+  "composition": {
+    "id": "TitleRule-dc60b77b-8eae-4a4d-9818-0b6e70862c92",
+    "text_rules": [{
+      "name": "J2"
+    }, {
+    "name": "E1.1",
+    "params": {
+      "fixed_gap": "0.1"
+    }
+    }, {
+    "name": "E2.2",
+    "params": {
+      "fixed_gap": "0.3"
+    }
+    }, {
+    "name": "B4.1"
+    }],
+    "font_settings": {
+      "zh_CN": {
+        "font_family": "AaFangmeng"
+      },
+      "en_US": {
+        "font_family": ""
+      }
+    }
+  },
+  "alpha": 1,
+  "rotate": 11.378758791739198,
+  "font_size": 45,
+  "J1_alignment": "",
+  "J2_alignment": "",
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": true,
+    "contentLabelName": "正文",
+    "lengthLimit": {
+      "minWordNum": 0,
+      "maxWordNum": 120
+    },
+    "reselectCompositionOption": "invariable"
+  },
+  "content": {
+    "value": [{
+      "text": "鸟语花香意大利高级手绘瓷器",
+      "highlights": []
+    }]
+  },
+  "position": {
+    "x": 0.8143935371331981,
+    "y": 0.316895592916161,
+    "width": 0.04734243821605672,
+    "height": 0.6144286457435666
+  },
+  "colorScheme": {
+    "textColor": "#93bf37"
+  },
+  "paragraphs": [{
+    "contents": [{
+      "words": [{
+        "value": "鸟语",
+        "type": "n",
+        "language": "zh_CN",
+        "position": {
+          "start": 0,
+          "end": 2
+        }
+      }]
+    }, {
+    "words": [{
+      "value": "花香",
+      "type": "n",
+      "language": "zh_CN",
+      "position": {
+        "start": 2,
+        "end": 4
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "意大利",
+      "type": "nz",
+      "language": "zh_CN",
+      "position": {
+        "start": 4,
+        "end": 7
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "高级",
+      "type": "n",
+      "language": "zh_CN",
+      "position": {
+        "start": 7,
+        "end": 9
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "手绘",
+      "type": "n",
+      "language": "zh_CN",
+      "position": {
+        "start": 9,
+        "end": 11
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "瓷器",
+      "type": "n",
+      "language": "zh_CN",
+      "position": {
+        "start": 11,
+        "end": 13
+      }
+    }]
+    }],
+    "highlights": []
+  }],
+  "region": {
+    "x": 1563.6355912957404,
+    "y": 342.2472403494539,
+    "width": 90.8974813748289,
+    "height": 663.5829374030519
+  },
+  "alignment": ["B3.2", "B3.5"],
+  "renderData": {
+    "region": {
+      "width": 45,
+      "height": 639,
+      "x": 45.897481,
+      "y": 0
+    },
+    "elements": {
+      "boundingWidth": 45,
+      "width": 90.897481,
+      "height": 663.582937,
+      "baseFontSizeEn": 45,
+      "boundingHeight": 639,
+      "baseFontSizeZh": 45,
+      "boundingX": 45.897481,
+      "boundingY": 0,
+      "x": 0,
+      "y": 0,
+      "lines": [{
+        "x": 0,
+        "y": 0,
+        "width": 45,
+        "height": 639,
+        "rotate": 0,
+        "rotateCenterX": 45.897481,
+        "rotateCenterY": 0,
+        "cells": [{
+          "fill": "#93bf37",
+          "width": 45,
+          "height": 45,
+          "rotateCenterX": 0,
+          "rotateCenterY": 0,
+          "text": "鸟",
+          "fontSize": 45,
+          "fontFamily": "AaFangmeng",
+          "x": 0,
+          "y": -297,
+          "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 45,
+        "height": 45,
+        "rotateCenterX": 0,
+        "rotateCenterY": 49.5,
+        "text": "语",
+        "fontSize": 45,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": -247.5,
+        "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 45,
+        "height": 45,
+        "rotateCenterX": 0,
+        "rotateCenterY": 99,
+        "text": "花",
+        "fontSize": 45,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": -198,
+        "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 45,
+        "height": 45,
+        "rotateCenterX": 0,
+        "rotateCenterY": 148.5,
+        "text": "香",
+        "fontSize": 45,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": -148.5,
+        "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 45,
+        "height": 45,
+        "rotateCenterX": 0,
+        "rotateCenterY": 198,
+        "text": "意",
+        "fontSize": 45,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": -99,
+        "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 45,
+        "height": 45,
+        "rotateCenterX": 0,
+        "rotateCenterY": 247.5,
+        "text": "大",
+        "fontSize": 45,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": -49.5,
+        "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 45,
+        "height": 45,
+        "rotateCenterX": 0,
+        "rotateCenterY": 297,
+        "text": "利",
+        "fontSize": 45,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 45,
+        "height": 45,
+        "rotateCenterX": 0,
+        "rotateCenterY": 346.5,
+        "text": "高",
+        "fontSize": 45,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": 49.5,
+        "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 45,
+        "height": 45,
+        "rotateCenterX": 0,
+        "rotateCenterY": 396,
+        "text": "级",
+        "fontSize": 45,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": 99,
+        "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 45,
+        "height": 45,
+        "rotateCenterX": 0,
+        "rotateCenterY": 445.5,
+        "text": "手",
+        "fontSize": 45,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": 148.5,
+        "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 45,
+        "height": 45,
+        "rotateCenterX": 0,
+        "rotateCenterY": 495,
+        "text": "绘",
+        "fontSize": 45,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": 198,
+        "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 45,
+        "height": 45,
+        "rotateCenterX": 0,
+        "rotateCenterY": 544.5,
+        "text": "瓷",
+        "fontSize": 45,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": 247.5,
+        "rotate": 0
+        }, {
+        "fill": "#93bf37",
+        "width": 45,
+        "height": 45,
+        "rotateCenterX": 0,
+        "rotateCenterY": 594,
+        "text": "器",
+        "fontSize": 45,
+        "fontFamily": "AaFangmeng",
+        "x": 0,
+        "y": 297,
+        "rotate": 0
+        }]
+      }]
+    }
+  },
+  "font_settings": {
+    "zh_CN": {
+      "font_family": "AaFangmeng"
+    },
+    "en_US": {
+      "font_family": ""
+    }
+  },
+  "scaleX": 1,
+  "scaleY": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "decorators": [{
+    "level": "back",
+    "offsetX": 0.3,
+    "offsetY": 0,
+    "setting": {
+      "tags": [],
+      "reselectDecoratorOption": "invariable"
+    },
+    "fit": false,
+    "target": "content",
+    "offsetScale": 1.2,
+    "uniScaling": true,
+    "id": "2b465940-f0c5-491e-9972-5d8087473585",
+    "element": {
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "width": 0,
+      "height": 0,
+      "uri": "//resource.arkie.cn/resource/image/arkiemanual/type/4cae7da9-c32d-407b-87e9-5308a964afb8.png",
+      "scaleX": 1.8995588235294116,
+      "scaleY": 1.8995588235294116,
+      "visible": true,
+      "x": 36.7487405,
+      "y": -12.291468500000008,
+      "type": "bitmap",
+      "id": "2b465940-f0c5-491e-9972-5d8087473585",
+      "range": {},
+      "alpha": 1,
+      "rotation": 0
+    }
+  }],
+  "priority": 2,
+  "compositionTags": [{
+    "name": "new",
+    "on": true
+  }, {
+  "name": "none",
+  "on": true
+  }, {
+  "name": "vertical",
+  "on": true
+  }, {
+  "name": "top",
+  "on": true
+  }, {
+  "name": "tight",
+  "on": true
+  }],
+  "relationMark": null,
+  "fontTags": null
+  }, {
+  "id": "32232f9e-5718-420c-af12-21aab9b49402",
+  "scaleX": 1,
+  "scaleY": 1,
+  "rotate": 0,
+  "alpha": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "position": {
+    "x": 0.06883270751601263,
+    "y": 0.6659560444583741,
+    "width": 0.11863993973232248,
+    "height": 0.20418061438617444
+  },
+  "region": {
+    "x": 132.15879843074424,
+    "y": 719.232528015044,
+    "width": 227.78868428605915,
+    "height": 220.5150635370684
+  },
+  "type": "text",
+  "decorators": [{
+    "level": "back",
+    "offsetX": 0,
+    "offsetY": 0,
+    "setting": {
+      "tags": [{
+        "name": "square",
+        "on": true
+      }, {
+      "name": "panel",
+      "on": true
+      }, {
+      "name": "smooth",
+      "on": true
+      }, {
+      "name": "none",
+      "on": true
+      }, {
+      "name": "basic",
+      "on": true
+      }],
+      "reselectDecoratorOption": "invariable"
+    },
+    "fit": false,
+    "target": "area",
+    "offsetScale": 1,
+    "uniScaling": true,
+    "id": "da785831-4c1b-4c51-b613-7dcc420627a6",
+    "element": {
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "width": 500,
+      "height": 500,
+      "uri": "//resource.arkie.cn/resource/decoration/8b21025a-223a-43d9-b06e-636fdfc165d8.svg",
+      "scaleX": 0.4555773685721183,
+      "scaleY": 0.4555773685721183,
+      "colors": [{
+        "origin": "#000000",
+        "custom": "#ffde2a"
+      }],
+      "visible": true,
+      "x": 0,
+      "y": 0,
+      "type": "svg",
+      "id": "da785831-4c1b-4c51-b613-7dcc420627a6",
+      "alpha": 1,
+      "rotation": 0
+    }
+  }],
+  "isFreeFromLayout": true,
+  "font_size": 45,
+  "colorScheme": {
+    "textColor": "#ffffff"
+  },
+  "content": {
+    "value": [{
+      "text": "现价2999/套",
+      "highlights": []
+    }]
+  },
+  "paragraphs": [{
+    "contents": [{
+      "words": [{
+        "value": "现价",
+        "type": "n",
+        "language": "zh_CN",
+        "position": {
+          "start": 0,
+          "end": 2
+        }
+      }]
+    }, {
+    "words": [{
+      "value": "2999",
+      "type": "m",
+      "language": "en_US",
+      "position": {
+        "start": 2,
+        "end": 6
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "/",
+      "type": "w",
+      "language": "en_US",
+      "position": {
+        "start": 6,
+        "end": 7
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "套",
+      "type": "q",
+      "language": "zh_CN",
+      "position": {
+        "start": 7,
+        "end": 8
+      }
+    }]
+    }],
+    "highlights": []
+  }],
+  "renderData": {
+    "region": {
+      "width": 215.1,
+      "height": 108,
+      "x": 0,
+      "y": 54.500409
+    },
+    "elements": {
+      "boundingWidth": 215.1,
+      "width": 227.788684,
+      "height": 217.000818,
+      "baseFontSizeEn": 45,
+      "boundingHeight": 108,
+      "baseFontSizeZh": 45,
+      "boundingX": 0,
+      "boundingY": 54.500409,
+      "x": 0,
+      "y": 0,
+      "lines": [{
+        "x": 0,
+        "y": 0,
+        "width": 215.1,
+        "height": 45,
+        "rotate": 0,
+        "rotateCenterX": 0,
+        "rotateCenterY": 54.500409,
+        "cells": [{
+          "fill": "#ffffff",
+          "width": 45,
+          "height": 45,
+          "rotateCenterX": 0,
+          "rotateCenterY": 0,
+          "text": "现",
+          "fontSize": 45,
+          "fontFamily": "Source-Han-Sans-Medium",
+          "x": -85.05,
+          "y": -31.5,
+          "rotate": 0
+        }, {
+        "fill": "#ffffff",
+        "width": 45,
+        "height": 45,
+        "rotateCenterX": 49.5,
+        "rotateCenterY": 0,
+        "text": "价",
+        "fontSize": 45,
+        "fontFamily": "Source-Han-Sans-Medium",
+        "x": -35.55,
+        "y": -31.5,
+        "rotate": 0
+        }, {
+        "fill": "#ffffff",
+        "width": 25.65,
+        "height": 45,
+        "rotateCenterX": 99,
+        "rotateCenterY": 0,
+        "text": "2",
+        "fontSize": 45,
+        "fontFamily": "Source-Han-Sans-Medium",
+        "x": 4.275000000000006,
+        "y": -31.5,
+        "rotate": 0
+        }, {
+        "fill": "#ffffff",
+        "width": 25.65,
+        "height": 45,
+        "rotateCenterX": 129.15,
+        "rotateCenterY": 0,
+        "text": "9",
+        "fontSize": 45,
+        "fontFamily": "Source-Han-Sans-Medium",
+        "x": 34.425,
+        "y": -31.5,
+        "rotate": 0
+        }, {
+        "fill": "#ffffff",
+        "width": 25.65,
+        "height": 45,
+        "rotateCenterX": 159.3,
+        "rotateCenterY": 0,
+        "text": "9",
+        "fontSize": 45,
+        "fontFamily": "Source-Han-Sans-Medium",
+        "x": 64.575,
+        "y": -31.5,
+        "rotate": 0
+        }, {
+        "fill": "#ffffff",
+        "width": 25.65,
+        "height": 45,
+        "rotateCenterX": 189.45,
+        "rotateCenterY": 0,
+        "text": "9",
+        "fontSize": 45,
+        "fontFamily": "Source-Han-Sans-Medium",
+        "x": 94.72499999999998,
+        "y": -31.5,
+        "rotate": 0
+        }]
+      }, {
+      "x": 0,
+      "y": 63,
+      "width": 67.05,
+      "height": 45,
+      "rotate": 0,
+      "rotateCenterX": 0,
+      "rotateCenterY": 117.500409,
+      "cells": [{
+        "fill": "#ffffff",
+        "width": 17.55,
+        "height": 45,
+        "rotateCenterX": 0,
+        "rotateCenterY": 63,
+        "text": "/",
+        "fontSize": 45,
+        "fontFamily": "Source-Han-Sans-Medium",
+        "x": -98.77499999999999,
+        "y": 31.5,
+        "rotate": 0
+      }, {
+      "fill": "#ffffff",
+      "width": 45,
+      "height": 45,
+      "rotateCenterX": 22.05,
+      "rotateCenterY": 63,
+      "text": "套",
+      "fontSize": 45,
+      "fontFamily": "Source-Han-Sans-Medium",
+      "x": -63,
+      "y": 31.5,
+      "rotate": 0
+      }]
+      }]
+    }
+  },
+  "font_settings": {
+    "zh_CN": {
+      "font_family": "Source-Han-Sans-Medium"
+    },
+    "en_US": {
+      "font_family": ""
+    }
+  },
+  "composition": {
+    "id": "TitleRule-fa7a7066-8043-41d5-acc1-edfa85ac724b",
+    "text_rules": [{
+      "name": "E2.1",
+      "params": {
+        "fixed_gap": ".4"
+      }
+    }, {
+    "name": "E1.1",
+    "params": {
+      "fixed_gap": ".1"
+    }
+    }, "", "", "", "", "", "", "", "", "", {
+    "name": "B3.2"
+    }, {
+    "name": "B3.5"
+    }],
+    "font_settings": {
+      "zh_CN": {
+        "font_family": "Source-Han-Sans-Medium"
+      },
+      "en_US": {
+        "font_family": ""
+      }
+    }
+  },
+  "name": "文本",
+  "role": "body",
+  "priority": 3,
+  "compositionTags": [{
+    "name": "bold",
+    "on": true
+  }, {
+  "name": "serif",
+  "on": true
+  }, {
+  "name": "littletight",
+  "on": true
+  }, {
+  "name": "left",
+  "on": true
+  }, {
+  "name": "none",
+  "on": true
+  }, {
+  "name": "horizontal",
+  "on": true
+  }],
+  "relationMark": null,
+  "fontTags": null,
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": true,
+    "contentLabelName": "正文",
+    "lengthLimit": {
+      "minWordNum": 0,
+      "maxWordNum": 120
+    },
+    "reselectCompositionOption": "invariable"
+  }
+  }, {
+  "id": "44e0d864-dc0e-4418-a24e-65bc2c22a55a",
+  "scaleX": 1,
+  "scaleY": 1,
+  "rotate": 0,
+  "alpha": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "position": {
+    "x": 0.8746268237050292,
+    "y": 0.048618484074359265,
+    "width": 0.11477479526193204,
+    "height": 0.1733530094058608
+  },
+  "region": {
+    "x": 1679.2835015136561,
+    "y": 52.50796280030801,
+    "width": 220.36760690290953,
+    "height": 187.22125015832967
+  },
+  "content": {
+    "uri": "//resource.arkie.cn/resource/image/arkiemanual/type/5d9a8a08-b321-4c03-b3b0-263d77a0c215.png",
+    "fit": false
+  },
+  "isFreeFromLayout": true,
+  "type": "image",
+  "decorators": [],
+  "mask": null,
+  "imgBox": {
+    "x": 0,
+    "y": 0,
+    "width": 976,
+    "height": 824,
+    "scaleX": 0.2272102550465166,
+    "scaleY": 0.2272102550465166
+  },
+  "originalSize": {
+    "width": 976,
+    "height": 824
+  },
+  "name": "图片",
+  "role": "others",
+  "priority": 1,
+  "category": "logo",
+  "relationMark": null,
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": true,
+    "contentLabelName": "图片",
+    "reselectImageOption": "basedOnCategory",
+    "reselectImageCategory": "logo"
+  }
+  }, {
+  "id": "c54b0c02-0877-4734-9659-4566cf8048de",
+  "scaleX": 1,
+  "scaleY": 1,
+  "rotate": 0,
+  "alpha": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "position": {
+    "x": 0.3504965592441179,
+    "y": 0.9241292619411194,
+    "width": 0.4166666666666667,
+    "height": 0.04771744365540224
+  },
+  "region": {
+    "x": 672.9533937487063,
+    "y": 998.059602896409,
+    "width": 800,
+    "height": 51.53483914783442
+  },
+  "type": "text",
+  "decorators": [],
+  "isFreeFromLayout": true,
+  "font_size": 25,
+  "colorScheme": {
+    "textColor": "#ffffff"
+  },
+  "content": {
+    "value": [{
+      "text": "www.mengshoupai.com",
+      "highlights": []
+    }]
+  },
+  "paragraphs": [{
+    "contents": [{
+      "words": [{
+        "inputFontSizePx": 40,
+        "color": "#ffffff",
+        "length": 19,
+        "position": {
+          "start": 0,
+          "end": 19
+        },
+        "fontSize": 40,
+        "value": "www.mengshoupai.com",
+        "fontFamily": "Source-Han-Light",
+        "suggestFontSize": 25.76741957391721,
+        "fontFamilyMatrix": "Source-Han-Light",
+        "language": "en_US"
+      }]
+    }],
+    "highlights": []
+  }],
+  "renderData": {
+    "region": {
+      "width": 380,
+      "height": 50,
+      "x": 0,
+      "y": 0
+    },
+    "elements": {
+      "boundingWidth": 380,
+      "width": 1273.9578,
+      "height": 51.534839,
+      "baseFontSizeEn": 50,
+      "boundingHeight": 50,
+      "baseFontSizeZh": 50,
+      "boundingX": 0,
+      "boundingY": 0,
+      "x": 0,
+      "y": 0,
+      "lines": [{
+        "x": 0,
+        "y": 0,
+        "width": 380,
+        "height": 50,
+        "rotate": 0,
+        "rotateCenterX": 0,
+        "rotateCenterY": 0,
+        "cells": [{
+          "fill": "#ffffff",
+          "width": 50,
+          "height": 50,
+          "rotateCenterX": 0,
+          "rotateCenterY": 0,
+          "text": "猛",
+          "fontSize": 50,
+          "fontFamily": "SourceHanSerif-B",
+          "x": -165,
+          "y": 0,
+          "rotate": 0
+        }, {
+        "fill": "#ffffff",
+        "width": 50,
+        "height": 50,
+        "rotateCenterX": 55,
+        "rotateCenterY": 0,
+        "text": "兽",
+        "fontSize": 50,
+        "fontFamily": "SourceHanSerif-B",
+        "x": -110,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#ffffff",
+        "width": 50,
+        "height": 50,
+        "rotateCenterX": 110,
+        "rotateCenterY": 0,
+        "text": "拍",
+        "fontSize": 50,
+        "fontFamily": "SourceHanSerif-B",
+        "x": -55,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#ffffff",
+        "width": 50,
+        "height": 50,
+        "rotateCenterX": 165,
+        "rotateCenterY": 0,
+        "text": "独",
+        "fontSize": 50,
+        "fontFamily": "SourceHanSerif-B",
+        "x": 0,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#ffffff",
+        "width": 50,
+        "height": 50,
+        "rotateCenterX": 220,
+        "rotateCenterY": 0,
+        "text": "家",
+        "fontSize": 50,
+        "fontFamily": "SourceHanSerif-B",
+        "x": 55,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#ffffff",
+        "width": 50,
+        "height": 50,
+        "rotateCenterX": 275,
+        "rotateCenterY": 0,
+        "text": "上",
+        "fontSize": 50,
+        "fontFamily": "SourceHanSerif-B",
+        "x": 110,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#ffffff",
+        "width": 50,
+        "height": 50,
+        "rotateCenterX": 330,
+        "rotateCenterY": 0,
+        "text": "线",
+        "fontSize": 50,
+        "fontFamily": "SourceHanSerif-B",
+        "x": 165,
+        "y": 0,
+        "rotate": 0
+        }]
+      }]
+    }
+  },
+  "font_settings": {
+    "zh_CN": {
+      "font_family": "Source-Han-Light"
+    },
+    "en_US": {
+      "font_family": ""
+    }
+  },
+  "composition": {
+    "id": "TitleRule-fa7a7066-8043-41d5-acc1-edfa85ac724b",
+    "text_rules": [{
+      "name": "E2.1",
+      "params": {
+        "fixed_gap": ".4"
+      }
+    }, {
+    "name": "E1.1",
+    "params": {
+      "fixed_gap": ".1"
+    }
+    }, "", "", "", "", "", "", "", "", "", {
+    "name": "B3.2"
+    }, {
+    "name": "B3.5"
+    }],
+    "font_settings": {
+      "zh_CN": {
+        "font_family": "Source-Han-Light"
+      },
+      "en_US": {
+        "font_family": ""
+      }
+    }
+  },
+  "name": "文本",
+  "role": "body",
+  "priority": 4,
+  "compositionTags": [{
+    "name": "bold",
+    "on": true
+  }, {
+  "name": "serif",
+  "on": true
+  }, {
+  "name": "littletight",
+  "on": true
+  }, {
+  "name": "left",
+  "on": true
+  }, {
+  "name": "none",
+  "on": true
+  }, {
+  "name": "horizontal",
+  "on": true
+  }],
+  "relationMark": null,
+  "fontTags": null,
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": true,
+    "contentLabelName": "正文",
+    "lengthLimit": {
+      "minWordNum": 0,
+      "maxWordNum": 120
+    },
+    "reselectCompositionOption": "invariable"
+  }
+  }],
+  "isBackgroundAffectColorScheme": false,
+  "version": "v1.0",
+  "region": {
+    "x": 0,
+    "y": 0,
+    "width": 1920,
+    "height": 1080
+  },
+  "grid": null,
+  "isTextColorChangeable": false,
+  "isBackgroundColorChangeable": true,
+  "isDecoratorColorChangeable": false
+}

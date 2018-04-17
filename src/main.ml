@@ -1,3 +1,5 @@
+[%raw "require('isomorphic-fetch')"]
+
 external createGoogleFontLink: string -> unit = "createGoogleFontLink" [@@bs.module "./font"]
 external imgsize: string -> (float * float) Js_promise.t = "imgsize" [@@bs.module "./imgsize"]
 

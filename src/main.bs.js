@@ -15,6 +15,8 @@ import * as Decode$BuckleSandbox from "./decode.bs.js";
 import * as Youziku$BuckleSandbox from "./youziku.bs.js";
 import * as Caml_builtin_exceptions from "bs-platform/lib/es6/caml_builtin_exceptions.js";
 
+((require('isomorphic-fetch')));
+
 function renderSvgDecorator(decorator, svg, dimen) {
   var s = svg.replace(new RegExp("<svg[\\s\\S]*svg>"), "$&").replace(new RegExp("<svg"), "<svg width=\"" + (String(dimen[0]) + ("\" height=\"" + (String(dimen[1]) + "\""))));
   var match = decorator[/* element */1][/* colors */7];
@@ -80,13 +82,13 @@ function renderDecorator(dMap, innerRegion, outerRegion, decorator) {
     var dimen = match$1[1];
     var _type = decorator[/* element */1][/* _type */8];
     switch (_type) {
-      case "bitmap" : 
+      case "bitmap" :
           match$2 = /* tuple */[
             renderImageDecorator(decorator, dimen),
             dimen
           ];
           break;
-      case "svg" : 
+      case "svg" :
           match$2 = /* tuple */[
             renderSvgDecorator(decorator, match$1[0], dimen),
             dimen
@@ -275,19 +277,19 @@ function renderElement(dMap, param) {
     return "";
   } else {
     switch (param.tag | 0) {
-      case 0 : 
+      case 0 :
           return renderBackground(param[0]);
-      case 1 : 
+      case 1 :
           return renderImage(dMap, param[0]);
-      case 2 : 
+      case 2 :
           return renderText(dMap, param[0]);
-      case 3 : 
+      case 3 :
           return renderLayer(dMap, param[0]);
-      case 4 : 
+      case 4 :
           return renderMask(param[0]);
-      case 5 : 
+      case 5 :
           return renderSvgElement(param[0]);
-      
+
     }
   }
 }
@@ -352,7 +354,7 @@ function createDecoratorMap(tree) {
   return Promise.all($$Array.of_list(List.map((function (d) {
                           var _type = d[/* element */1][/* _type */8];
                           switch (_type) {
-                            case "bitmap" : 
+                            case "bitmap" :
                                 return Imgsize.imgsize(d[/* element */1][/* uri */5]).then((function (dimen) {
                                               return Promise.resolve(/* tuple */[
                                                           d[/* id */0],
@@ -362,7 +364,7 @@ function createDecoratorMap(tree) {
                                                           ]
                                                         ]);
                                             }));
-                            case "svg" : 
+                            case "svg" :
                                 return fetch(d[/* element */1][/* uri */5]).then((function (prim) {
                                                 return prim.text();
                                               })).then((function (text) {
@@ -385,11 +387,11 @@ function createDecoratorMap(tree) {
                                     return /* [] */0;
                                   } else {
                                     switch (param.tag | 0) {
-                                      case 1 : 
+                                      case 1 :
                                           return param[0][/* decorators */8];
-                                      case 2 : 
+                                      case 2 :
                                           return param[0][/* decorators */6];
-                                      case 3 : 
+                                      case 3 :
                                           return param[0][/* decorators */2];
                                       default:
                                         return /* [] */0;
@@ -527,6 +529,6 @@ export {
   loadFonts ,
   processFonts ,
   renderSvg ,
-  
+
 }
-/* re Not a pure module */
+/*  Not a pure module */

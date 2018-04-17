@@ -1,0 +1,3260 @@
+{
+  "id": "3f4c8f2f-19b1-4a79-91f2-61d64f828f9d",
+  "size": {
+    "name": "手机全屏",
+    "width": 1080,
+    "height": 1920,
+    "unit": "px"
+  },
+  "layout": null,
+  "children": [{
+    "id": "92465422-5d14-423c-95ff-4bc49623a4bd",
+    "scaleX": 1,
+    "scaleY": 1,
+    "rotate": 0,
+    "alpha": 1,
+    "isHidden": false,
+    "pivot": {
+      "x": 0,
+      "y": 0
+    },
+    "position": {
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    "region": {
+      "x": 0,
+      "y": 0,
+      "width": 1080,
+      "height": 1920
+    },
+    "content": {
+      "color": ""
+    },
+    "isFreeFromLayout": true,
+    "type": "background",
+    "contentSetting": {
+      "isEditable": true,
+      "contentLabelName": "背景"
+    },
+    "name": "背景",
+    "role": "background"
+  }, {
+  "id": "79f2cd4f-ce1e-4e29-91da-2bf8bcafe75c",
+  "scaleX": 1,
+  "scaleY": 1,
+  "rotate": 0,
+  "alpha": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "position": {
+    "x": -0.05733337389963864,
+    "y": -0.013554216867469885,
+    "width": 1.107737008640623,
+    "height": 1.042944505293903
+  },
+  "region": {
+    "x": -61.92004381160973,
+    "y": -26.02409638554218,
+    "width": 1196.355969331873,
+    "height": 2002.4534501642938
+  },
+  "content": {
+    "uri": "//resource.arkie.cn/resource/image/arkiemanual/type/acba2fd7-469c-481a-9640-b7c8242f08a8.png",
+    "fit": false
+  },
+  "isFreeFromLayout": true,
+  "type": "image",
+  "decorators": [],
+  "imgBox": {
+    "x": 0,
+    "y": 0,
+    "width": 801,
+    "height": 800,
+    "scaleX": 2.5030668127053675,
+    "scaleY": 2.5030668127053675
+  },
+  "originalSize": {
+    "width": 801,
+    "height": 800
+  },
+  "name": "图片",
+  "role": "others",
+  "priority": 1,
+  "category": "ImageDirectory-45c5d345-115d-4b30-97f6-d78e0854be59",
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": false,
+    "contentLabelName": "图片",
+    "reselectImageOption": "basedOnCategory",
+    "reselectImageCategory": "ImageDirectory-45c5d345-115d-4b30-97f6-d78e0854be59"
+  }
+  }, {
+  "id": "0d348c72-d408-4536-abac-ccbfba3c37bf",
+  "scaleX": 1,
+  "scaleY": 1,
+  "rotate": 0,
+  "alpha": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "position": {
+    "x": 0.04185251105431828,
+    "y": 0.14308483935742952,
+    "width": 0.9150863555231029,
+    "height": 0.386853094194962
+  },
+  "region": {
+    "x": 45.200711938663744,
+    "y": 274.7228915662647,
+    "width": 988.2932639649512,
+    "height": 742.757940854327
+  },
+  "content": {
+    "uri": "//arkie-private.images.arkie.cn/7071fd5a-775d-44d5-a13b-b7cf935b158b/resources/1522311996175_8854c4c2-dda5-4b00-89cd-abd9400ac24a.jpeg",
+    "fit": false
+  },
+  "isFreeFromLayout": true,
+  "type": "image",
+  "decorators": [],
+  "mask": {
+    "type": "rectangle"
+  },
+  "imgBox": {
+    "x": 0,
+    "y": 0,
+    "width": 474,
+    "height": 692,
+    "scaleX": 2.276540770427413,
+    "scaleY": 2.276540770427413
+  },
+  "originalSize": {
+    "width": 474,
+    "height": 692
+  },
+  "name": "图片",
+  "role": "backgroundImage",
+  "priority": 1,
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": true,
+    "contentLabelName": "图片",
+    "reselectImageOption": "basedOnKeywords"
+  }
+  }, {
+  "id": "a1595713-8b50-4436-93ea-c5267582f721",
+  "scaleX": 1,
+  "scaleY": 1,
+  "rotate": 0,
+  "alpha": 0.36,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "position": {
+    "x": 0.04259259259259259,
+    "y": 0.1429587668857248,
+    "width": 0.9148148148148149,
+    "height": 0.38697916666666665
+  },
+  "region": {
+    "x": 46,
+    "y": 274.4808324205916,
+    "width": 988,
+    "height": 743
+  },
+  "content": {
+    "uri": "//arkie-private.images.arkie.cn/7071fd5a-775d-44d5-a13b-b7cf935b158b/resources/1518181728044_9acde92e-8c42-488f-be79-f2fd111880ac.png",
+    "fit": false
+  },
+  "isFreeFromLayout": true,
+  "type": "image",
+  "decorators": [],
+  "imgBox": {
+    "x": 0,
+    "y": 0,
+    "width": 715,
+    "height": 1069,
+    "scaleX": 1.3818181818181818,
+    "scaleY": 1.3818181818181818
+  },
+  "originalSize": {
+    "width": 715,
+    "height": 1069
+  },
+  "name": "图片",
+  "role": "others",
+  "priority": 1,
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": false,
+    "contentLabelName": "图片",
+    "reselectImageOption": "invariable"
+  }
+  }, {
+  "id": "ddd420a1-0674-498c-88ff-acc0a8201349",
+  "scaleX": 1,
+  "scaleY": 1,
+  "rotate": 0,
+  "alpha": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "position": {
+    "x": 0.7392636201371144,
+    "y": 0.4626498292399532,
+    "width": 0.20209778507971257,
+    "height": 0.372508987846575
+  },
+  "region": {
+    "x": 798.4047097480836,
+    "y": 888.2876721407101,
+    "width": 218.26560788608958,
+    "height": 715.217256665424
+  },
+  "type": "text",
+  "decorators": [],
+  "isFreeFromLayout": true,
+  "font_size": 95,
+  "colorScheme": {
+    "textColor": "#90663f"
+  },
+  "content": {
+    "value": [{
+      "text": "抹茶蛋糕",
+      "highlights": []
+    }]
+  },
+  "font_settings": {
+    "zh_CN": {
+      "font_family": "SourceHanSerif-M"
+    },
+    "en_US": {
+      "font_family": ""
+    }
+  },
+  "composition": {
+    "id": "TitleRule-6ef2b2c5-904c-4e7e-82c3-153085bb28c7",
+    "text_rules": [{
+      "name": "E1.1",
+      "params": {
+        "fixed_gap": 0.8
+      }
+    }, {
+    "name": "E2.1",
+    "params": {
+      "fixed_gap": 0.2
+    }
+    }, {
+    "name": "A0.1"
+    }, {
+    "name": "J2"
+    }, {
+    "name": "B4.6"
+    }, {
+    "name": "B4.1"
+    }],
+    "font_settings": {
+      "zh_CN": {
+        "font_family": "SourceHanSerif-M"
+      },
+      "en_US": {
+        "font_family": ""
+      }
+    }
+  },
+  "name": "文本",
+  "role": "title",
+  "priority": 0,
+  "compositionTags": [{
+    "name": "bold",
+    "on": true
+  }, {
+  "name": "serif",
+  "on": true
+  }, {
+  "name": "vertical",
+  "on": true
+  }, {
+  "name": "top",
+  "on": true
+  }, {
+  "name": "font",
+  "on": true
+  }, {
+  "name": "loose",
+  "on": true
+  }, {
+  "name": "none",
+  "on": true
+  }],
+  "relationMark": "#FB8C00",
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": true,
+    "contentLabelName": "正文",
+    "lengthLimit": {
+      "minWordNum": 0,
+      "maxWordNum": 120
+    },
+    "reselectCompositionOption": "invariable",
+    "reselectFontFamilyOptions": "baseOnTags"
+  },
+  "paragraphs": [{
+    "contents": [{
+      "words": [{
+        "value": "抹茶",
+        "type": "v",
+        "language": "zh_CN",
+        "position": {
+          "start": 0,
+          "end": 2
+        }
+      }]
+    }, {
+    "words": [{
+      "value": "蛋糕",
+      "type": "n",
+      "language": "zh_CN",
+      "position": {
+        "start": 2,
+        "end": 4
+      }
+    }]
+    }],
+    "highlights": []
+  }],
+  "renderData": {
+    "region": {
+      "width": 95,
+      "height": 608,
+      "x": 123.265608,
+      "y": 0
+    },
+    "elements": {
+      "boundingWidth": 95,
+      "width": 218.265608,
+      "height": 715.217257,
+      "baseFontSizeEn": 95,
+      "boundingHeight": 608,
+      "baseFontSizeZh": 95,
+      "boundingX": 123.265608,
+      "boundingY": 0,
+      "x": 0,
+      "y": 0,
+      "lines": [{
+        "x": 0,
+        "y": 0,
+        "width": 95,
+        "height": 608,
+        "rotate": 0,
+        "rotateCenterX": 123.265608,
+        "rotateCenterY": 0,
+        "cells": [{
+          "fill": "#90663f",
+          "width": 95,
+          "height": 95,
+          "rotateCenterX": 0,
+          "rotateCenterY": 0,
+          "text": "抹",
+          "fontSize": 95,
+          "fontFamily": "SourceHanSerif-M",
+          "x": 0,
+          "y": -256.5,
+          "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 95,
+        "height": 95,
+        "rotateCenterX": 0,
+        "rotateCenterY": 171,
+        "text": "茶",
+        "fontSize": 95,
+        "fontFamily": "SourceHanSerif-M",
+        "x": 0,
+        "y": -85.5,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 95,
+        "height": 95,
+        "rotateCenterX": 0,
+        "rotateCenterY": 342,
+        "text": "蛋",
+        "fontSize": 95,
+        "fontFamily": "SourceHanSerif-M",
+        "x": 0,
+        "y": 85.5,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 95,
+        "height": 95,
+        "rotateCenterX": 0,
+        "rotateCenterY": 513,
+        "text": "糕",
+        "fontSize": 95,
+        "fontFamily": "SourceHanSerif-M",
+        "x": 0,
+        "y": 256.5,
+        "rotate": 0
+        }]
+      }]
+    }
+  },
+  "fontTags": []
+  }, {
+  "id": "2b1ed6bc-5d28-4c20-b068-8d2a8c1ea46c",
+  "name": "文本",
+  "type": "text",
+  "isFreeFromLayout": true,
+  "role": "body",
+  "decIds": [],
+  "composition": {
+    "id": "TitleRule-e4472153-4601-417b-9e99-581678a1e8a9",
+    "text_rules": [{
+      "name": "E1.1",
+      "params": {
+        "fixed_gap": 0.5
+      }
+    }, {
+    "name": "E2.1",
+    "params": {
+      "fixed_gap": 1
+    }
+    }, "", "", {
+    "name": "B3.2"
+    }, {
+    "name": "B3.5"
+    }],
+    "font_settings": {
+      "zh_CN": {
+        "font_family": "Source-Han-Normal"
+      },
+      "en_US": {
+        "font_family": ""
+      }
+    }
+  },
+  "alpha": 1,
+  "rotate": 0,
+  "font_size": 60,
+  "J1_alignment": "",
+  "J2_alignment": "",
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": true,
+    "contentLabelName": "正文",
+    "lengthLimit": {
+      "minWordNum": 0,
+      "maxWordNum": 120
+    },
+    "reselectCompositionOption": "invariable",
+    "reselectFontFamilyOptions": "baseOnTags"
+  },
+  "content": {
+    "value": [{
+      "text": "竟然只要29元",
+      "highlights": []
+    }]
+  },
+  "position": {
+    "x": 0.10317679040162557,
+    "y": 0.4827307901593801,
+    "width": 0.17398690280088902,
+    "height": 0.10759536625375136
+  },
+  "colorScheme": {
+    "textColor": "#ffffff"
+  },
+  "paragraphs": [{
+    "contents": [{
+      "words": [{
+        "value": "竟然",
+        "type": "d",
+        "language": "zh_CN",
+        "position": {
+          "start": 0,
+          "end": 2
+        }
+      }]
+    }, {
+    "words": [{
+      "value": "只要",
+      "language": "zh_CN",
+      "position": {
+        "start": 2,
+        "end": 4
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "29",
+      "type": "m",
+      "language": "en_US",
+      "position": {
+        "start": 4,
+        "end": 6
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "元",
+      "type": "q",
+      "language": "zh_CN",
+      "position": {
+        "start": 6,
+        "end": 7
+      }
+    }]
+    }],
+    "highlights": []
+  }],
+  "region": {
+    "x": 111.43093363375561,
+    "y": 926.8431171060098,
+    "width": 187.90585502496015,
+    "height": 206.5831032072026
+  },
+  "alignment": ["B3.2", "B3.5"],
+  "renderData": {
+    "region": {
+      "width": 187.905855,
+      "height": 102.494103,
+      "x": 0,
+      "y": 52.0445
+    },
+    "elements": {
+      "boundingWidth": 187.905855,
+      "width": 187.905855,
+      "height": 206.583103,
+      "baseFontSizeEn": 60,
+      "boundingHeight": 102.494103,
+      "baseFontSizeZh": 60,
+      "boundingX": 0,
+      "boundingY": 52.0445,
+      "x": 0,
+      "y": 0,
+      "lines": [{
+        "x": 0,
+        "y": 0,
+        "width": 187.905855,
+        "height": 34.164701,
+        "rotate": 0,
+        "rotateCenterX": 0,
+        "rotateCenterY": 52.0445,
+        "cells": [{
+          "fill": "#ffffff",
+          "width": 34.164701,
+          "height": 34.164701,
+          "rotateCenterX": 0,
+          "rotateCenterY": 0,
+          "text": "竟",
+          "fontSize": 34.164701,
+          "fontFamily": "Source-Han-Normal",
+          "x": -76.870577,
+          "y": -34.164700999999994,
+          "rotate": 0
+        }, {
+        "fill": "#ffffff",
+        "width": 34.164701,
+        "height": 34.164701,
+        "rotateCenterX": 51.247051,
+        "rotateCenterY": 0,
+        "text": "然",
+        "fontSize": 34.164701,
+        "fontFamily": "Source-Han-Normal",
+        "x": -25.623526,
+        "y": -34.164700999999994,
+        "rotate": 0
+        }, {
+        "fill": "#ffffff",
+        "width": 34.164701,
+        "height": 34.164701,
+        "rotateCenterX": 102.494103,
+        "rotateCenterY": 0,
+        "text": "只",
+        "fontSize": 34.164701,
+        "fontFamily": "Source-Han-Normal",
+        "x": 25.623526,
+        "y": -34.164700999999994,
+        "rotate": 0
+        }, {
+        "fill": "#ffffff",
+        "width": 34.164701,
+        "height": 34.164701,
+        "rotateCenterX": 153.741154,
+        "rotateCenterY": 0,
+        "text": "要",
+        "fontSize": 34.164701,
+        "fontFamily": "Source-Han-Normal",
+        "x": 76.87057699999998,
+        "y": -34.164700999999994,
+        "rotate": 0
+        }]
+      }, {
+      "x": 41.031808,
+      "y": 68.329402,
+      "width": 105.84224,
+      "height": 34.164701,
+      "rotate": 0,
+      "rotateCenterX": 41.031808,
+      "rotateCenterY": 120.373902,
+      "cells": [{
+        "fill": "#ffffff",
+        "width": 18.756419,
+        "height": 34.164701,
+        "rotateCenterX": 41.031808,
+        "rotateCenterY": 68.329402,
+        "text": "2",
+        "fontSize": 34.164701,
+        "fontFamily": "Source-Han-Normal",
+        "x": -43.542910000000006,
+        "y": 34.16470100000001,
+        "rotate": 0
+      }, {
+      "fill": "#ffffff",
+      "width": 18.756419,
+      "height": 34.164701,
+      "rotateCenterX": 76.870577,
+      "rotateCenterY": 68.329402,
+      "text": "9",
+      "fontSize": 34.164701,
+      "fontFamily": "Source-Han-Normal",
+      "x": -7.704141000000007,
+      "y": 34.16470100000001,
+      "rotate": 0
+      }, {
+      "fill": "#ffffff",
+      "width": 34.164701,
+      "height": 34.164701,
+      "rotateCenterX": 112.709346,
+      "rotateCenterY": 68.329402,
+      "text": "元",
+      "fontSize": 34.164701,
+      "fontFamily": "Source-Han-Normal",
+      "x": 35.838769,
+      "y": 34.16470100000001,
+      "rotate": 0
+      }]
+      }]
+    }
+  },
+  "font_settings": {
+    "zh_CN": {
+      "font_family": "Source-Han-Normal"
+    },
+    "en_US": {
+      "font_family": ""
+    }
+  },
+  "scaleX": 1,
+  "scaleY": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "decorators": [{
+    "level": "back",
+    "offsetX": 0,
+    "offsetY": 0,
+    "setting": {
+      "tags": [{
+        "name": "panel",
+        "on": true
+      }, {
+      "name": "smooth",
+      "on": true
+      }, {
+      "name": "none",
+      "on": true
+      }, {
+      "name": "square",
+      "on": true
+      }, {
+      "name": "organic",
+      "on": true
+      }],
+      "decoratorReplaceable": false
+    },
+    "fit": false,
+    "target": "content",
+    "offsetScale": 1.44,
+    "uniScaling": true,
+    "id": "55037415-8e27-4d85-bdf9-5ab4232c5333",
+    "element": {
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "width": 441.53,
+      "height": 496.94,
+      "uri": "//resource.arkie.cn/resource/decoration/c705cdb6-266f-4fdb-abde-dcc5a9134191.svg",
+      "scaleX": 0.6160796436499927,
+      "scaleY": 0.6160796436499927,
+      "colors": [{
+        "origin": "#C1AD96",
+        "custom": "#97b74a"
+      }, {
+      "origin": "#C7B5A1",
+      "custom": "#97b74a"
+      }],
+      "visible": true,
+      "x": 0,
+      "y": 0,
+      "type": "svg",
+      "id": "55037415-8e27-4d85-bdf9-5ab4232c5333",
+      "alpha": 1,
+      "rotation": 0
+    }
+  }],
+  "priority": 1,
+  "compositionTags": [{
+    "name": "new",
+    "on": true
+  }],
+  "relationMark": "#FB8C00",
+  "fontTags": []
+  }, {
+  "id": "ae765d4a-d52d-4b6f-a62e-d4a2e93210b6",
+  "name": "文本",
+  "type": "text",
+  "isFreeFromLayout": true,
+  "role": "body",
+  "decIds": [],
+  "composition": {
+    "id": "TitleRule-844c2539-8789-4f21-a383-90572e062e18",
+    "text_rules": [{
+      "name": "P0.1",
+      "caption": "被标记为重点的文字自成一行",
+      "type": "line_wrapping",
+      "text_orientation": "horizontal|vertical",
+      "wrap_words": true,
+      "wrap_highlights": true,
+      "enabled": true
+    }, {
+    "name": "E2.1",
+    "caption": "行间固定间距（-50%至100%）",
+    "type": "spacing",
+    "text_orientation": "horizontal",
+    "layout_perspective": "text_lines",
+    "enabled": true,
+    "params": {
+      "fixed_gap": "0.3"
+    }
+    }, {
+    "name": "E1.1",
+    "caption": "文字间固定间距（-50%至100%）",
+    "type": "spacing",
+    "text_orientation": "horizontal",
+    "layout_perspective": "text_cells",
+    "enabled": true,
+    "params": {
+      "fixed_gap": "0.1"
+    },
+    "description": ""
+    }, "", "", "", "", "", "", "", "", "", "", {
+    "name": "B3.1"
+    }, {
+    "name": "B3.5"
+    }],
+    "font_settings": {
+      "zh_CN": {
+        "font_family": "Source-Han-Normal"
+      },
+      "en_US": {
+        "font_family": ""
+      }
+    }
+  },
+  "alpha": 1,
+  "rotate": 0,
+  "font_size": 25,
+  "J1_alignment": "",
+  "J2_alignment": "",
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": true,
+    "contentLabelName": "正文",
+    "lengthLimit": {
+      "minWordNum": 0,
+      "maxWordNum": 120
+    },
+    "reselectCompositionOption": "invariable",
+    "reselectFontFamilyOptions": "baseOnTags"
+  },
+  "content": {
+    "value": [{
+      "text": "手机号：13817653429",
+      "highlights": []
+    }]
+  },
+  "position": {
+    "x": 0.3098631387861937,
+    "y": 0.8973131709263419,
+    "width": 0.6296296296296297,
+    "height": 0.028980604420388308
+  },
+  "colorScheme": {
+    "textColor": "#90663f"
+  },
+  "paragraphs": [{
+    "contents": [{
+      "words": [{
+        "value": "手机号",
+        "type": "n",
+        "language": "zh_CN",
+        "position": {
+          "start": 0,
+          "end": 3
+        }
+      }]
+    }, {
+    "words": [{
+      "value": "：",
+      "type": "w",
+      "language": "zh_CN",
+      "position": {
+        "start": 3,
+        "end": 4
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "13817653429",
+      "type": "m",
+      "language": "en_US",
+      "position": {
+        "start": 4,
+        "end": 15
+      }
+    }]
+    }],
+    "highlights": []
+  }],
+  "region": {
+    "x": 334.6521898890892,
+    "y": 1722.8412881785764,
+    "width": 680,
+    "height": 55.64276048714555
+  },
+  "alignment": ["B3.2", "B3.5"],
+  "renderData": {
+    "region": {
+      "width": 273.474978,
+      "height": 25,
+      "x": 406.525022,
+      "y": 15.32138
+    },
+    "elements": {
+      "boundingWidth": 273.474978,
+      "width": 680,
+      "height": 55.64276,
+      "baseFontSizeEn": 25,
+      "boundingHeight": 25,
+      "baseFontSizeZh": 25,
+      "boundingX": 406.525022,
+      "boundingY": 15.32138,
+      "x": 0,
+      "y": 0,
+      "lines": [{
+        "x": 0,
+        "y": 0,
+        "width": 273.474978,
+        "height": 25,
+        "rotate": 0,
+        "rotateCenterX": 406.525022,
+        "rotateCenterY": 15.32138,
+        "cells": [{
+          "fill": "#90663f",
+          "width": 25,
+          "height": 25,
+          "rotateCenterX": 0,
+          "rotateCenterY": 0,
+          "text": "手",
+          "fontSize": 25,
+          "fontFamily": "Source-Han-Normal",
+          "x": -124.23748900000001,
+          "y": 0,
+          "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 25,
+        "height": 25,
+        "rotateCenterX": 27.5,
+        "rotateCenterY": 0,
+        "text": "机",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -96.73748900000001,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 25,
+        "height": 25,
+        "rotateCenterX": 55,
+        "rotateCenterY": 0,
+        "text": "号",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -69.23748900000001,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 12.5,
+        "height": 25,
+        "rotateCenterX": 82.5,
+        "rotateCenterY": 0,
+        "text": ":",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -47.98748900000001,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 97.5,
+        "rotateCenterY": 0,
+        "text": "1",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -32.37499000000001,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 113.724998,
+        "rotateCenterY": 0,
+        "text": "3",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -16.14999200000001,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 129.949996,
+        "rotateCenterY": 0,
+        "text": "8",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 0.0750060000000019,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 146.174994,
+        "rotateCenterY": 0,
+        "text": "1",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 16.300003999999973,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 162.399992,
+        "rotateCenterY": 0,
+        "text": "7",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 32.525002,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 178.62499,
+        "rotateCenterY": 0,
+        "text": "6",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 48.74999999999997,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 194.849988,
+        "rotateCenterY": 0,
+        "text": "5",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 64.974998,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 211.074986,
+        "rotateCenterY": 0,
+        "text": "3",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 81.19999599999997,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 227.299984,
+        "rotateCenterY": 0,
+        "text": "4",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 97.424994,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 243.524982,
+        "rotateCenterY": 0,
+        "text": "2",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 113.64999199999997,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 259.74998,
+        "rotateCenterY": 0,
+        "text": "9",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 129.87499,
+        "y": 0,
+        "rotate": 0
+        }]
+      }]
+    }
+  },
+  "font_settings": {
+    "zh_CN": {
+      "font_family": "Source-Han-Normal"
+    },
+    "en_US": {
+      "font_family": ""
+    }
+  },
+  "scaleX": 1,
+  "scaleY": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "decorators": [],
+  "priority": 4,
+  "relationMark": "#FB8C00",
+  "fontTags": []
+  }, {
+  "id": "760fd53a-5b2c-43ea-aa79-5fab6f4988af",
+  "scaleX": 1,
+  "scaleY": 1,
+  "rotate": 0,
+  "alpha": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "position": {
+    "x": 0.3098631387861937,
+    "y": 0.9451368064698694,
+    "width": 0.6296296296296297,
+    "height": 0.029166666666666667
+  },
+  "region": {
+    "x": 334.6521898890892,
+    "y": 1814.6626684221492,
+    "width": 680,
+    "height": 56
+  },
+  "type": "text",
+  "decorators": [],
+  "isFreeFromLayout": true,
+  "font_size": 25,
+  "colorScheme": {
+    "textColor": "#90663f"
+  },
+  "content": {
+    "value": [{
+      "text": "上海市成都南路300弄6号1楼",
+      "highlights": []
+    }]
+  },
+  "font_settings": {
+    "zh_CN": {
+      "font_family": "Source-Han-Normal"
+    },
+    "en_US": {
+      "font_family": ""
+    }
+  },
+  "composition": {
+    "id": "TitleRule-844c2539-8789-4f21-a383-90572e062e18",
+    "text_rules": [{
+      "name": "P0.1",
+      "caption": "被标记为重点的文字自成一行",
+      "type": "line_wrapping",
+      "text_orientation": "horizontal|vertical",
+      "wrap_words": true,
+      "wrap_highlights": true,
+      "enabled": true
+    }, {
+    "name": "E2.1",
+    "caption": "行间固定间距（-50%至100%）",
+    "type": "spacing",
+    "text_orientation": "horizontal",
+    "layout_perspective": "text_lines",
+    "enabled": true,
+    "params": {
+      "fixed_gap": "0.3"
+    }
+    }, {
+    "name": "E1.1",
+    "caption": "文字间固定间距（-50%至100%）",
+    "type": "spacing",
+    "text_orientation": "horizontal",
+    "layout_perspective": "text_cells",
+    "enabled": true,
+    "params": {
+      "fixed_gap": "0.1"
+    },
+    "description": ""
+    }, "", "", "", "", "", "", "", "", {
+    "name": "B3.1"
+    }, {
+    "name": "B3.5"
+    }],
+    "font_settings": {
+      "zh_CN": {
+        "font_family": "Source-Han-Normal"
+      },
+      "en_US": {
+        "font_family": ""
+      }
+    }
+  },
+  "name": "文本",
+  "role": "body",
+  "priority": 6,
+  "relationMark": "#FB8C00",
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": true,
+    "contentLabelName": "正文",
+    "lengthLimit": {
+      "minWordNum": 0,
+      "maxWordNum": 120
+    },
+    "reselectCompositionOption": "invariable",
+    "reselectFontFamilyOptions": "baseOnTags"
+  },
+  "paragraphs": [{
+    "contents": [{
+      "words": [{
+        "value": "上海市",
+        "type": "nz",
+        "language": "zh_CN",
+        "position": {
+          "start": 0,
+          "end": 3
+        }
+      }]
+    }, {
+    "words": [{
+      "value": "成都",
+      "type": "nz",
+      "language": "zh_CN",
+      "position": {
+        "start": 3,
+        "end": 5
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "南路",
+      "type": "nz",
+      "language": "zh_CN",
+      "position": {
+        "start": 5,
+        "end": 7
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "300",
+      "type": "m",
+      "language": "en_US",
+      "position": {
+        "start": 7,
+        "end": 10
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "弄",
+      "type": "v",
+      "language": "zh_CN",
+      "position": {
+        "start": 10,
+        "end": 11
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "6",
+      "type": "m",
+      "language": "en_US",
+      "position": {
+        "start": 11,
+        "end": 12
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "号",
+      "type": "q",
+      "language": "zh_CN",
+      "position": {
+        "start": 12,
+        "end": 13
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "1",
+      "type": "m",
+      "language": "en_US",
+      "position": {
+        "start": 13,
+        "end": 14
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "楼",
+      "type": "q",
+      "language": "zh_CN",
+      "position": {
+        "start": 14,
+        "end": 15
+      }
+    }]
+    }],
+    "highlights": []
+  }],
+  "renderData": {
+    "region": {
+      "width": 353.62499,
+      "height": 25,
+      "x": 326.37501,
+      "y": 15.5
+    },
+    "elements": {
+      "boundingWidth": 353.62499,
+      "width": 680,
+      "height": 56,
+      "baseFontSizeEn": 25,
+      "boundingHeight": 25,
+      "baseFontSizeZh": 25,
+      "boundingX": 326.37501,
+      "boundingY": 15.5,
+      "x": 0,
+      "y": 0,
+      "lines": [{
+        "x": 0,
+        "y": 0,
+        "width": 353.62499,
+        "height": 25,
+        "rotate": 0,
+        "rotateCenterX": 326.37501,
+        "rotateCenterY": 15.5,
+        "cells": [{
+          "fill": "#90663f",
+          "width": 25,
+          "height": 25,
+          "rotateCenterX": 0,
+          "rotateCenterY": 0,
+          "text": "上",
+          "fontSize": 25,
+          "fontFamily": "Source-Han-Normal",
+          "x": -164.312495,
+          "y": 0,
+          "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 25,
+        "height": 25,
+        "rotateCenterX": 27.5,
+        "rotateCenterY": 0,
+        "text": "海",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -136.812495,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 25,
+        "height": 25,
+        "rotateCenterX": 55,
+        "rotateCenterY": 0,
+        "text": "市",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -109.31249500000001,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 25,
+        "height": 25,
+        "rotateCenterX": 82.5,
+        "rotateCenterY": 0,
+        "text": "成",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -81.81249500000001,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 25,
+        "height": 25,
+        "rotateCenterX": 110,
+        "rotateCenterY": 0,
+        "text": "都",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -54.31249500000001,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 25,
+        "height": 25,
+        "rotateCenterX": 137.5,
+        "rotateCenterY": 0,
+        "text": "南",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -26.812495000000013,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 25,
+        "height": 25,
+        "rotateCenterX": 165,
+        "rotateCenterY": 0,
+        "text": "路",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 0.6875049999999874,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 192.5,
+        "rotateCenterY": 0,
+        "text": "3",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 22.550004,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 208.724998,
+        "rotateCenterY": 0,
+        "text": "0",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 38.77500199999997,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 224.949996,
+        "rotateCenterY": 0,
+        "text": "0",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 55,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 25,
+        "height": 25,
+        "rotateCenterX": 241.174994,
+        "rotateCenterY": 0,
+        "text": "弄",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 76.86249899999999,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 268.674994,
+        "rotateCenterY": 0,
+        "text": "6",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 98.72499800000003,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 25,
+        "height": 25,
+        "rotateCenterX": 284.899992,
+        "rotateCenterY": 0,
+        "text": "号",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 120.58749699999998,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 312.399992,
+        "rotateCenterY": 0,
+        "text": "1",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 142.449996,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 25,
+        "height": 25,
+        "rotateCenterX": 328.62499,
+        "rotateCenterY": 0,
+        "text": "楼",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 164.312495,
+        "y": 0,
+        "rotate": 0
+        }]
+      }]
+    }
+  },
+  "fontTags": []
+  }, {
+  "id": "a357885f-c647-48a3-8285-43d7c063df31",
+  "scaleX": 1,
+  "scaleY": 1,
+  "rotate": 0,
+  "alpha": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "position": {
+    "x": 0.3098631387861937,
+    "y": 0.8718245501807903,
+    "width": 0.6296296296296297,
+    "height": 0.029166666666666667
+  },
+  "region": {
+    "x": 334.6521898890892,
+    "y": 1673.9031363471174,
+    "width": 680,
+    "height": 56
+  },
+  "type": "text",
+  "decorators": [],
+  "isFreeFromLayout": true,
+  "font_size": 25,
+  "colorScheme": {
+    "textColor": "#90663f"
+  },
+  "content": {
+    "value": [{
+      "text": "微信号：hdfu_nh1325@hui",
+      "highlights": []
+    }]
+  },
+  "font_settings": {
+    "zh_CN": {
+      "font_family": "Source-Han-Normal"
+    },
+    "en_US": {
+      "font_family": ""
+    }
+  },
+  "composition": {
+    "id": "TitleRule-844c2539-8789-4f21-a383-90572e062e18",
+    "text_rules": [{
+      "name": "P0.1",
+      "caption": "被标记为重点的文字自成一行",
+      "type": "line_wrapping",
+      "text_orientation": "horizontal|vertical",
+      "wrap_words": true,
+      "wrap_highlights": true,
+      "enabled": true
+    }, {
+    "name": "E2.1",
+    "caption": "行间固定间距（-50%至100%）",
+    "type": "spacing",
+    "text_orientation": "horizontal",
+    "layout_perspective": "text_lines",
+    "enabled": true,
+    "params": {
+      "fixed_gap": "0.3"
+    }
+    }, {
+    "name": "E1.1",
+    "caption": "文字间固定间距（-50%至100%）",
+    "type": "spacing",
+    "text_orientation": "horizontal",
+    "layout_perspective": "text_cells",
+    "enabled": true,
+    "params": {
+      "fixed_gap": "0.1"
+    },
+    "description": ""
+    }, "", "", "", "", "", "", "", "", {
+    "name": "B3.1"
+    }, {
+    "name": "B3.5"
+    }],
+    "font_settings": {
+      "zh_CN": {
+        "font_family": "Source-Han-Normal"
+      },
+      "en_US": {
+        "font_family": ""
+      }
+    }
+  },
+  "name": "文本",
+  "role": "body",
+  "priority": 3,
+  "relationMark": "#FB8C00",
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": true,
+    "contentLabelName": "正文",
+    "lengthLimit": {
+      "minWordNum": 0,
+      "maxWordNum": 120
+    },
+    "reselectCompositionOption": "invariable",
+    "reselectFontFamilyOptions": "baseOnTags"
+  },
+  "paragraphs": [{
+    "contents": [{
+      "words": [{
+        "value": "微",
+        "type": "d",
+        "language": "zh_CN",
+        "position": {
+          "start": 0,
+          "end": 1
+        }
+      }]
+    }, {
+    "words": [{
+      "value": "信号",
+      "type": "n",
+      "language": "zh_CN",
+      "position": {
+        "start": 1,
+        "end": 3
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "：",
+      "type": "w",
+      "language": "zh_CN",
+      "position": {
+        "start": 3,
+        "end": 4
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "hdfu_nh",
+      "type": "n",
+      "language": "en_US",
+      "position": {
+        "start": 4,
+        "end": 11
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "1325@hui",
+      "type": "m",
+      "language": "en_US",
+      "position": {
+        "start": 11,
+        "end": 19
+      }
+    }]
+    }],
+    "highlights": []
+  }],
+  "renderData": {
+    "region": {
+      "width": 345.099983,
+      "height": 25,
+      "x": 334.900017,
+      "y": 15.5
+    },
+    "elements": {
+      "boundingWidth": 345.099983,
+      "width": 680,
+      "height": 56,
+      "baseFontSizeEn": 25,
+      "boundingHeight": 25,
+      "baseFontSizeZh": 25,
+      "boundingX": 334.900017,
+      "boundingY": 15.5,
+      "x": 0,
+      "y": 0,
+      "lines": [{
+        "x": 0,
+        "y": 0,
+        "width": 345.099983,
+        "height": 25,
+        "rotate": 0,
+        "rotateCenterX": 334.900017,
+        "rotateCenterY": 15.5,
+        "cells": [{
+          "fill": "#90663f",
+          "width": 25,
+          "height": 25,
+          "rotateCenterX": 0,
+          "rotateCenterY": 0,
+          "text": "微",
+          "fontSize": 25,
+          "fontFamily": "Source-Han-Normal",
+          "x": -160.0499915,
+          "y": 0,
+          "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 25,
+        "height": 25,
+        "rotateCenterX": 27.5,
+        "rotateCenterY": 0,
+        "text": "信",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -132.5499915,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 25,
+        "height": 25,
+        "rotateCenterX": 55,
+        "rotateCenterY": 0,
+        "text": "号",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -105.0499915,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 12.5,
+        "height": 25,
+        "rotateCenterX": 82.5,
+        "rotateCenterY": 0,
+        "text": ":",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -83.7999915,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 15.049999,
+        "height": 25,
+        "rotateCenterX": 97.5,
+        "rotateCenterY": 0,
+        "text": "h",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -67.524992,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 15.375,
+        "height": 25,
+        "rotateCenterX": 115.049999,
+        "rotateCenterY": 0,
+        "text": "d",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -49.812492500000005,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 7.924999,
+        "height": 25,
+        "rotateCenterX": 132.924999,
+        "rotateCenterY": 0,
+        "text": "f",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -35.662492999999984,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 15.049999,
+        "height": 25,
+        "rotateCenterX": 143.349998,
+        "rotateCenterY": 0,
+        "text": "u",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -21.674993999999998,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.924999,
+        "height": 25,
+        "rotateCenterX": 160.899997,
+        "rotateCenterY": 0,
+        "text": "_",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -4.687494999999984,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 15.125,
+        "height": 25,
+        "rotateCenterX": 177.324996,
+        "rotateCenterY": 0,
+        "text": "n",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 12.337504499999994,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 15.049999,
+        "height": 25,
+        "rotateCenterX": 194.949996,
+        "rotateCenterY": 0,
+        "text": "h",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 29.925004,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 212.499995,
+        "rotateCenterY": 0,
+        "text": "1",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 46.81250250000002,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 228.724993,
+        "rotateCenterY": 0,
+        "text": "3",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 63.03750049999999,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 244.949991,
+        "rotateCenterY": 0,
+        "text": "2",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 79.26249850000002,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 261.174989,
+        "rotateCenterY": 0,
+        "text": "5",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 95.48749649999999,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 23.375,
+        "height": 25,
+        "rotateCenterX": 277.399987,
+        "rotateCenterY": 0,
+        "text": "@",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 116.5374955,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 15.049999,
+        "height": 25,
+        "rotateCenterX": 303.274987,
+        "rotateCenterY": 0,
+        "text": "h",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 138.24999499999998,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 15.049999,
+        "height": 25,
+        "rotateCenterX": 320.824986,
+        "rotateCenterY": 0,
+        "text": "u",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 155.799994,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 6.724998,
+        "height": 25,
+        "rotateCenterX": 338.374985,
+        "rotateCenterY": 0,
+        "text": "i",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 169.1874925,
+        "y": 0,
+        "rotate": 0
+        }]
+      }]
+    }
+  },
+  "fontTags": []
+  }, {
+  "id": "1575b6dc-cca6-4e46-a48c-29fe904adceb",
+  "scaleX": 1,
+  "scaleY": 1,
+  "rotate": 0,
+  "alpha": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "position": {
+    "x": 0.3098631387861937,
+    "y": 0.9195402156862932,
+    "width": 0.6296296296296297,
+    "height": 0.029166666666666667
+  },
+  "region": {
+    "x": 334.6521898890892,
+    "y": 1765.517214117683,
+    "width": 680,
+    "height": 56
+  },
+  "type": "text",
+  "decorators": [],
+  "isFreeFromLayout": true,
+  "font_size": 25,
+  "colorScheme": {
+    "textColor": "#90663f"
+  },
+  "content": {
+    "value": [{
+      "text": "www.arkie.com",
+      "highlights": []
+    }]
+  },
+  "font_settings": {
+    "zh_CN": {
+      "font_family": "Source-Han-Normal"
+    },
+    "en_US": {
+      "font_family": ""
+    }
+  },
+  "composition": {
+    "id": "TitleRule-844c2539-8789-4f21-a383-90572e062e18",
+    "text_rules": [{
+      "name": "P0.1",
+      "caption": "被标记为重点的文字自成一行",
+      "type": "line_wrapping",
+      "text_orientation": "horizontal|vertical",
+      "wrap_words": true,
+      "wrap_highlights": true,
+      "enabled": true
+    }, {
+    "name": "E2.1",
+    "caption": "行间固定间距（-50%至100%）",
+    "type": "spacing",
+    "text_orientation": "horizontal",
+    "layout_perspective": "text_lines",
+    "enabled": true,
+    "params": {
+      "fixed_gap": "0.3"
+    }
+    }, {
+    "name": "E1.1",
+    "caption": "文字间固定间距（-50%至100%）",
+    "type": "spacing",
+    "text_orientation": "horizontal",
+    "layout_perspective": "text_cells",
+    "enabled": true,
+    "params": {
+      "fixed_gap": "0.1"
+    },
+    "description": ""
+    }, "", "", "", "", "", "", "", "", "", "", "", {
+    "name": "B3.1"
+    }, {
+    "name": "B3.5"
+    }],
+    "font_settings": {
+      "zh_CN": {
+        "font_family": "Source-Han-Normal"
+      },
+      "en_US": {
+        "font_family": ""
+      }
+    }
+  },
+  "name": "文本",
+  "role": "body",
+  "priority": 5,
+  "relationMark": "#FB8C00",
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": true,
+    "contentLabelName": "正文",
+    "lengthLimit": {
+      "minWordNum": 0,
+      "maxWordNum": 120
+    },
+    "reselectCompositionOption": "invariable",
+    "reselectFontFamilyOptions": "baseOnTags"
+  },
+  "paragraphs": [{
+    "contents": [{
+      "words": [{
+        "value": "www.arkie.com",
+        "language": "en_US",
+        "position": {
+          "start": 0,
+          "end": 13
+        }
+      }]
+    }],
+    "highlights": []
+  }],
+  "renderData": {
+    "region": {
+      "width": 210.974978,
+      "height": 25,
+      "x": 469.025022,
+      "y": 15.5
+    },
+    "elements": {
+      "boundingWidth": 210.974978,
+      "width": 680,
+      "height": 56,
+      "baseFontSizeEn": 25,
+      "boundingHeight": 25,
+      "baseFontSizeZh": 25,
+      "boundingX": 469.025022,
+      "boundingY": 15.5,
+      "x": 0,
+      "y": 0,
+      "lines": [{
+        "x": 0,
+        "y": 0,
+        "width": 210.974978,
+        "height": 25,
+        "rotate": 0,
+        "rotateCenterX": 469.025022,
+        "rotateCenterY": 15.5,
+        "cells": [{
+          "fill": "#90663f",
+          "width": 19.774998,
+          "height": 25,
+          "rotateCenterX": 0,
+          "rotateCenterY": 0,
+          "text": "w",
+          "fontSize": 25,
+          "fontFamily": "Source-Han-Normal",
+          "x": -95.59998999999999,
+          "y": 0,
+          "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 19.774998,
+        "height": 25,
+        "rotateCenterX": 22.274998,
+        "rotateCenterY": 0,
+        "text": "w",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -73.324992,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 19.774998,
+        "height": 25,
+        "rotateCenterX": 44.549996,
+        "rotateCenterY": 0,
+        "text": "w",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -51.049994,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 6.75,
+        "height": 25,
+        "rotateCenterX": 66.824994,
+        "rotateCenterY": 0,
+        "text": ".",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -35.28749499999999,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.974998,
+        "height": 25,
+        "rotateCenterX": 76.074994,
+        "rotateCenterY": 0,
+        "text": "a",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -22.424995999999993,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 9.474998,
+        "height": 25,
+        "rotateCenterX": 92.549992,
+        "rotateCenterY": 0,
+        "text": "r",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": -8.199997999999994,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.574997,
+        "height": 25,
+        "rotateCenterX": 104.52499,
+        "rotateCenterY": 0,
+        "text": "k",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 5.824999500000004,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 6.724998,
+        "height": 25,
+        "rotateCenterX": 120.599987,
+        "rotateCenterY": 0,
+        "text": "i",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 18.474997000000002,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 13.724998,
+        "height": 25,
+        "rotateCenterX": 129.824985,
+        "rotateCenterY": 0,
+        "text": "e",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 31.199994999999987,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 6.75,
+        "height": 25,
+        "rotateCenterX": 146.049983,
+        "rotateCenterY": 0,
+        "text": ".",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 43.937494,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 12.649998,
+        "height": 25,
+        "rotateCenterX": 155.299983,
+        "rotateCenterY": 0,
+        "text": "c",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 56.13749299999999,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 15.049999,
+        "height": 25,
+        "rotateCenterX": 170.449981,
+        "rotateCenterY": 0,
+        "text": "o",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 72.48749150000002,
+        "y": 0,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 22.974998,
+        "height": 25,
+        "rotateCenterX": 187.99998,
+        "rotateCenterY": 0,
+        "text": "m",
+        "fontSize": 25,
+        "fontFamily": "Source-Han-Normal",
+        "x": 93.99999000000001,
+        "y": 0,
+        "rotate": 0
+        }]
+      }]
+    }
+  },
+  "fontTags": []
+  }, {
+  "id": "41cac7ba-3b9c-4c4a-ad40-e38175a659b2",
+  "scaleX": 1,
+  "scaleY": 1,
+  "rotate": 0,
+  "alpha": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "position": {
+    "x": 0.036331754502110465,
+    "y": 0.014603870025556749,
+    "width": 0.18322716261537225,
+    "height": 0.10934647681635633
+  },
+  "region": {
+    "x": 39.238294862279304,
+    "y": 28.03943044906896,
+    "width": 197.88533562460202,
+    "height": 209.94523548740415
+  },
+  "content": {
+    "uri": "//resource.arkie.cn/resource/image/arkiemanual/type/8d556f0d-f534-41b3-9bd0-03b36e689344.png",
+    "fit": false
+  },
+  "isFreeFromLayout": true,
+  "type": "image",
+  "decorators": [],
+  "imgBox": {
+    "x": 0,
+    "y": 0,
+    "width": 976,
+    "height": 824,
+    "scaleX": 0.2939370795677,
+    "scaleY": 0.2939370795677
+  },
+  "originalSize": {
+    "width": 976,
+    "height": 824
+  },
+  "name": "图片",
+  "role": "others",
+  "priority": 1,
+  "category": "logo",
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": true,
+    "contentLabelName": "图片",
+    "reselectImageOption": "basedOnCategory",
+    "reselectImageCategory": "logo"
+  }
+  }, {
+  "id": "3873e5ed-73f8-4a1d-941d-b7107ec5d099",
+  "name": "文本",
+  "type": "text",
+  "isFreeFromLayout": true,
+  "role": "body",
+  "decIds": [],
+  "composition": {
+    "id": "TitleRule-6ef2b2c5-904c-4e7e-82c3-153085bb28c7",
+    "text_rules": [{
+      "name": "E1.1",
+      "params": {
+        "fixed_gap": "0.6"
+      }
+    }, {
+    "name": "E2.1",
+    "params": {
+      "fixed_gap": "1.2"
+    }
+    }, {
+    "name": "A0.1"
+    }, {
+    "name": "J2"
+    }, {
+    "name": "B4.6"
+    }, {
+    "name": "B4.1"
+    }],
+    "font_settings": {
+      "zh_CN": {
+        "font_family": "SourceHan-S-SC"
+      },
+      "en_US": {
+        "font_family": ""
+      }
+    }
+  },
+  "alpha": 1,
+  "rotate": 0,
+  "font_size": 45,
+  "J1_alignment": "",
+  "J2_alignment": "",
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": true,
+    "contentLabelName": "正文",
+    "lengthLimit": {
+      "minWordNum": 0,
+      "maxWordNum": 120
+    },
+    "reselectCompositionOption": "invariable",
+    "reselectFontFamilyOptions": "baseOnTags"
+  },
+  "content": {
+    "value": [{
+      "text": "这世上只有两样东西别人抢不走，吃进肚子里的食物和装在心中的梦想",
+      "highlights": []
+    }]
+  },
+  "position": {
+    "x": 0.43266326063514277,
+    "y": 0.4626498292399531,
+    "width": 0.28144558505265066,
+    "height": 0.27727430542102394
+  },
+  "colorScheme": {
+    "textColor": "#90663f"
+  },
+  "paragraphs": [{
+    "contents": [{
+      "words": [{
+        "value": "这",
+        "type": "r",
+        "language": "zh_CN",
+        "position": {
+          "start": 0,
+          "end": 1
+        }
+      }]
+    }, {
+    "words": [{
+      "value": "世上",
+      "type": "n",
+      "language": "zh_CN",
+      "position": {
+        "start": 1,
+        "end": 3
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "只",
+      "type": "d",
+      "language": "zh_CN",
+      "position": {
+        "start": 3,
+        "end": 4
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "有",
+      "type": "vyou",
+      "language": "zh_CN",
+      "position": {
+        "start": 4,
+        "end": 5
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "两",
+      "type": "m",
+      "language": "zh_CN",
+      "position": {
+        "start": 5,
+        "end": 6
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "样",
+      "type": "q",
+      "language": "zh_CN",
+      "position": {
+        "start": 6,
+        "end": 7
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "东西",
+      "type": "n",
+      "language": "zh_CN",
+      "position": {
+        "start": 7,
+        "end": 9
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "别人",
+      "type": "n",
+      "language": "zh_CN",
+      "position": {
+        "start": 9,
+        "end": 11
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "抢",
+      "type": "v",
+      "language": "zh_CN",
+      "position": {
+        "start": 11,
+        "end": 12
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "不走",
+      "type": "v",
+      "language": "zh_CN",
+      "position": {
+        "start": 12,
+        "end": 14
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "，",
+      "type": "w",
+      "language": "zh_CN",
+      "position": {
+        "start": 14,
+        "end": 15
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "吃进",
+      "type": "v",
+      "language": "zh_CN",
+      "position": {
+        "start": 15,
+        "end": 17
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "肚子",
+      "type": "n",
+      "language": "zh_CN",
+      "position": {
+        "start": 17,
+        "end": 19
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "里",
+      "type": "f",
+      "language": "zh_CN",
+      "position": {
+        "start": 19,
+        "end": 20
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "的",
+      "type": "ude",
+      "language": "zh_CN",
+      "position": {
+        "start": 20,
+        "end": 21
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "食物",
+      "type": "n",
+      "language": "zh_CN",
+      "position": {
+        "start": 21,
+        "end": 23
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "和",
+      "type": "c",
+      "language": "zh_CN",
+      "position": {
+        "start": 23,
+        "end": 24
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "装在",
+      "type": "v",
+      "language": "zh_CN",
+      "position": {
+        "start": 24,
+        "end": 26
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "心中",
+      "type": "n",
+      "language": "zh_CN",
+      "position": {
+        "start": 26,
+        "end": 28
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "的",
+      "type": "ude",
+      "language": "zh_CN",
+      "position": {
+        "start": 28,
+        "end": 29
+      }
+    }]
+    }, {
+    "words": [{
+      "value": "梦想",
+      "type": "n",
+      "language": "zh_CN",
+      "position": {
+        "start": 29,
+        "end": 31
+      }
+    }]
+    }],
+    "highlights": []
+  }],
+  "region": {
+    "x": 467.2763214859542,
+    "y": 888.28767214071,
+    "width": 303.9612318568627,
+    "height": 532.366666408366
+  },
+  "alignment": ["B3.2", "B3.5"],
+  "renderData": {
+    "region": {
+      "width": 154.558065,
+      "height": 532.366669,
+      "x": 149.403167,
+      "y": 0
+    },
+    "elements": {
+      "boundingWidth": 154.558065,
+      "width": 303.961232,
+      "height": 532.366666,
+      "baseFontSizeEn": 45,
+      "boundingHeight": 532.366669,
+      "baseFontSizeZh": 45,
+      "boundingX": 149.403167,
+      "boundingY": 0,
+      "x": 0,
+      "y": 0,
+      "lines": [{
+        "x": 125.936201,
+        "y": 0,
+        "width": 28.621864,
+        "height": 486.571687,
+        "rotate": 0,
+        "rotateCenterX": 275.339368,
+        "rotateCenterY": 0,
+        "cells": [{
+          "fill": "#90663f",
+          "width": 28.621864,
+          "height": 28.621864,
+          "rotateCenterX": 125.936201,
+          "rotateCenterY": 0,
+          "text": "这",
+          "fontSize": 28.621864,
+          "fontFamily": "SourceHan-S-SC",
+          "x": 62.96810049999999,
+          "y": -251.8724025,
+          "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 28.621864,
+        "height": 28.621864,
+        "rotateCenterX": 125.936201,
+        "rotateCenterY": 45.794982,
+        "text": "世",
+        "fontSize": 28.621864,
+        "fontFamily": "SourceHan-S-SC",
+        "x": 62.96810049999999,
+        "y": -206.07742050000002,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 28.621864,
+        "height": 28.621864,
+        "rotateCenterX": 125.936201,
+        "rotateCenterY": 91.589964,
+        "text": "上",
+        "fontSize": 28.621864,
+        "fontFamily": "SourceHan-S-SC",
+        "x": 62.96810049999999,
+        "y": -160.2824385,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 28.621864,
+        "height": 28.621864,
+        "rotateCenterX": 125.936201,
+        "rotateCenterY": 137.384946,
+        "text": "只",
+        "fontSize": 28.621864,
+        "fontFamily": "SourceHan-S-SC",
+        "x": 62.96810049999999,
+        "y": -114.48745649999998,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 28.621864,
+        "height": 28.621864,
+        "rotateCenterX": 125.936201,
+        "rotateCenterY": 183.179928,
+        "text": "有",
+        "fontSize": 28.621864,
+        "fontFamily": "SourceHan-S-SC",
+        "x": 62.96810049999999,
+        "y": -68.6924745,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 28.621864,
+        "height": 28.621864,
+        "rotateCenterX": 125.936201,
+        "rotateCenterY": 228.97491,
+        "text": "两",
+        "fontSize": 28.621864,
+        "fontFamily": "SourceHan-S-SC",
+        "x": 62.96810049999999,
+        "y": -22.8974925,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 28.621864,
+        "height": 28.621864,
+        "rotateCenterX": 125.936201,
+        "rotateCenterY": 274.769892,
+        "text": "样",
+        "fontSize": 28.621864,
+        "fontFamily": "SourceHan-S-SC",
+        "x": 62.96810049999999,
+        "y": 22.897489500000006,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 28.621864,
+        "height": 28.621864,
+        "rotateCenterX": 125.936201,
+        "rotateCenterY": 320.564874,
+        "text": "东",
+        "fontSize": 28.621864,
+        "fontFamily": "SourceHan-S-SC",
+        "x": 62.96810049999999,
+        "y": 68.69247149999995,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 28.621864,
+        "height": 28.621864,
+        "rotateCenterX": 125.936201,
+        "rotateCenterY": 366.359856,
+        "text": "西",
+        "fontSize": 28.621864,
+        "fontFamily": "SourceHan-S-SC",
+        "x": 62.96810049999999,
+        "y": 114.48745349999996,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 28.621864,
+        "height": 28.621864,
+        "rotateCenterX": 125.936201,
+        "rotateCenterY": 412.154839,
+        "text": "别",
+        "fontSize": 28.621864,
+        "fontFamily": "SourceHan-S-SC",
+        "x": 62.96810049999999,
+        "y": 160.28243649999996,
+        "rotate": 0
+        }, {
+        "fill": "#90663f",
+        "width": 28.621864,
+        "height": 28.621864,
+        "rotateCenterX": 125.936201,
+        "rotateCenterY": 457.949821,
+        "text": "人",
+        "fontSize": 28.621864,
+        "fontFamily": "SourceHan-S-SC",
+        "x": 62.96810049999999,
+        "y": 206.07741849999996,
+        "rotate": 0
+        }]
+      }, {
+      "x": 62.9681,
+      "y": 0,
+      "width": 28.621864,
+      "height": 532.366669,
+      "rotate": 0,
+      "rotateCenterX": 212.371267,
+      "rotateCenterY": 0,
+      "cells": [{
+        "fill": "#90663f",
+        "width": 28.621864,
+        "height": 28.621864,
+        "rotateCenterX": 62.9681,
+        "rotateCenterY": 0,
+        "text": "抢",
+        "fontSize": 28.621864,
+        "fontFamily": "SourceHan-S-SC",
+        "x": -4.999999987376214e-7,
+        "y": -251.8724025,
+        "rotate": 0
+      }, {
+      "fill": "#90663f",
+      "width": 28.621864,
+      "height": 28.621864,
+      "rotateCenterX": 62.9681,
+      "rotateCenterY": 45.794982,
+      "text": "不",
+      "fontSize": 28.621864,
+      "fontFamily": "SourceHan-S-SC",
+      "x": -4.999999987376214e-7,
+      "y": -206.07742050000002,
+      "rotate": 0
+      }, {
+      "fill": "#90663f",
+      "width": 28.621864,
+      "height": 28.621864,
+      "rotateCenterX": 62.9681,
+      "rotateCenterY": 91.589964,
+      "text": "走",
+      "fontSize": 28.621864,
+      "fontFamily": "SourceHan-S-SC",
+      "x": -4.999999987376214e-7,
+      "y": -160.2824385,
+      "rotate": 0
+      }, {
+      "fill": "#90663f",
+      "width": 14.310932,
+      "height": 28.621864,
+      "rotateCenterX": 62.9681,
+      "rotateCenterY": 137.384946,
+      "text": ",",
+      "fontSize": 28.621864,
+      "fontFamily": "SourceHan-S-SC",
+      "x": -7.155466500000003,
+      "y": -114.48745649999998,
+      "rotate": 0
+      }, {
+      "fill": "#90663f",
+      "width": 28.621864,
+      "height": 28.621864,
+      "rotateCenterX": 62.9681,
+      "rotateCenterY": 183.179928,
+      "text": "吃",
+      "fontSize": 28.621864,
+      "fontFamily": "SourceHan-S-SC",
+      "x": -4.999999987376214e-7,
+      "y": -68.6924745,
+      "rotate": 0
+      }, {
+      "fill": "#90663f",
+      "width": 28.621864,
+      "height": 28.621864,
+      "rotateCenterX": 62.9681,
+      "rotateCenterY": 228.97491,
+      "text": "进",
+      "fontSize": 28.621864,
+      "fontFamily": "SourceHan-S-SC",
+      "x": -4.999999987376214e-7,
+      "y": -22.8974925,
+      "rotate": 0
+      }, {
+      "fill": "#90663f",
+      "width": 28.621864,
+      "height": 28.621864,
+      "rotateCenterX": 62.9681,
+      "rotateCenterY": 274.769892,
+      "text": "肚",
+      "fontSize": 28.621864,
+      "fontFamily": "SourceHan-S-SC",
+      "x": -4.999999987376214e-7,
+      "y": 22.897489500000006,
+      "rotate": 0
+      }, {
+      "fill": "#90663f",
+      "width": 28.621864,
+      "height": 28.621864,
+      "rotateCenterX": 62.9681,
+      "rotateCenterY": 320.564874,
+      "text": "子",
+      "fontSize": 28.621864,
+      "fontFamily": "SourceHan-S-SC",
+      "x": -4.999999987376214e-7,
+      "y": 68.69247149999995,
+      "rotate": 0
+      }, {
+      "fill": "#90663f",
+      "width": 28.621864,
+      "height": 28.621864,
+      "rotateCenterX": 62.9681,
+      "rotateCenterY": 366.359856,
+      "text": "里",
+      "fontSize": 28.621864,
+      "fontFamily": "SourceHan-S-SC",
+      "x": -4.999999987376214e-7,
+      "y": 114.48745349999996,
+      "rotate": 0
+      }, {
+      "fill": "#90663f",
+      "width": 28.621864,
+      "height": 28.621864,
+      "rotateCenterX": 62.9681,
+      "rotateCenterY": 412.154839,
+      "text": "的",
+      "fontSize": 28.621864,
+      "fontFamily": "SourceHan-S-SC",
+      "x": -4.999999987376214e-7,
+      "y": 160.28243649999996,
+      "rotate": 0
+      }, {
+      "fill": "#90663f",
+      "width": 28.621864,
+      "height": 28.621864,
+      "rotateCenterX": 62.9681,
+      "rotateCenterY": 457.949821,
+      "text": "食",
+      "fontSize": 28.621864,
+      "fontFamily": "SourceHan-S-SC",
+      "x": -4.999999987376214e-7,
+      "y": 206.07741849999996,
+      "rotate": 0
+      }, {
+      "fill": "#90663f",
+      "width": 28.621864,
+      "height": 28.621864,
+      "rotateCenterX": 62.9681,
+      "rotateCenterY": 503.744803,
+      "text": "物",
+      "fontSize": 28.621864,
+      "fontFamily": "SourceHan-S-SC",
+      "x": -4.999999987376214e-7,
+      "y": 251.87240050000003,
+      "rotate": 0
+      }]
+      }, {
+      "x": -0.000001,
+      "y": 0,
+      "width": 28.621864,
+      "height": 349.18674,
+      "rotate": 0,
+      "rotateCenterX": 149.403166,
+      "rotateCenterY": 0,
+      "cells": [{
+        "fill": "#90663f",
+        "width": 28.621864,
+        "height": 28.621864,
+        "rotateCenterX": -0.000001,
+        "rotateCenterY": 0,
+        "text": "和",
+        "fontSize": 28.621864,
+        "fontFamily": "SourceHan-S-SC",
+        "x": -62.9681015,
+        "y": -251.8724025,
+        "rotate": 0
+      }, {
+      "fill": "#90663f",
+      "width": 28.621864,
+      "height": 28.621864,
+      "rotateCenterX": -0.000001,
+      "rotateCenterY": 45.794982,
+      "text": "装",
+      "fontSize": 28.621864,
+      "fontFamily": "SourceHan-S-SC",
+      "x": -62.9681015,
+      "y": -206.07742050000002,
+      "rotate": 0
+      }, {
+      "fill": "#90663f",
+      "width": 28.621864,
+      "height": 28.621864,
+      "rotateCenterX": -0.000001,
+      "rotateCenterY": 91.589964,
+      "text": "在",
+      "fontSize": 28.621864,
+      "fontFamily": "SourceHan-S-SC",
+      "x": -62.9681015,
+      "y": -160.2824385,
+      "rotate": 0
+      }, {
+      "fill": "#90663f",
+      "width": 28.621864,
+      "height": 28.621864,
+      "rotateCenterX": -0.000001,
+      "rotateCenterY": 137.384946,
+      "text": "心",
+      "fontSize": 28.621864,
+      "fontFamily": "SourceHan-S-SC",
+      "x": -62.9681015,
+      "y": -114.48745649999998,
+      "rotate": 0
+      }, {
+      "fill": "#90663f",
+      "width": 28.621864,
+      "height": 28.621864,
+      "rotateCenterX": -0.000001,
+      "rotateCenterY": 183.179928,
+      "text": "中",
+      "fontSize": 28.621864,
+      "fontFamily": "SourceHan-S-SC",
+      "x": -62.9681015,
+      "y": -68.6924745,
+      "rotate": 0
+      }, {
+      "fill": "#90663f",
+      "width": 28.621864,
+      "height": 28.621864,
+      "rotateCenterX": -0.000001,
+      "rotateCenterY": 228.97491,
+      "text": "的",
+      "fontSize": 28.621864,
+      "fontFamily": "SourceHan-S-SC",
+      "x": -62.9681015,
+      "y": -22.8974925,
+      "rotate": 0
+      }, {
+      "fill": "#90663f",
+      "width": 28.621864,
+      "height": 28.621864,
+      "rotateCenterX": -0.000001,
+      "rotateCenterY": 274.769892,
+      "text": "梦",
+      "fontSize": 28.621864,
+      "fontFamily": "SourceHan-S-SC",
+      "x": -62.9681015,
+      "y": 22.897489500000006,
+      "rotate": 0
+      }, {
+      "fill": "#90663f",
+      "width": 28.621864,
+      "height": 28.621864,
+      "rotateCenterX": -0.000001,
+      "rotateCenterY": 320.564874,
+      "text": "想",
+      "fontSize": 28.621864,
+      "fontFamily": "SourceHan-S-SC",
+      "x": -62.9681015,
+      "y": 68.69247149999995,
+      "rotate": 0
+      }]
+      }]
+    }
+  },
+  "font_settings": {
+    "zh_CN": {
+      "font_family": "SourceHan-S-SC"
+    },
+    "en_US": {
+      "font_family": ""
+    }
+  },
+  "scaleX": 1,
+  "scaleY": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "decorators": [],
+  "priority": 2,
+  "compositionTags": [{
+    "name": "bold",
+    "on": true
+  }, {
+  "name": "serif",
+  "on": true
+  }, {
+  "name": "vertical",
+  "on": true
+  }, {
+  "name": "top",
+  "on": true
+  }, {
+  "name": "font",
+  "on": true
+  }, {
+  "name": "loose",
+  "on": true
+  }, {
+  "name": "none",
+  "on": true
+  }],
+  "relationMark": "#FB8C00",
+  "fontTags": []
+  }, {
+  "id": "c74e364b-2f23-4607-aaad-6be46e6ce63c",
+  "scaleX": 1,
+  "scaleY": 1,
+  "rotate": 0,
+  "alpha": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "position": {
+    "x": 0.04534482980470368,
+    "y": 0.849303473136536,
+    "width": 0.2222222222222222,
+    "height": 0.125
+  },
+  "region": {
+    "x": 48.97241618907998,
+    "y": 1630.6626684221492,
+    "width": 240,
+    "height": 240
+  },
+  "content": {
+    "uri": "//resource.arkie.cn/resource/image/arkiemanual/type/b4b1b8cc-22a6-43ae-9d35-0d08f1d7c02b.jpeg",
+    "fit": false
+  },
+  "isFreeFromLayout": true,
+  "type": "image",
+  "decorators": [],
+  "imgBox": {
+    "x": 0,
+    "y": 0,
+    "width": 2560,
+    "height": 2560,
+    "scaleX": 0.09375000000000001,
+    "scaleY": 0.09375000000000001
+  },
+  "originalSize": {
+    "width": 2560,
+    "height": 2560
+  },
+  "name": "图片",
+  "role": "others",
+  "priority": 1,
+  "category": "QR",
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": true,
+    "contentLabelName": "图片",
+    "reselectImageOption": "basedOnCategory",
+    "reselectImageCategory": "QR"
+  }
+  }, {
+  "id": "6bf2f64f-87b4-4d7d-a257-71b31715df66",
+  "scaleX": 1,
+  "scaleY": 1,
+  "rotate": 77.74575757690901,
+  "alpha": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "position": {
+    "x": 0.37157375727825803,
+    "y": 0.791245426103897,
+    "width": 0.09770372474438045,
+    "height": 0.04958436899193864
+  },
+  "region": {
+    "x": 401.29965786051866,
+    "y": 1519.1912181194823,
+    "width": 105.5200227239309,
+    "height": 95.20198846452219
+  },
+  "content": {
+    "uri": "//resource.arkie.cn/resource/image/arkiemanual/type/69aa199c-4d04-4dbb-9d1b-27e83b6c3fb1.png",
+    "fit": true
+  },
+  "isFreeFromLayout": true,
+  "type": "image",
+  "decorators": [],
+  "imgBox": {
+    "x": 0,
+    "y": 0,
+    "width": 500,
+    "height": 500,
+    "scaleX": 0.19040397692904437,
+    "scaleY": 0.19040397692904437
+  },
+  "originalSize": {
+    "width": 500,
+    "height": 500
+  },
+  "name": "图片",
+  "role": "others",
+  "priority": 1,
+  "category": "ImageDirectory-8c14ee02-febb-4777-8b81-e2a8507c7036",
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": false,
+    "contentLabelName": "图片",
+    "reselectImageOption": "basedOnCategory",
+    "reselectImageCategory": "ImageDirectory-8c14ee02-febb-4777-8b81-e2a8507c7036"
+  }
+  }, {
+  "id": "dfc1613d-c5b2-4e65-8b2f-c94398107098",
+  "scaleX": 1,
+  "scaleY": 1,
+  "rotate": -20.988220110593204,
+  "alpha": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "position": {
+    "x": 0.7034303752644006,
+    "y": -0.040595176719911204,
+    "width": 0.18529716371644367,
+    "height": 0.1380466576316487
+  },
+  "region": {
+    "x": 759.7048052855525,
+    "y": -77.94273930222951,
+    "width": 200.12093681375916,
+    "height": 265.0495826527655
+  },
+  "content": {
+    "uri": "//resource.arkie.cn/resource/image/arkiemanual/type/69aa199c-4d04-4dbb-9d1b-27e83b6c3fb1.png",
+    "fit": true
+  },
+  "isFreeFromLayout": true,
+  "type": "image",
+  "decorators": [],
+  "mask": {
+    "type": "rectangle"
+  },
+  "imgBox": {
+    "x": 0,
+    "y": 0,
+    "width": 500,
+    "height": 500,
+    "scaleX": 0.40024187362751834,
+    "scaleY": 0.40024187362751834
+  },
+  "originalSize": {
+    "width": 500,
+    "height": 500
+  },
+  "name": "图片",
+  "role": "others",
+  "priority": 1,
+  "category": "ImageDirectory-8c14ee02-febb-4777-8b81-e2a8507c7036",
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": false,
+    "contentLabelName": "图片",
+    "reselectImageOption": "basedOnCategory",
+    "reselectImageCategory": "ImageDirectory-8c14ee02-febb-4777-8b81-e2a8507c7036"
+  }
+  }, {
+  "id": "8506c3be-647f-4774-b453-4149e2993b2b",
+  "scaleX": 1,
+  "scaleY": 1,
+  "rotate": -20.988220110593204,
+  "alpha": 1,
+  "isHidden": false,
+  "pivot": {
+    "x": 0,
+    "y": 0
+  },
+  "position": {
+    "x": 0.17126606051040463,
+    "y": 0.6118332884597361,
+    "width": 0.24294655518700597,
+    "height": 0.15859619571127842
+  },
+  "region": {
+    "x": 184.96734535123701,
+    "y": 1174.7199138426931,
+    "width": 262.38227960196645,
+    "height": 304.50469576565456
+  },
+  "content": {
+    "uri": "//resource.arkie.cn/resource/image/arkiemanual/type/69aa199c-4d04-4dbb-9d1b-27e83b6c3fb1.png",
+    "fit": true
+  },
+  "isFreeFromLayout": true,
+  "type": "image",
+  "decorators": [],
+  "mask": {
+    "type": "rectangle"
+  },
+  "imgBox": {
+    "x": 0,
+    "y": 0,
+    "width": 500,
+    "height": 500,
+    "scaleX": 0.524764559203933,
+    "scaleY": 0.524764559203933
+  },
+  "originalSize": {
+    "width": 500,
+    "height": 500
+  },
+  "name": "图片",
+  "role": "others",
+  "priority": 1,
+  "category": "ImageDirectory-8c14ee02-febb-4777-8b81-e2a8507c7036",
+  "contentSetting": {
+    "position": 0,
+    "group": 1,
+    "isEditable": false,
+    "contentLabelName": "图片",
+    "reselectImageOption": "basedOnCategory",
+    "reselectImageCategory": "ImageDirectory-8c14ee02-febb-4777-8b81-e2a8507c7036"
+  }
+  }],
+  "isBackgroundAffectColorScheme": false,
+  "version": "v1.0",
+  "region": {
+    "x": 0,
+    "y": 0,
+    "width": 1080,
+    "height": 1920
+  },
+  "isTextColorChangeable": false,
+  "isBackgroundColorChangeable": true,
+  "isDecoratorColorChangeable": false
+}
