@@ -4,7 +4,7 @@
   "description": "Render arkie tree to svg string",
   "sideEffects": false,
   "scripts": {
-    "test": "ava",
+    "test": "tsc && ava",
     "build_all": "yarn build && webpack --config webpack.prod.js",
     "start": "webpack-serve webpack.dev.js",
     "cnpm": "npm publish"

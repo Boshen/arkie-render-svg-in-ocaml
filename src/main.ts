@@ -15,12 +15,15 @@ import {
 } from '@arkie/tree-parser'
 
 export interface Options {
+  fonts: boolean
   width?: number
   height?: number
 }
 
 type Dimension = [number, number]
 type DecoratorsMap = {[id: string]: [string, Dimension]}
+
+const isNode = typeof module !== 'undefined' && typeof module.exports !== 'undefined'
 
 const renderSvgDecorator = (decorator: Decorator, svg: string, dimen: Dimension) => {
   const [ dWidth, dHeight ] = dimen
@@ -316,6 +319,9 @@ const getSvgDimension = (svg: string): Dimension => {
 
 const imgsize = (src: string): Promise<Dimension> => {
   return new Promise((resolve, reject) => {
+    if (isNode) {
+      resolve([0, 0])
+    }
     const image = new Image()
     image.onload = () => {
       resolve([image.width, image.height])
