@@ -1,6 +1,6 @@
 import sortBy from 'lodash-es/sortBy'
 import snakecase from 'lodash-es/snakeCase'
-import camelcase  from 'lodash-es/camelCase'
+import camelcase from 'lodash-es/camelCase'
 
 import {
   Tree,
@@ -26,39 +26,42 @@ export interface Options {
 }
 
 interface FontMap {
-  [font_family: string]: any
+  [fontFamily: string]: any
 }
 type Dimension = [number, number]
-type DecoratorsMap = {[id: string]: [string, Dimension]}
+interface DecoratorsMap {
+  [id: string]: [string, Dimension]
+}
 
-const Youziku = {
+const youziku = {
   createTag: (key: string, content: any) => {
     return { AccessKey: key, Content: content }
   },
   getBatchFontFace: (tags: any) => {
+    // tslint:disable-next-line:no-empty
     return $youzikuClient.getBatchFontFace({ Tags: tags }, () => {})
-  }
+  },
 }
 
-const Font = {
+const font = {
   createFontFace: (fontFamily: string) => {
-    return function (blob: any) {
-      var head = document.head
+    return (blob: any) => {
+      const head = document.head
 
-      var fontUrl = URL.createObjectURL(blob)
-      var fontFace = '@font-face { font-family:\'' + fontFamily + '\' src:url(\'' + fontUrl + '\') format(\'woff\') }'
-      var cssId = snakecase(fontFamily)
-      var styleList = document.getElementsByName(cssId)
-      var style = document.createElement('style') as any
+      const fontUrl = URL.createObjectURL(blob)
+      const fontFace = '@font-face { font-family:\'' + fontFamily + '\' src:url(\'' + fontUrl + '\') format(\'woff\') }'
+      const cssId = snakecase(fontFamily)
+      const styleList = document.getElementsByName(cssId)
+      const style = document.createElement('style') as any
 
       if (styleList.length > 0) {
-        for (var i = 0; i < styleList.length; i++) {
-          head.removeChild(styleList[i])
+        for (const sl of styleList) {
+          head.removeChild(sl)
         }
       }
 
       style.type = 'text/css'
-      style.setAttribute("name", cssId)
+      style.setAttribute('name', cssId)
 
       if (style.styleSheet) {
         style.styleSheet.cssText = fontFace
@@ -76,27 +79,27 @@ const Font = {
     return uri + camelcase(fontFamily).toLowerCase() + '-regular.woff'
   },
 
-  createGoogleFontLink: (font: string) => {
-    var url = Font.getUrl('//youziku.arkie.cn/webfonts/en/', font)
-    fetch(url, { headers: { responseType: 'blob' } }).then(function (res) {
+  createGoogleFontLink: (fontFamily: string) => {
+    const url = font.getUrl('//youziku.arkie.cn/webfonts/en/', fontFamily)
+    fetch(url, { headers: { responseType: 'blob' } }).then((res) => {
       return res.blob()
-    }).then(Font.createFontFace(font))
-  }
+    }).then(font.createFontFace(fontFamily))
+  },
 }
 
 const renderSvgDecorator = (decorator: Decorator, svg: string, dimen: Dimension) => {
   const [ dWidth, dHeight ] = dimen
   const { element } = decorator
   svg = svg
-    .replace(/<svg[\\s\\S]*svg>/, "$&")
+    .replace(/<svg[\\s\\S]*svg>/, '$&')
     .replace(/<svg/, `<svg width="${dWidth}" height="${dHeight}"`)
   if (element.colors) {
     svg = svg.replace(
       new RegExp(`(${element.colors.map((c) => c.origin).join('|')})`, 'ig'),
       (m) => {
-        const c = element.colors.find((c) => c.origin.toUpperCase() === m.toUpperCase())
-        return c ? c.custom : ''
-      }
+        const color = element.colors.find((c) => c.origin.toUpperCase() === m.toUpperCase())
+        return color ? color.custom : ''
+      },
     )
   }
   return svg
@@ -110,13 +113,16 @@ const renderImageDecorator = (decorator: Decorator, dimen: Dimension) => {
   `
 }
 
-const renderDecorator = (decorator: Decorator, options: { innerRegion?: Region, outerRegion: Region, dMap: DecoratorsMap}) => {
+const renderDecorator = (
+  decorator: Decorator,
+  options: { innerRegion?: Region, outerRegion: Region, dMap: DecoratorsMap },
+) => {
   const { innerRegion, outerRegion, dMap } = options
   const { element } = decorator
   const { alpha } = element
 
   const [ regionWidth, regionHeight, dx, dy ] = (() => {
-    if (decorator.target == "area") {
+    if (decorator.target === 'area') {
       return [ outerRegion.width, outerRegion.height, 0.0, 0.0 ]
     } else {
       if (innerRegion) {
@@ -124,10 +130,10 @@ const renderDecorator = (decorator: Decorator, options: { innerRegion?: Region, 
           innerRegion.width,
           innerRegion.height,
           outerRegion.x - innerRegion.x,
-          outerRegion.y - innerRegion.y
+          outerRegion.y - innerRegion.y,
         ]
       } else {
-        throw new Error("no innner region for text with target = 'content'")
+        throw new Error('no innner region for text with target = content')
       }
     }
   })()
@@ -141,7 +147,7 @@ const renderDecorator = (decorator: Decorator, options: { innerRegion?: Region, 
       case 'bitmap':
         return [renderImageDecorator(decorator, dimen), dimen]
     }
-    throw new Error("decorator does not exist for " + decorator.id)
+    throw new Error('decorator does not exist for ' + decorator.id)
   })()
 
   const [ dWidth, dHeight ] = dimensions
@@ -173,7 +179,10 @@ const renderDecorator = (decorator: Decorator, options: { innerRegion?: Region, 
   `
 }
 
-const renderDecorators = (parent: string, decorators: Decorator[] = [], options: { innerRegion?: Region, outerRegion: Region, dMap: DecoratorsMap }) => {
+const renderDecorators = (
+  parent: string, decorators: Decorator[] = [],
+  options: { innerRegion?: Region, outerRegion: Region, dMap: DecoratorsMap },
+) => {
   const render = (level: string) => {
     return decorators
       .filter((d) => d.level === level)
@@ -239,35 +248,31 @@ const renderImage = (e: ImageElement, dMap: DecoratorsMap): string => {
   const { width, height, scaleX, scaleY } = imgBox
   const [ regionX, regionY, regionWidth, regionHeight, regionCenterX, regionCenterY ] =
     [ region.x, region.y, region.width, region.height, region.width / 2, region.height / 2 ]
-  const [ imageX, imageY ]  = [ width / -2, height / -2 ]
+  const [ imageX, imageY ] = [ width / -2, height / -2 ]
   const [ x, y ] = [ imgBox.x + regionCenterX, imgBox.y + regionCenterY ]
 
   const createClipPath = (shape: string) => {
     const clipPathId = 'image-clip-path-' + e.id
-    const clipPath = `
+    const path = `
       <defs>
         <clipPath id="$clipPathId">
         ${shape}
         </clipPath>
       </defs>
     `
-    return [clipPath, `clip-path="url(#${clipPathId})"`]
+    return [path, `clip-path="url(#${clipPathId})"`]
   }
 
   const [clipPath, clipPathUrl] = (() => {
     switch (e.mask && e.mask.type) {
       case 'circle':
         const r = Math.min(regionWidth, regionHeight) / 2
-        return createClipPath(
-          `<circle cx="${x}" cy="${y}" r="${r}" />`
-        )
+        return createClipPath(`<circle cx="${x}" cy="${y}" r="${r}" />`)
       case 'rectangle':
         if (content.fit) {
           return ['', '']
         }
-        return createClipPath(
-          `<rect x="0" y="0" width="${regionWidth}" height="${regionHeight}" />`
-        )
+        return createClipPath(`<rect x="0" y="0" width="${regionWidth}" height="${regionHeight}" />`)
       default:
         return ['', '']
     }
@@ -319,7 +324,9 @@ const renderMask = (e: MaskElement): string => {
   const { type, alpha, color } = e
   const { x, y, width, height } = e.region
   return `
-    <rect data-type="${type}" x="${x}" y="${y}" width="${width}" height="${height}" fill="${color}" opacity="${alpha}" />
+    <rect
+      data-type="${type}" x="${x}" y="${y}" width="${width}" height="${height}" fill="${color}" opacity="${alpha}"
+    />
   `
 }
 
@@ -373,7 +380,7 @@ const getSvgDimension = (svg: string): Dimension => {
   if (!match) {
     return [0, 0]
   }
-  const coords = match.slice(1).map((d: string) => parseInt(d))
+  const coords = match.slice(1).map((d: string) => +d)
   return [coords[2] - coords[0], coords[3] - coords[1]]
 }
 
@@ -412,30 +419,30 @@ const createDecoratorMap = (tree: Tree): Promise<DecoratorsMap> => {
       }
     }))
     .then((objects: DecoratorsMap[]) => {
-      return objects.reduce((d: DecoratorsMap, o: DecoratorsMap) => Object.assign(o, d))
+      return objects.reduce((d: DecoratorsMap, o: DecoratorsMap) => Object.assign(o, d), {})
     })
 }
 
-let fonts: Promise<FontMap>
+let fontsPromise: Promise<FontMap>
 
 const loadFonts = () => {
-  if (fonts) {
-    return fonts
+  if (fontsPromise) {
+    return fontsPromise
   }
-  fonts = fetch('/api/v0/font')
+  fontsPromise = fetch('/api/v0/font')
     .then((r) => r.json())
     .then(({ data }: any) => {
-      return data.reduce((acc: FontMap, font: any) => Object.assign(acc, { [font.font_family]: font }), {})
+      return data.reduce((acc: FontMap, f: any) => Object.assign(acc, { [f.font_family]: f }), {})
     })
-  return fonts
+  return fontsPromise
 }
 
 const processFonts = (tree: Tree, fonts: FontMap) => {
   const fontFamilyMap = tree.children
     .filter((e: Element) => e.type === 'text')
-    .reduce((arr: RenderDataElementLineCell[], e: any) =>  {
+    .reduce((arr: RenderDataElementLineCell[], e: any) => {
       const cells = e.renderData.elements.lines
-        .reduce((arr: RenderDataElementLineCell[], line: RenderDataElementLine) => arr.concat(line.cells), [])
+        .reduce((cs: RenderDataElementLineCell[], line: RenderDataElementLine) => cs.concat(line.cells), [])
       return arr.concat(cells)
     }, [])
     .reduce((map: { [fontFamily: string]: string }, cell: RenderDataElementLineCell) => {
@@ -448,14 +455,14 @@ const processFonts = (tree: Tree, fonts: FontMap) => {
       const accessKey = fonts[fontFamily].access_key
       if (accessKey) {
         const text = fontFamilyMap[fontFamily]
-        return Youziku.createTag(accessKey, text)
+        return youziku.createTag(accessKey, text)
       } else {
-        Font.createGoogleFontLink(fontFamily)
+        font.createGoogleFontLink(fontFamily)
         return null
       }
     })
     .filter((v) => !!v)
-  return Youziku.getBatchFontFace(tags)
+  return youziku.getBatchFontFace(tags)
 }
 
 export const renderSvg = (tree: Tree, options: Options): Promise<string> => {

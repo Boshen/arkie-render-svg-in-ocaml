@@ -6,15 +6,6 @@
   ],
   "jsRules": {},
   "rules": {
-    "array-bracket-spacing": [
-      true,
-      "never",
-      {
-        "arraysInArrays": false,
-        "singleValue": false,
-        "objectsInArrays": false
-      }
-    ],
     "array-type": [
       true,
       "array-simple"

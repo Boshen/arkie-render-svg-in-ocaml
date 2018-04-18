@@ -1,3 +1,4 @@
+const path = require('path')
 const convert = require('koa-connect')
 const proxy = require('http-proxy-middleware')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -46,7 +47,11 @@ module.exports = {
   },
 
   plugins: [
-    new ForkTsCheckerWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      checkSyntacticErrors: true,
+      tsconfig: path.join(process.cwd(), 'tsconfig.json'),
+      tslint: path.join(process.cwd(), 'tslint.json'),
+    }),
 
     new HtmlWebpackPlugin({
       template: 'index.html'
