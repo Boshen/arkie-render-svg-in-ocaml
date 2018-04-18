@@ -1,6 +1,4 @@
-import sortBy from 'lodash-es/sortBy'
-import snakecase from 'lodash-es/snakeCase'
-import camelcase from 'lodash-es/camelCase'
+import { sortBy, snakeCase, camelCase } from 'lodash'
 
 import {
   Tree,
@@ -50,8 +48,8 @@ const font = {
 
       const fontUrl = URL.createObjectURL(blob)
       const fontFace = '@font-face { font-family:\'' + fontFamily + '\' src:url(\'' + fontUrl + '\') format(\'woff\') }'
-      const cssId = snakecase(fontFamily)
-      const styleList = document.getElementsByName(cssId)
+      const cssId = snakeCase(fontFamily)
+      const styleList = document.getElementsByName(cssId) as any
       const style = document.createElement('style') as any
 
       if (styleList.length > 0) {
@@ -76,7 +74,7 @@ const font = {
   },
 
   getUrl: (uri: string, fontFamily: string) => {
-    return uri + camelcase(fontFamily).toLowerCase() + '-regular.woff'
+    return uri + camelCase(fontFamily).toLowerCase() + '-regular.woff'
   },
 
   createGoogleFontLink: (fontFamily: string) => {
@@ -357,7 +355,7 @@ const renderTree = (tree: Tree, options: Options, dMap: DecoratorsMap): string =
   const { width, height } = tree.size
   const outerWidth = options.width || width
   const outerHeight = options.height || height
-  const children = sortBy(tree.children, (node) => node.type !== 'background')
+  const children = sortBy(tree.children, (node: any) => node.type !== 'background')
     .map((e: Element) => renderElement(e, dMap)).join('\n')
   return `
     <svg

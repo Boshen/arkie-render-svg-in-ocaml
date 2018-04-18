@@ -6,7 +6,7 @@
   "scripts": {
     "test": "tsc && ava",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "build": "webpack --config webpack.prod.js",
+    "build": "tsc -p tsconfig.build.json",
     "start": "webpack-serve webpack.dev.js",
     "cnpm": "npm publish"
   },
@@ -16,13 +16,17 @@
   },
   "author": "Boshen",
   "license": "MIT",
-  "main": "./dist/bundle.js",
+  "main": "lib/main.js",
+  "types": "lib/main.d.ts",
   "files": [
-    "dist/"
+    "dist"
   ],
+  "dependencies": {
+    "lodash": "^4.17.5"
+  },
   "devDependencies": {
     "@arkie/tree-parser": "^0.0.5",
-    "@types/lodash-es": "^4.17.0",
+    "@types/lodash": "^4.14.107",
     "ava": "1.0.0-beta.4",
     "esm": "^3.0.19",
     "fork-ts-checker-webpack-plugin": "^0.4.1",
@@ -31,7 +35,6 @@
     "internal-ip": "^3.0.1",
     "isomorphic-fetch": "^2.2.1",
     "koa-connect": "^2.0.1",
-    "lodash-es": "^4.17.8",
     "ts-loader": "^4.2.0",
     "tslint": "^5.9.1",
     "tslint-eslint-rules": "^5.1.0",
