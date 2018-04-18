@@ -1,4 +1,7 @@
 import sortBy from 'lodash-es/sortBy'
+import snakecase from 'lodash-es/snakeCase'
+import camelcase  from 'lodash-es/camelCase'
+
 import {
   Tree,
   Element,
@@ -14,23 +17,79 @@ import {
   Region,
 } from '@arkie/tree-parser'
 
+declare const $youzikuClient: any
+
 export interface Options {
   fonts: boolean
   width?: number
   height?: number
 }
 
+interface FontMap {
+  [font_family: string]: any
+}
 type Dimension = [number, number]
 type DecoratorsMap = {[id: string]: [string, Dimension]}
 
-const isNode = typeof module !== 'undefined' && typeof module.exports !== 'undefined'
+const Youziku = {
+  createTag: (key: string, content: any) => {
+    return { AccessKey: key, Content: content }
+  },
+  getBatchFontFace: (tags: any) => {
+    return $youzikuClient.getBatchFontFace({ Tags: tags }, () => {})
+  }
+}
+
+const Font = {
+  createFontFace: (fontFamily: string) => {
+    return function (blob: any) {
+      var head = document.head
+
+      var fontUrl = URL.createObjectURL(blob)
+      var fontFace = '@font-face { font-family:\'' + fontFamily + '\' src:url(\'' + fontUrl + '\') format(\'woff\') }'
+      var cssId = snakecase(fontFamily)
+      var styleList = document.getElementsByName(cssId)
+      var style = document.createElement('style') as any
+
+      if (styleList.length > 0) {
+        for (var i = 0; i < styleList.length; i++) {
+          head.removeChild(styleList[i])
+        }
+      }
+
+      style.type = 'text/css'
+      style.setAttribute("name", cssId)
+
+      if (style.styleSheet) {
+        style.styleSheet.cssText = fontFace
+      } else if ((document as any).getBoxObjectFor) {
+        style.innerHTML = fontFace
+      } else {
+        style.appendChild(document.createTextNode(fontFace))
+      }
+
+      head.appendChild(style)
+    }
+  },
+
+  getUrl: (uri: string, fontFamily: string) => {
+    return uri + camelcase(fontFamily).toLowerCase() + '-regular.woff'
+  },
+
+  createGoogleFontLink: (font: string) => {
+    var url = Font.getUrl('//youziku.arkie.cn/webfonts/en/', font)
+    fetch(url, { headers: { responseType: 'blob' } }).then(function (res) {
+      return res.blob()
+    }).then(Font.createFontFace(font))
+  }
+}
 
 const renderSvgDecorator = (decorator: Decorator, svg: string, dimen: Dimension) => {
   const [ dWidth, dHeight ] = dimen
   const { element } = decorator
   svg = svg
     .replace(/<svg[\\s\\S]*svg>/, "$&")
-    .replace(/<svg/, `<svg width="$${dWidth}" height="${dHeight}"`)
+    .replace(/<svg/, `<svg width="${dWidth}" height="${dHeight}"`)
   if (element.colors) {
     svg = svg.replace(
       new RegExp(`(${element.colors.map((c) => c.origin).join('|')})`, 'ig'),
@@ -106,7 +165,7 @@ const renderDecorator = (decorator: Decorator, options: { innerRegion?: Region, 
   const ty = regionHeight * decorator.offsetY - regionHeight / 2 * (sy - 1) - dy
 
   return `
-    <g opacity="${alpha}" transform="matrix(${sx} 0 0 $sy ${tx} ${ty})">
+    <g opacity="${alpha}" transform="matrix(${sx} 0 0 ${sy} ${tx} ${ty})">
       <g transform="translate(${imageX} ${imageY})">
       ${dec}
       </g>
@@ -164,6 +223,7 @@ const renderText = (e: TextElement, dMap: DecoratorsMap) => {
   const children = renderDecorators(lines, e.decorators, { innerRegion, outerRegion, dMap })
   return `
     <g
+      data-type="${e.type}"
       transform="translate(${regionX}, ${regionY}) rotate(${rotate} ${rotateX} ${rotateY})"
       opacity="${alpha}"
     >
@@ -319,8 +379,9 @@ const getSvgDimension = (svg: string): Dimension => {
 
 const imgsize = (src: string): Promise<Dimension> => {
   return new Promise((resolve, reject) => {
-    if (isNode) {
+    if (typeof window === 'undefined') {
       resolve([0, 0])
+      return
     }
     const image = new Image()
     image.onload = () => {
@@ -328,7 +389,7 @@ const imgsize = (src: string): Promise<Dimension> => {
     }
     image.onerror = () => {
       reject()
-    };
+    }
     image.src = src
   })
 }
@@ -355,7 +416,53 @@ const createDecoratorMap = (tree: Tree): Promise<DecoratorsMap> => {
     })
 }
 
+let fonts: Promise<FontMap>
+
+const loadFonts = () => {
+  if (fonts) {
+    return fonts
+  }
+  fonts = fetch('/api/v0/font')
+    .then((r) => r.json())
+    .then(({ data }: any) => {
+      return data.reduce((acc: FontMap, font: any) => Object.assign(acc, { [font.font_family]: font }), {})
+    })
+  return fonts
+}
+
+const processFonts = (tree: Tree, fonts: FontMap) => {
+  const fontFamilyMap = tree.children
+    .filter((e: Element) => e.type === 'text')
+    .reduce((arr: RenderDataElementLineCell[], e: any) =>  {
+      const cells = e.renderData.elements.lines
+        .reduce((arr: RenderDataElementLineCell[], line: RenderDataElementLine) => arr.concat(line.cells), [])
+      return arr.concat(cells)
+    }, [])
+    .reduce((map: { [fontFamily: string]: string }, cell: RenderDataElementLineCell) => {
+      const text = map[cell.fontFamily] || ''
+      map[cell.fontFamily] = text + cell.text
+      return map
+    }, {})
+  const tags = Object.keys(fontFamilyMap)
+    .map((fontFamily) => {
+      const accessKey = fonts[fontFamily].access_key
+      if (accessKey) {
+        const text = fontFamilyMap[fontFamily]
+        return Youziku.createTag(accessKey, text)
+      } else {
+        Font.createGoogleFontLink(fontFamily)
+        return null
+      }
+    })
+    .filter((v) => !!v)
+  return Youziku.getBatchFontFace(tags)
+}
+
 export const renderSvg = (tree: Tree, options: Options): Promise<string> => {
+  if (options.fonts) {
+    loadFonts()
+      .then((fonts) => processFonts(tree, fonts))
+  }
   return createDecoratorMap(tree)
     .then((dMap: DecoratorsMap) => renderTree(tree, options, dMap))
 }
