@@ -279,10 +279,6 @@
   dependencies:
     arrify "^1.0.1"
 
-"@glennsl/bs-json@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@glennsl/bs-json/-/bs-json-1.1.2.tgz#294c63eea060036e9df9b413caf42fa3ccd5afe3"
-
 "@ladjs/time-require@^0.1.4":
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/@ladjs/time-require/-/time-require-0.1.4.tgz#5c615d75fd647ddd5de9cf6922649558856b21a1"
@@ -1422,14 +1418,6 @@ browserify-zlib@^0.2.0:
   dependencies:
     pako "~1.0.5"
 
-bs-fetch@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/bs-fetch/-/bs-fetch-0.2.1.tgz#165bed867009f2e91efb959ca1c0ff940d8cd19a"
-
-bs-platform@^2.2.3:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-2.2.3.tgz#d905ae10a5f3621e6a739041dfa0b58483a2174f"
-
 buffer-from@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.0.0.tgz#4cb8832d23612589b0406e9e2956c17f06fdf531"
@@ -2395,9 +2383,9 @@ eslint-scope@^3.7.1:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-esm@^3.0.18:
-  version "3.0.18"
-  resolved "https://registry.yarnpkg.com/esm/-/esm-3.0.18.tgz#afdde98572af447637dc1a2841606945aa02dad0"
+esm@^3.0.19:
+  version "3.0.19"
+  resolved "https://registry.yarnpkg.com/esm/-/esm-3.0.19.tgz#eed937a45baef3653b5192e8f0e64571da819424"
 
 espower-location-detector@^1.0.0:
   version "1.0.0"
