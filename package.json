@@ -21,7 +21,7 @@
     "dist/"
   ],
   "devDependencies": {
-    "@arkie/tree-parser": "^0.0.4",
+    "@arkie/tree-parser": "^0.0.5",
     "@types/lodash-es": "^4.17.0",
     "ava": "1.0.0-beta.4",
     "esm": "^3.0.19",

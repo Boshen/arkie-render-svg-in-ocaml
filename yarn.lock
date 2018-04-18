@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@arkie/tree-parser@^0.0.4":
-  version "0.0.4"
-  resolved "http://npm.arkie.cn/@arkie/tree-parser/download/@arkie/tree-parser-0.0.4.tgz#dc915c0fad1d0d596852fa48738bb2a6b55ce639"
+"@arkie/tree-parser@^0.0.5":
+  version "0.0.5"
+  resolved "http://npm.arkie.cn/@arkie/tree-parser/download/@arkie/tree-parser-0.0.5.tgz#7307b772a8e5afc1f6134137afb4f831139a060e"
 
 "@ava/babel-plugin-throws-helper@3.0.0-beta.4":
   version "3.0.0-beta.4"
