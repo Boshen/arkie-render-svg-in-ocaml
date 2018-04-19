@@ -1,6 +1,6 @@
 {
   "name": "@arkie/svg-renderer",
-  "version": "0.0.9",
+  "version": "0.1.0-alpha.0",
   "description": "Render arkie tree to svg string",
   "sideEffects": false,
   "scripts": {
